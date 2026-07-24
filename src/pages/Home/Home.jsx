@@ -1,3 +1,6 @@
+
+import "./Home.css";
+
 import HeroSlider from "../../components/HeroSlider/HeroSlider";
 
 

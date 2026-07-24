@@ -88,7 +88,7 @@ function Navbar() {
 
         <Link to="/register" className="register-btn">
 
-          Register
+         Register
 
         </Link>
 
@@ -117,7 +117,7 @@ function Navbar() {
 
           <li>
             <Link to="/movies" onClick={() => setMenuOpen(false)}>
-              Movies
+              Movies  
             </Link>
           </li>
 
@@ -138,7 +138,7 @@ function Navbar() {
 
           <li>
             <Link to="/favorites" onClick={() => setMenuOpen(false)}>
-              Favorites
+               Favorites
             </Link>
           </li>
 
