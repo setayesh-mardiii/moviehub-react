@@ -1,0 +1,33 @@
+
+.movie-section {
+
+  padding: 50px 80px;
+
+  background:#111;
+
+  direction:rtl;
+
+}
+
+
+.movie-section h2 {
+
+  color:#F5E6CC;
+
+  font-size:32px;
+
+  margin-bottom:30px;
+
+}
+
+
+
+.movie-container {
+
+  display:grid;
+
+  grid-template-columns:repeat(6, 1fr);
+
+  gap:25px;
+
+}
