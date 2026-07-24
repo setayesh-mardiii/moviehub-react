@@ -1,12 +1,19 @@
+import HeroSlider from "../../components/HeroSlider/HeroSlider";
 
-import "./Home.css";
 
 function Home() {
+
   return (
-    <div className="home">
-      <h1>Movie App</h1>
-    </div>
+
+    <>
+
+      <HeroSlider />
+
+    </>
+
   );
+
 }
+
 
 export default Home;

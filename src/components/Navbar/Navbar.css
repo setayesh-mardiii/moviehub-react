@@ -1,0 +1,512 @@
+.navbar {
+
+  position:fixed;
+
+  top:0;
+  left:0;
+
+  width:100%;
+
+  height:80px;
+
+  z-index:1000;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  padding:0 50px;
+
+  background:transparent;
+
+  transition:.3s ease;
+
+}
+
+
+
+.navbar.scrolled {
+
+  background:#2B1B20;
+
+  backdrop-filter:blur(10px);
+
+  box-shadow:0 5px 20px rgba(0,0,0,.35);
+
+}
+
+
+
+/* بخش لوگو و منو */
+
+.nav-content {
+
+  display:flex;
+
+  align-items:center;
+
+  gap:35px;
+
+}
+
+
+
+
+
+/* لوگو */
+
+.logo {
+
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+}
+
+
+.logo img {
+
+  width:60px;
+
+  height:60px;
+
+  object-fit:contain;
+
+}
+
+
+.logo span {
+
+  color:#F5E6CC;
+
+  font-size:22px;
+
+  font-weight:700;
+
+}
+
+
+.logo strong {
+
+  color:#8B1E3F;
+
+}
+
+
+
+
+
+/* منو */
+
+.nav-links {
+
+  display:flex;
+
+  align-items:center;
+
+  gap:25px;
+
+  list-style:none;
+
+}
+
+
+
+.nav-links a {
+
+  position:relative;
+
+  color:white;
+
+  text-decoration:none;
+
+  font-size:16px;
+
+  padding-bottom:8px;
+
+  transition:.3s;
+
+}
+
+
+
+.nav-links a:hover {
+
+  color:#F5E6CC;
+
+}
+
+
+
+.nav-links a::after {
+
+  content:"";
+
+  position:absolute;
+
+  left:0;
+
+  bottom:0;
+
+  width:0;
+
+  height:2px;
+
+  background:#8B1E3F;
+
+  box-shadow:
+  0 0 8px #8B1E3F,
+  0 0 15px #8B1E3F;
+
+  transition:.3s;
+
+}
+
+
+
+.nav-links a:hover::after {
+
+  width:100%;
+
+}
+
+
+
+
+
+/* دکمه های ورود */
+
+.auth-buttons {
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+}
+
+
+
+.login-btn {
+
+  padding:8px 18px;
+
+  border:1px solid #8B1E3F;
+
+  border-radius:25px;
+
+  color:#F5E6CC;
+
+  text-decoration:none;
+
+  transition:.3s;
+
+}
+
+
+
+.login-btn:hover {
+
+  background:#8B1E3F;
+
+  color:white;
+
+}
+
+
+
+.register-btn {
+
+  padding:8px 18px;
+
+  background:#8B1E3F;
+
+  border-radius:25px;
+
+  color:#F5E6CC;
+
+  text-decoration:none;
+
+  transition:.3s;
+
+}
+
+
+
+.register-btn:hover {
+
+  background:#F5E6CC;
+
+  color:#8B1E3F;
+
+}
+
+
+
+
+
+/* همبرگری */
+
+.menu-toggle {
+
+  display:none;
+
+  background:none;
+
+  border:none;
+
+  color:#F5E6CC;
+
+  font-size:28px;
+
+  cursor:pointer;
+
+  z-index:2000;
+
+}
+
+
+
+
+
+/* موبایل */
+
+.mobile-auth{
+
+  display:none;
+
+}
+
+
+
+
+
+
+/* Tablet */
+
+@media(max-width:900px){
+
+
+.navbar{
+
+  padding:0 25px;
+
+}
+
+
+.nav-links{
+
+  gap:15px;
+
+}
+
+
+.nav-links a{
+
+  font-size:14px;
+
+}
+
+
+}
+
+
+
+
+
+/* Mobile */
+
+@media(max-width:650px){
+
+
+
+.navbar{
+
+  height:70px;
+
+  padding:0 20px;
+
+}
+
+
+
+.menu-toggle{
+
+  display:block;
+
+}
+
+
+
+
+/* پنل کشویی */
+
+.nav-content{
+
+
+  position:fixed;
+
+
+  top:0;
+
+
+  right:0;
+
+
+  width:260px;
+
+
+  height:100vh;
+
+
+  background:#2B1B20;
+
+
+  z-index:1500;
+
+
+  display:flex;
+
+
+  flex-direction:column;
+
+
+  align-items:center;
+
+
+  justify-content:flex-start;
+
+
+  gap:30px;
+
+
+  padding-top:100px;
+
+
+  transform:translateX(100%);
+
+
+  transition:.3s ease;
+
+
+}
+
+
+
+.nav-content.active{
+
+
+  transform:translateX(0);
+
+
+}
+
+
+
+
+
+.nav-links{
+
+
+  display:flex;
+
+
+  flex-direction:column;
+
+
+  gap:25px;
+
+
+}
+
+
+
+.nav-links a{
+
+  font-size:17px;
+
+}
+
+
+
+
+
+
+.logo img{
+
+  width:45px;
+
+  height:45px;
+
+}
+
+
+
+.logo span{
+
+  font-size:17px;
+
+}
+
+
+
+
+/* مخفی کردن دکمه های دسکتاپ */
+
+.auth-buttons{
+
+  display:none;
+
+}
+
+
+
+
+
+/* دکمه های داخل منو */
+
+.mobile-auth{
+
+
+  display:flex;
+
+
+  flex-direction:column;
+
+
+  align-items:center;
+
+
+  gap:20px;
+
+
+}
+
+
+
+.mobile-auth .login-btn,
+.mobile-auth .register-btn{
+
+
+  width:150px;
+
+
+  text-align:center;
+
+
+  padding:10px 20px;
+
+
+  font-size:15px;
+
+
+}
+
+
+
+}

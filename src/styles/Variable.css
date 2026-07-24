@@ -1,0 +1,25 @@
+
+:root {
+
+  /* Background */
+  --bg-color: #1A1A1A;
+
+
+  /* Navbar Glass */
+  --glass-bg: rgba(45,45,45,0.75);
+
+
+  /* Main Colors */
+  --primary-color: #8B1E3F;   /* زرشکی */
+
+  --secondary-color: #F5E6CC; /* کرم */
+
+
+  /* Text */
+  --text-color: #FFFFFF;
+
+
+  /* Hover */
+  --primary-hover: #A52A4F;
+
+}

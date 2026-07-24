@@ -1,0 +1,277 @@
+.hero-wrapper {
+
+  width:100%;
+  height:100vh;
+
+  position:relative;
+
+  overflow:hidden;
+
+}
+
+
+
+.hero-slider {
+
+  width:100%;
+  height:100vh;
+
+}
+
+
+
+.swiper-slide {
+
+  width:100%;
+  height:100vh;
+
+}
+
+
+
+.slide {
+
+  width:100%;
+  height:100vh;
+
+  background-size:cover;
+
+  background-position:center;
+
+  background-repeat:no-repeat;
+
+  position:relative;
+
+  display:flex;
+
+  align-items:center;
+
+}
+
+
+
+/* لایه تاریک روی عکس */
+
+.overlay {
+
+  position:absolute;
+
+  inset:0;
+
+  background:linear-gradient(
+    to left,
+    rgba(0,0,0,.75),
+    rgba(0,0,0,.25)
+  );
+
+}
+
+
+
+/* متن سمت راست */
+
+.slide-content {
+
+  position:relative;
+
+  z-index:2;
+
+  margin-right:80px;
+
+  margin-left:auto;
+
+  max-width:500px;
+
+  color:white;
+
+  direction:rtl;
+
+  text-align:right;
+
+}
+
+
+
+.slide-content h1 {
+
+  font-size:60px;
+
+  margin-bottom:20px;
+
+  color:#F5E6CC;
+
+}
+
+
+
+.slide-content p {
+
+  font-size:20px;
+
+  line-height:1.8;
+
+  margin-bottom:30px;
+
+}
+
+
+
+/* دکمه */
+
+.slide-content button {
+
+  padding:12px 35px;
+
+  border:none;
+
+  border-radius:30px;
+
+  background:#8B1E3F;
+
+  color:#F5E6CC;
+
+  font-size:16px;
+
+  cursor:pointer;
+
+  transition:.3s;
+
+}
+
+
+
+.slide-content button:hover {
+
+  background:#F5E6CC;
+
+  color:#8B1E3F;
+
+  transform:translateY(-3px);
+
+}
+
+
+
+/* فلش ها پایین سمت چپ */
+
+.slider-btn {
+
+  position:absolute;
+
+  bottom:40px;
+
+  z-index:5;
+
+  width:45px;
+
+  height:45px;
+
+  border-radius:50%;
+
+  border:none;
+
+  background:rgba(0,0,0,.5);
+
+  color:white;
+
+  font-size:18px;
+
+  cursor:pointer;
+
+  transition:.3s;
+
+}
+
+
+
+.slider-btn:hover {
+
+  background:#8B1E3F;
+
+}
+
+
+
+.prev {
+
+  left:30px;
+
+}
+
+
+
+.next {
+
+  left:90px;
+
+}
+
+
+
+/* نقطه های اسلایدر */
+.swiper-pagination {
+
+  bottom:35px !important;
+
+  left:50% !important;
+
+  transform:translateX(-50%);
+
+  width:auto !important;
+
+}
+
+
+.swiper-pagination-bullet {
+
+  width:10px;
+
+  height:10px;
+
+  background:#8B1E3F !important;
+
+  opacity:.5;
+
+}
+
+
+.swiper-pagination-bullet-active {
+
+  background:#8B1E3F !important;
+
+  opacity:1;
+
+  box-shadow:
+  0 0 8px #8B1E3F,
+  0 0 15px #8B1E3F;
+
+}
+
+
+.swiper-pagination-bullet {
+
+  width:10px;
+
+  height:10px;
+
+  background:#8B1E3F !important;
+
+  opacity:.5;
+
+}
+
+
+
+.swiper-pagination-bullet-active {
+
+  background:#8B1E3F !important;
+
+  opacity:1;
+
+  box-shadow:
+
+  0 0 8px #8B1E3F,
+
+  0 0 15px #8B1E3F;
+
+}
