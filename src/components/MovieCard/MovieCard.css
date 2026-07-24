@@ -1,0 +1,188 @@
+
+.movie-card {
+
+  width:220px;
+
+  background:#2B1B20;
+
+  border-radius:15px;
+
+  overflow:hidden;
+
+  cursor:pointer;
+
+  transition:.3s ease;
+
+  box-shadow:0 10px 25px rgba(0,0,0,.35);
+
+}
+
+
+
+.movie-card:hover {
+
+  transform:translateY(-10px);
+
+}
+
+
+
+
+
+.movie-image {
+
+  position:relative;
+
+  width:100%;
+
+  height:330px;
+
+  overflow:hidden;
+
+}
+
+
+
+
+
+.movie-image img {
+
+  width:100%;
+
+  height:100%;
+
+  object-fit:cover;
+
+  transition:.5s ease;
+
+}
+
+
+
+
+
+.movie-card:hover .movie-image img {
+
+  transform:scale(1.12);
+
+}
+
+
+
+
+
+.movie-overlay {
+
+  position:absolute;
+
+  inset:0;
+
+  background:rgba(0,0,0,.65);
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  opacity:0;
+
+  transition:.3s ease;
+
+}
+
+
+
+
+
+.movie-card:hover .movie-overlay {
+
+  opacity:1;
+
+}
+
+
+
+
+
+.movie-overlay button {
+
+  padding:10px 25px;
+
+  border:none;
+
+  border-radius:25px;
+
+  background:#8B1E3F;
+
+  color:white;
+
+  font-size:15px;
+
+  cursor:pointer;
+
+  transition:.3s;
+
+}
+
+
+
+
+
+.movie-overlay button:hover {
+
+  background:#F5E6CC;
+
+  color:#8B1E3F;
+
+}
+
+
+
+
+
+.movie-info {
+
+  padding:15px;
+
+}
+
+
+
+
+
+.movie-info h3 {
+
+  color:#F5E6CC;
+
+  font-size:18px;
+
+  margin-bottom:12px;
+
+}
+
+
+
+
+
+.movie-meta {
+
+  display:flex;
+
+  justify-content:space-between;
+
+  color:white;
+
+  font-size:13px;
+
+}
+
+
+
+
+
+.movie-meta span:first-child {
+
+  color:#FFD700;
+
+}

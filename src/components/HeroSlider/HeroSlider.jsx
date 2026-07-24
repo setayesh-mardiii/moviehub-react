@@ -12,7 +12,7 @@ import "swiper/css/pagination";
 
 import "./HeroSlider.css";
 
-import { movies } from "../../data/movies";
+import { heroMovies } from "../../data/heroMovies";
 
 
 function HeroSlider() {
@@ -24,57 +24,47 @@ function HeroSlider() {
 
   return (
 
-
     <section className="hero-wrapper">
 
 
       <Swiper
 
-
         onSwiper={(swiper) => (swiperRef.current = swiper)}
-
 
         className="hero-slider"
 
-
         modules={[Autoplay, EffectFade, Pagination]}
 
-
         effect="fade"
-
 
         fadeEffect={{
           crossFade: true
         }}
 
-
         speed={1500}
-
 
         loop={true}
 
 
-
         pagination={{
-
           clickable:true,
-
         }}
-
 
 
         autoplay={{
-
           delay:5000,
-
           disableOnInteraction:false,
-
         }}
 
+
       >
-        {movies.map((movie)=>(
+
+
+        {heroMovies.map((movie)=>(
+
 
           <SwiperSlide key={movie.id}>
+
 
             <div
 
@@ -86,19 +76,14 @@ function HeroSlider() {
 
               }}
 
-
-
             >
-
 
 
               <div className="overlay"></div>
 
 
 
-
               <div className="slide-content">
-
 
 
                 <h1>
@@ -109,13 +94,11 @@ function HeroSlider() {
 
 
 
-
                 <p>
 
                   {movie.description}
 
                 </p>
-
 
 
 
@@ -130,13 +113,11 @@ function HeroSlider() {
               </div>
 
 
-
             </div>
 
 
 
           </SwiperSlide>
-
 
 
         ))}
@@ -151,9 +132,7 @@ function HeroSlider() {
 
       <button
 
-
         className="slider-btn prev"
-
 
 
         onClick={()=>{
@@ -166,13 +145,9 @@ function HeroSlider() {
 
         }}
 
-
-
       >
 
-
         <FaChevronLeft />
-
 
       </button>
 
@@ -181,11 +156,10 @@ function HeroSlider() {
 
 
 
+
       <button
 
-
         className="slider-btn next"
-
 
 
         onClick={()=>{
@@ -198,27 +172,21 @@ function HeroSlider() {
 
         }}
 
-
-
       >
-
 
         <FaChevronRight />
 
-
       </button>
+
 
 
 
     </section>
 
 
-
   );
 
-
 }
-
 
 
 export default HeroSlider;
