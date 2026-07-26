@@ -1,6 +1,6 @@
 import "./Navbar.css";
 
-import { Link, useLocation } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 
 import {
@@ -16,135 +16,393 @@ import { ThemeContext } from "../../context/ThemeContext";
 
 import logo from "../../assets/images/logo.png";
 
+
 function Navbar() {
+
+
   const location = useLocation();
 
   const isHome = location.pathname === "/";
+
 
   const [scrolled, setScrolled] = useState(false);
 
   const [menuOpen, setMenuOpen] = useState(false);
 
+
   const { darkMode, toggleTheme } = useContext(ThemeContext);
 
+
+
   useEffect(() => {
+
+
     const handleScroll = () => {
+
       setScrolled(window.scrollY > 50);
+
     };
+
 
     window.addEventListener("scroll", handleScroll);
 
+
     return () => {
+
       window.removeEventListener("scroll", handleScroll);
+
     };
+
+
   }, []);
 
-  return (
-    <nav
-      className={`navbar ${scrolled ? "scrolled" : ""} ${isHome ? "home-navbar" : ""}`}
-    >
-      <div className="mobile-menu-btn">
-        <button onClick={() => setMenuOpen(!menuOpen)}>
-          {menuOpen ? <FaTimes /> : <FaBars />}
-        </button>
-      </div>
 
-      <div className="left-actions">
+
+
+  return (
+
+    <nav
+
+      className={`
+        navbar
+        ${scrolled ? "scrolled" : ""}
+        ${isHome ? "home-navbar" : ""}
+      `}
+
+    >
+
+
+
+      <div className="mobile-menu-btn">
+
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+
+          {
+            menuOpen
+            ?
+            <FaTimes />
+            :
+            <FaBars />
+          }
+
+        </button>
+
+      </div>
+            <div className="left-actions">
+
+
         <div className="theme-toggle">
+
           <button onClick={toggleTheme}>
-            {darkMode ? <FaMoon /> : <FaSun />}
+
+            {
+              darkMode
+              ?
+              <FaMoon />
+              :
+              <FaSun />
+            }
+
           </button>
+
         </div>
 
-        <Link to="/login" className="user-btn">
+
+
+        <Link 
+          to="/login"
+          className="user-btn"
+        >
+
           <FaUser />
+
           Login | Register
+
         </Link>
+
+
       </div>
+
+
+
+
 
       <div className="search-box">
-        <input type="text" placeholder="Search movies..." />
 
-        <FaSearch color={isHome && !scrolled ? "#ffffff" : "#ff6b00"} />
+
+        <input
+
+          type="text"
+
+          placeholder="Search movies..."
+
+        />
+
+
+        {/* رنگ آیکون از CSS کنترل می‌شود */}
+
+        <FaSearch />
+
+
       </div>
+
+
+
+
+
+
 
       <div className="nav-content">
+
+
         <ul className="nav-links">
-          <li>
-            <Link to="/">Home</Link>
-          </li>
+
 
           <li>
-            <Link to="/movies">Movies</Link>
+
+            <NavLink to="/">
+
+              Home
+
+            </NavLink>
+
           </li>
 
-          <li>
-            <Link to="/series">Series</Link>
-          </li>
+
 
           <li>
-            <Link to="/genres">Genres</Link>
+
+            <NavLink to="/movies">
+
+              Movies
+
+            </NavLink>
+
           </li>
 
-          <li>
-            <Link to="/top-rated">Top Rated</Link>
-          </li>
+
 
           <li>
-            <Link to="/about">About Us</Link>
+
+            <NavLink to="/series">
+
+              Series
+
+            </NavLink>
+
           </li>
+
+
+
+          <li>
+
+            <NavLink to="/genres">
+
+              Genres
+
+            </NavLink>
+
+          </li>
+
+
+
+          <li>
+
+            <NavLink to="/top-rated">
+
+              Top Rated
+
+            </NavLink>
+
+          </li>
+
+
+
+          <li>
+
+            <NavLink to="/about">
+
+              About Us
+
+            </NavLink>
+
+          </li>
+
+
         </ul>
 
+
+
+
+
+
         <div className="logo">
-          <img src={logo} alt="logo" />
+
+
+          <img
+
+            src={logo}
+
+            alt="logo"
+
+          />
+
+
 
           <span>
+
             Movie<strong>Hub</strong>
+
           </span>
+
+
         </div>
+
+
+
       </div>
-      <div className={`mobile-menu ${menuOpen ? "active" : ""}`}>
+            {/* Mobile Menu */}
+
+
+      <div
+
+        className={`mobile-menu ${
+          menuOpen ? "active" : ""
+        }`}
+
+      >
+
+
+
         <div className="mobile-search">
-          <input type="text" placeholder="Search movies..." />
 
-          <FaSearch
-            style={{
-              color: isHome && !scrolled ? "#FFF8F0" : "var(--primary-color)",
-            }}
+
+          <input
+
+            type="text"
+
+            placeholder="Search movies..."
+
           />
+
+
+
+          {/* رنگ آیکون از CSS کنترل می‌شود */}
+
+          <FaSearch />
+
+
         </div>
 
-        <Link onClick={() => setMenuOpen(false)} to="/">
+
+
+
+
+
+
+        <NavLink
+
+          onClick={() => setMenuOpen(false)}
+
+          to="/"
+
+        >
+
           Home
-        </Link>
 
-        <Link onClick={() => setMenuOpen(false)} to="/movies">
+        </NavLink>
+
+
+
+
+
+        <NavLink
+
+          onClick={() => setMenuOpen(false)}
+
+          to="/movies"
+
+        >
+
           Movies
-        </Link>
 
-        <Link onClick={() => setMenuOpen(false)} to="/series">
+        </NavLink>
+
+
+
+
+
+        <NavLink
+
+          onClick={() => setMenuOpen(false)}
+
+          to="/series"
+
+        >
+
           Series
-        </Link>
 
-        <Link onClick={() => setMenuOpen(false)} to="/genres">
+        </NavLink>
+
+
+
+
+
+        <NavLink
+
+          onClick={() => setMenuOpen(false)}
+
+          to="/genres"
+
+        >
+
           Genres
-        </Link>
 
-        <Link onClick={() => setMenuOpen(false)} to="/top-rated">
+        </NavLink>
+
+
+
+
+
+        <NavLink
+
+          onClick={() => setMenuOpen(false)}
+
+          to="/top-rated"
+
+        >
+
           Top Rated
-        </Link>
 
-        <Link onClick={() => setMenuOpen(false)} to="/about">
+        </NavLink>
+
+
+
+
+
+        <NavLink
+
+          onClick={() => setMenuOpen(false)}
+
+          to="/about"
+
+        >
+
           About Us
-        </Link>
 
-        <button className="mobile-theme-btn" onClick={toggleTheme}>
-          {darkMode ? <FaMoon /> : <FaSun />}
-          Theme
-        </button>
-      </div>
+        </NavLink>
+              </div>
+
+
+
     </nav>
+
   );
+
 }
+
+
 
 export default Navbar;

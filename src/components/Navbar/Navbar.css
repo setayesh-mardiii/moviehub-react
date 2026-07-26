@@ -3,6 +3,7 @@
   position:fixed;
 
   top:0;
+
   left:0;
 
   width:100%;
@@ -94,7 +95,6 @@
 
 
 
-
 /* ================= THEME ================= */
 
 
@@ -123,8 +123,6 @@
   font-size:17px;
 
 }
-
-
 
 .theme-toggle button:hover {
 
@@ -187,7 +185,16 @@
 
   transform:translateY(-50%);
 
+  transition:.3s ease;
+
 }
+
+
+
+
+
+
+
 /* ================= DESKTOP MENU ================= */
 
 
@@ -227,7 +234,7 @@
 
   position:relative;
 
-  transition:.3s;
+  transition:.3s ease;
 
 }
 
@@ -257,7 +264,7 @@
 
   background:var(--primary-color);
 
-  transition:.3s;
+  transition:.3s ease;
 
 }
 
@@ -268,7 +275,6 @@
   width:100%;
 
 }
-
 
 
 
@@ -320,12 +326,6 @@
 
 }
 
-
-
-
-
-
-
 /* ================= HOME HERO NAVBAR ================= */
 
 
@@ -358,6 +358,13 @@
   color:#FFF7ED;
 
 }
+
+
+
+
+
+
+
 /* ================= SCROLLED NAVBAR ================= */
 
 
@@ -395,12 +402,18 @@
 
 
 
-/* ================= HAMBURGER ================= */
+
+
+/* ================= HAMBURGER FIX ================= */
 
 
 .mobile-menu-btn {
 
   display:none;
+
+  position:relative;
+
+  z-index:3000;
 
 }
 
@@ -429,6 +442,10 @@
   align-items:center;
 
   justify-content:center;
+
+  position:relative;
+
+  z-index:3001;
 
 }
 
@@ -491,6 +508,10 @@
 
   font-size:18px;
 
+  position:relative;
+
+  transition:.3s ease;
+
 }
 
 
@@ -503,9 +524,36 @@
 
 
 
+/* خط فقط روی Hover موبایل */
+
+
+.mobile-menu a::after {
+
+  content:"";
+
+  position:absolute;
+
+  bottom:-7px;
+
+  left:0;
+
+  width:0;
+
+  height:2px;
+
+  background:var(--primary-color);
+
+  transition:.3s ease;
+
+}
 
 
 
+.mobile-menu a:hover::after {
+
+  width:100%;
+
+}
 
 /* ================= MOBILE SEARCH ================= */
 
@@ -548,31 +596,7 @@
 
   transform:translateY(-50%);
 
-}
-/* ================= MOBILE THEME BUTTON ================= */
-
-
-.mobile-theme-btn {
-
-  border:none;
-
-  border-radius:25px;
-
-  padding:12px;
-
-  background:var(--primary-color);
-
-  color:white;
-
-  display:flex;
-
-  justify-content:center;
-
-  align-items:center;
-
-  gap:10px;
-
-  cursor:pointer;
+  transition:.3s ease;
 
 }
 
@@ -618,25 +642,6 @@
 
   }
 
-
-}
-
-
-
-
-
-
-/* حذف Theme از منوی همبرگری در تبلت */
-
-
-@media (min-width:651px) and (max-width:1024px){
-
-
-  .mobile-theme-btn {
-
-    display:none;
-
-  }
 
 }
 
@@ -719,26 +724,61 @@
 
 
 }
+/* ================= SEARCH ICON FINAL ================= */
 
 
-
-
-
-
-
-/* ================= SEARCH ICON FINAL FIX ================= */
-
+/* حالت عادی Light */
 
 .search-box svg,
 .mobile-search svg {
 
-  transition:.3s ease;
+  color:#000 !important;
 
 }
-.search-box svg {
-  color: inherit !important;
+
+
+
+/* Dark Mode */
+
+body.dark .search-box svg,
+body.dark .mobile-search svg {
+
+  color:#fff !important;
+
 }
 
-.mobile-search svg {
-  color: inherit !important;
+
+
+/* فقط وقتی Home Hero شفاف است */
+
+body.dark .navbar.home-navbar:not(.scrolled) .search-box svg,
+body.dark .navbar.home-navbar:not(.scrolled) .mobile-search svg {
+
+  color:#fff !important;
+
+}
+
+/* Dark Mode */
+
+body.dark .search-box svg,
+body.dark .mobile-search svg {
+
+  color:var(--text-color);
+
+}
+
+
+
+
+
+
+
+/* Home Hero (Navbar شفاف روی عکس) */
+
+
+.navbar.home-navbar:not(.scrolled) .search-box svg,
+.navbar.home-navbar:not(.scrolled) .mobile-search svg {
+
+  color:#fff;
+
 }
