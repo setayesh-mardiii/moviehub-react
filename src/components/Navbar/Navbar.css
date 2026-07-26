@@ -26,7 +26,6 @@
 }
 
 
-/* وقتی اسکرول شد */
 
 .navbar.scrolled {
 
@@ -37,6 +36,9 @@
   box-shadow:0 5px 25px rgba(0,0,0,.35);
 
 }
+
+
+
 
 
 
@@ -53,9 +55,6 @@
 
 }
 
-
-
-/* Login Register */
 
 
 .user-btn {
@@ -94,6 +93,9 @@
 
 
 
+
+
+
 /* ================= THEME ================= */
 
 
@@ -121,8 +123,6 @@
 
   font-size:17px;
 
-  transition:.3s;
-
 }
 
 
@@ -132,9 +132,6 @@
   transform:rotate(20deg) scale(1.05);
 
 }
-
-
-
 /* ================= SEARCH ================= */
 
 
@@ -150,29 +147,19 @@
 
 .search-box input {
 
-
   width:100%;
-
 
   padding:12px 45px 12px 20px;
 
-
   border-radius:30px;
-
 
   border:1px solid var(--secondary-color);
 
-
   outline:none;
-
 
   background:var(--surface-color);
 
-
   color:var(--text-color);
-
-
-  transition:.3s;
 
 }
 
@@ -188,18 +175,13 @@
 
 .search-box svg {
 
-
   position:absolute;
-
 
   right:18px;
 
-
   top:50%;
 
-
   transform:translateY(-50%);
-
 
   color:var(--primary-color);
 
@@ -207,7 +189,11 @@
 
 
 
-/* ================= MENU ================= */
+
+
+
+
+/* ================= DESKTOP MENU ================= */
 
 
 .nav-content {
@@ -224,15 +210,11 @@
 
 .nav-links {
 
-
   display:flex;
-
 
   align-items:center;
 
-
   gap:25px;
-
 
   list-style:none;
 
@@ -242,18 +224,13 @@
 
 .nav-links a {
 
-
   color:var(--text-color);
-
 
   text-decoration:none;
 
-
   font-size:16px;
 
-
   position:relative;
-
 
   transition:.3s;
 
@@ -271,27 +248,19 @@
 
 .nav-links a::after {
 
-
   content:"";
-
 
   position:absolute;
 
-
   bottom:-8px;
-
 
   left:0;
 
-
   width:0;
-
 
   height:2px;
 
-
   background:var(--primary-color);
-
 
   transition:.3s;
 
@@ -307,17 +276,18 @@
 
 
 
+
+
+
+
 /* ================= LOGO ================= */
 
 
 .logo {
 
-
   display:flex;
 
-
   align-items:center;
-
 
   gap:10px;
 
@@ -327,12 +297,9 @@
 
 .logo img {
 
-
   width:60px;
 
-
   height:60px;
-
 
   object-fit:contain;
 
@@ -342,12 +309,9 @@
 
 .logo span {
 
-
   color:var(--text-color);
 
-
   font-size:22px;
-
 
   font-weight:700;
 
@@ -357,127 +321,34 @@
 
 .logo strong {
 
-
   color:var(--primary-color);
 
 }
-
-
-
-
-
-/* ================= TABLET ================= */
-
-
-@media(max-width:900px){
-
-
-.navbar{
-
- padding:0 25px;
-
-}
-
-
-
-.search-box{
-
- width:250px;
-
-}
-
-
-
-.nav-links{
-
- gap:15px;
-
-}
-
-
-
-.nav-links a{
-
- font-size:14px;
-
-}
-
-
-}
-
-
-
-
-/* ================= MOBILE ================= */
-
-
-@media(max-width:650px){
-
-
-.navbar{
-
- height:70px;
-
- padding:0 20px;
-
-}
-
-
-
-.search-box{
-
- display:none;
-
-}
-
-
-
-.nav-links{
-
- display:none;
-
-}
-
-
-
-.logo img{
-
- width:45px;
-
- height:45px;
-
-}
-
-
-
-.logo span{
-
- font-size:17px;
-
-}
-
-
-
-.user-btn{
-
- padding:8px 15px;
-
- font-size:13px;
-
-}
-
-
-}
-/* ================= TRANSPARENT NAVBAR ================= */
+/* ================= HERO TRANSPARENT ================= */
 
 
 /* وقتی Navbar روی عکس Hero است */
 
-.navbar:not(.scrolled) .nav-links a,
-.navbar:not(.scrolled) .logo span,
-.navbar:not(.scrolled) .logo strong {
+
+.navbar:not(.scrolled) .nav-links a {
 
   color:#FFF8F0;
+
+}
+
+
+
+.navbar:not(.scrolled) .logo span {
+
+  color:#FFF8F0;
+
+}
+
+
+
+.navbar:not(.scrolled) .logo strong {
+
+  color:var(--primary-color);
 
 }
 
@@ -499,12 +370,25 @@
 
 
 
+
+
+
+
+
 /* ================= SCROLLED NAVBAR ================= */
 
 
-/* وقتی اسکرول شد و Navbar بک گراند گرفت */
+/* وقتی اسکرول شد */
 
-.navbar.scrolled .nav-links a,
+
+.navbar.scrolled .nav-links a {
+
+  color:var(--text-color);
+
+}
+
+
+
 .navbar.scrolled .logo span {
 
   color:var(--text-color);
@@ -532,5 +416,333 @@
 .navbar.scrolled .user-btn {
 
   color:#FFF7ED;
+
+}
+/* ================= HAMBURGER ================= */
+
+
+.mobile-menu-btn {
+
+  display:none;
+
+}
+
+
+
+.mobile-menu-btn button {
+
+  width:40px;
+
+  height:40px;
+
+  border:none;
+
+  border-radius:50%;
+
+  background:var(--primary-color);
+
+  color:white;
+
+  font-size:18px;
+
+  cursor:pointer;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+}
+
+
+
+
+
+
+
+/* ================= MOBILE MENU ================= */
+
+
+.mobile-menu {
+
+  display:none;
+
+  position:fixed;
+
+  top:0;
+
+  right:0;
+
+  width:280px;
+
+  height:100vh;
+
+  background:var(--surface-color);
+
+  padding:100px 25px 30px;
+
+  flex-direction:column;
+
+  gap:25px;
+
+  transform:translateX(100%);
+
+  transition:.35s ease;
+
+  box-shadow:-10px 0 30px rgba(0,0,0,.25);
+
+  z-index:2000;
+
+}
+
+
+
+.mobile-menu.active {
+
+  transform:translateX(0);
+
+}
+
+
+
+.mobile-menu a {
+
+  color:var(--text-color);
+
+  text-decoration:none;
+
+  font-size:18px;
+
+}
+
+
+
+.mobile-menu a:hover {
+
+  color:var(--primary-color);
+
+}
+
+
+
+
+
+
+
+/* ================= MOBILE SEARCH ================= */
+
+
+.mobile-search {
+
+  display:none;
+
+  position:relative;
+
+}
+
+
+
+.mobile-search input {
+
+  width:100%;
+
+  padding:12px 45px 12px 20px;
+
+  border-radius:30px;
+
+  border:1px solid var(--secondary-color);
+
+  background:var(--surface-color);
+
+  color:var(--text-color);
+
+}
+
+
+
+.mobile-search svg {
+
+  position:absolute;
+
+  right:18px;
+
+  top:50%;
+
+  transform:translateY(-50%);
+
+  color:var(--primary-color);
+
+}
+
+
+
+
+
+
+
+/* ================= MOBILE THEME BUTTON ================= */
+
+
+.mobile-theme-btn {
+
+  border:none;
+
+  border-radius:25px;
+
+  padding:12px;
+
+  background:var(--primary-color);
+
+  color:white;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  gap:10px;
+
+  cursor:pointer;
+
+}
+
+
+
+
+
+
+
+
+/* ================= TABLET ================= */
+
+
+@media(max-width:1024px){
+
+
+  .nav-links {
+
+    display:none;
+
+  }
+
+
+
+  .mobile-menu-btn {
+
+    display:flex;
+
+  }
+
+
+
+  .mobile-menu {
+
+    display:flex;
+
+  }
+
+
+
+  .search-box {
+
+    width:250px;
+
+  }
+
+
+}
+
+
+/* حذف Theme از منوی همبرگری در تبلت */
+@media (min-width:651px) and (max-width:1024px){
+
+  .mobile-theme-btn {
+
+    display:none;
+
+  }
+
+}
+
+
+
+
+
+/* ================= MOBILE ================= */
+
+
+@media(max-width:650px){
+
+
+  .navbar {
+
+    height:70px;
+
+    padding:0 20px;
+
+  }
+
+
+
+  .theme-toggle {
+
+    display:none;
+
+  }
+
+
+
+  .search-box {
+
+    display:none;
+
+  }
+
+
+
+  .mobile-search {
+
+    display:block;
+
+  }
+
+
+
+  .logo img {
+
+    width:45px;
+
+    height:45px;
+
+  }
+
+
+
+  .logo span {
+
+    font-size:17px;
+
+  }
+
+
+
+  .user-btn {
+
+    padding:8px 15px;
+
+    font-size:13px;
+
+  }
+
+
+
+  .nav-content {
+
+    margin-left:auto;
+
+  }
+
 
 }
