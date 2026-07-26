@@ -1,18 +1,20 @@
-
 .movie-section {
 
-  padding: 50px 80px;
+  padding:50px 80px;
 
-  background:#111;
+  background:var(--bg-color);
 
   direction:rtl;
+
+  transition:.3s ease;
 
 }
 
 
+
 .movie-section h2 {
 
-  color:#F5E6CC;
+  color:var(--secondary-color);
 
   font-size:32px;
 
@@ -22,12 +24,68 @@
 
 
 
+
+
 .movie-container {
+
 
   display:grid;
 
-  grid-template-columns:repeat(6, 1fr);
+
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+
 
   gap:25px;
+
+
+}
+
+
+
+
+
+@media(max-width:1200px){
+
+
+.movie-section{
+
+  padding:50px 40px;
+
+}
+
+
+}
+
+
+
+
+
+@media(max-width:768px){
+
+
+.movie-section{
+
+  padding:40px 20px;
+
+}
+
+
+
+.movie-section h2{
+
+  font-size:26px;
+
+}
+
+
+
+.movie-container{
+
+  grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+
+  gap:20px;
+
+}
+
 
 }

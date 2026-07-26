@@ -26,20 +26,189 @@
 }
 
 
+/* وقتی اسکرول شد */
 
 .navbar.scrolled {
 
-  background:#2B1B20;
+  background:var(--surface-color);
 
-  backdrop-filter:blur(10px);
+  backdrop-filter:blur(12px);
 
-  box-shadow:0 5px 20px rgba(0,0,0,.35);
+  box-shadow:0 5px 25px rgba(0,0,0,.35);
 
 }
 
 
 
-/* بخش لوگو و منو */
+/* ================= LEFT ================= */
+
+
+.left-actions {
+
+  display:flex;
+
+  align-items:center;
+
+  gap:15px;
+
+}
+
+
+
+/* Login Register */
+
+
+.user-btn {
+
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  background:var(--primary-color);
+
+  color:#FFF7ED;
+
+  padding:10px 22px;
+
+  border-radius:25px;
+
+  text-decoration:none;
+
+  transition:.3s;
+
+  white-space:nowrap;
+
+}
+
+
+
+.user-btn:hover {
+
+  background:var(--secondary-color);
+
+  color:#2B1717;
+
+}
+
+
+
+/* ================= THEME ================= */
+
+
+.theme-toggle button {
+
+  width:40px;
+
+  height:40px;
+
+  border-radius:50%;
+
+  border:none;
+
+  cursor:pointer;
+
+  background:var(--secondary-color);
+
+  color:var(--primary-color);
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  font-size:17px;
+
+  transition:.3s;
+
+}
+
+
+
+.theme-toggle button:hover {
+
+  transform:rotate(20deg) scale(1.05);
+
+}
+
+
+
+/* ================= SEARCH ================= */
+
+
+.search-box {
+
+  position:relative;
+
+  width:350px;
+
+}
+
+
+
+.search-box input {
+
+
+  width:100%;
+
+
+  padding:12px 45px 12px 20px;
+
+
+  border-radius:30px;
+
+
+  border:1px solid var(--secondary-color);
+
+
+  outline:none;
+
+
+  background:var(--surface-color);
+
+
+  color:var(--text-color);
+
+
+  transition:.3s;
+
+}
+
+
+
+.search-box input::placeholder {
+
+  color:var(--muted-color);
+
+}
+
+
+
+.search-box svg {
+
+
+  position:absolute;
+
+
+  right:18px;
+
+
+  top:50%;
+
+
+  transform:translateY(-50%);
+
+
+  color:var(--primary-color);
+
+}
+
+
+
+/* ================= MENU ================= */
+
 
 .nav-content {
 
@@ -53,62 +222,17 @@
 
 
 
-
-
-/* لوگو */
-
-.logo {
-
-  display:flex;
-
-  align-items:center;
-
-  gap:10px;
-
-}
-
-
-.logo img {
-
-  width:60px;
-
-  height:60px;
-
-  object-fit:contain;
-
-}
-
-
-.logo span {
-
-  color:#F5E6CC;
-
-  font-size:22px;
-
-  font-weight:700;
-
-}
-
-
-.logo strong {
-
-  color:#8B1E3F;
-
-}
-
-
-
-
-
-/* منو */
-
 .nav-links {
 
+
   display:flex;
+
 
   align-items:center;
 
+
   gap:25px;
+
 
   list-style:none;
 
@@ -118,15 +242,18 @@
 
 .nav-links a {
 
-  position:relative;
 
-  color:white;
+  color:var(--text-color);
+
 
   text-decoration:none;
 
+
   font-size:16px;
 
-  padding-bottom:8px;
+
+  position:relative;
+
 
   transition:.3s;
 
@@ -136,7 +263,7 @@
 
 .nav-links a:hover {
 
-  color:#F5E6CC;
+  color:var(--primary-color);
 
 }
 
@@ -144,23 +271,27 @@
 
 .nav-links a::after {
 
+
   content:"";
+
 
   position:absolute;
 
+
+  bottom:-8px;
+
+
   left:0;
 
-  bottom:0;
 
   width:0;
 
+
   height:2px;
 
-  background:#8B1E3F;
 
-  box-shadow:
-  0 0 8px #8B1E3F,
-  0 0 15px #8B1E3F;
+  background:var(--primary-color);
+
 
   transition:.3s;
 
@@ -176,73 +307,58 @@
 
 
 
+/* ================= LOGO ================= */
 
 
-/* دکمه های ورود */
+.logo {
 
-.auth-buttons {
 
   display:flex;
 
+
   align-items:center;
 
-  gap:12px;
+
+  gap:10px;
 
 }
 
 
 
-.login-btn {
+.logo img {
 
-  padding:8px 18px;
 
-  border:1px solid #8B1E3F;
+  width:60px;
 
-  border-radius:25px;
 
-  color:#F5E6CC;
+  height:60px;
 
-  text-decoration:none;
 
-  transition:.3s;
+  object-fit:contain;
 
 }
 
 
 
-.login-btn:hover {
-
-  background:#8B1E3F;
-
-  color:white;
-
-}
+.logo span {
 
 
+  color:var(--text-color);
 
-.register-btn {
 
-  padding:8px 18px;
+  font-size:22px;
 
-  background:#8B1E3F;
 
-  border-radius:25px;
-
-  color:#F5E6CC;
-
-  text-decoration:none;
-
-  transition:.3s;
+  font-weight:700;
 
 }
 
 
 
-.register-btn:hover {
+.logo strong {
 
-  background:#F5E6CC;
 
-  color:#8B1E3F;
+  color:var(--primary-color);
 
 }
 
@@ -250,65 +366,39 @@
 
 
 
-/* همبرگری */
+/* ================= TABLET ================= */
 
-.menu-toggle {
-
-  display:none;
-
-  background:none;
-
-  border:none;
-
-  color:#F5E6CC;
-
-  font-size:28px;
-
-  cursor:pointer;
-
-  z-index:2000;
-
-}
-
-
-
-
-
-/* موبایل */
-
-.mobile-auth{
-
-  display:none;
-
-}
-
-
-
-
-
-
-/* Tablet */
 
 @media(max-width:900px){
 
 
 .navbar{
 
-  padding:0 25px;
+ padding:0 25px;
 
 }
+
+
+
+.search-box{
+
+ width:250px;
+
+}
+
 
 
 .nav-links{
 
-  gap:15px;
+ gap:15px;
 
 }
+
 
 
 .nav-links a{
 
-  font-size:14px;
+ font-size:14px;
 
 }
 
@@ -318,130 +408,43 @@
 
 
 
+/* ================= MOBILE ================= */
 
-/* Mobile */
 
 @media(max-width:650px){
 
 
-
 .navbar{
 
-  height:70px;
+ height:70px;
 
-  padding:0 20px;
-
-}
-
-
-
-.menu-toggle{
-
-  display:block;
+ padding:0 20px;
 
 }
 
 
 
+.search-box{
 
-/* پنل کشویی */
-
-.nav-content{
-
-
-  position:fixed;
-
-
-  top:0;
-
-
-  right:0;
-
-
-  width:260px;
-
-
-  height:100vh;
-
-
-  background:#2B1B20;
-
-
-  z-index:1500;
-
-
-  display:flex;
-
-
-  flex-direction:column;
-
-
-  align-items:center;
-
-
-  justify-content:flex-start;
-
-
-  gap:30px;
-
-
-  padding-top:100px;
-
-
-  transform:translateX(100%);
-
-
-  transition:.3s ease;
-
+ display:none;
 
 }
-
-
-
-.nav-content.active{
-
-
-  transform:translateX(0);
-
-
-}
-
-
 
 
 
 .nav-links{
 
-
-  display:flex;
-
-
-  flex-direction:column;
-
-
-  gap:25px;
-
+ display:none;
 
 }
-
-
-
-.nav-links a{
-
-  font-size:17px;
-
-}
-
-
-
 
 
 
 .logo img{
 
-  width:45px;
+ width:45px;
 
-  height:45px;
+ height:45px;
 
 }
 
@@ -449,64 +452,19 @@
 
 .logo span{
 
-  font-size:17px;
+ font-size:17px;
 
 }
 
 
 
+.user-btn{
 
-/* مخفی کردن دکمه های دسکتاپ */
+ padding:8px 15px;
 
-.auth-buttons{
-
-  display:none;
-
-}
-
-
-
-
-
-/* دکمه های داخل منو */
-
-.mobile-auth{
-
-
-  display:flex;
-
-
-  flex-direction:column;
-
-
-  align-items:center;
-
-
-  gap:20px;
-
+ font-size:13px;
 
 }
-
-
-
-.mobile-auth .login-btn,
-.mobile-auth .register-btn{
-
-
-  width:150px;
-
-
-  text-align:center;
-
-
-  padding:10px 20px;
-
-
-  font-size:15px;
-
-
-}
-
 
 
 }

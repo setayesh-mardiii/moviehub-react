@@ -15,7 +15,7 @@ function Home() {
       <HeroSlider />
 
       <MovieSection
-        title="فیلم‌های محبوب"
+        title="Popular Movies"
         movies={movies}
       />
 

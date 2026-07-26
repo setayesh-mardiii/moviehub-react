@@ -1,206 +1,94 @@
 import "./Navbar.css";
+
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { useState, useEffect, useContext } from "react";
+
+import { FaUser, FaSearch, FaMoon, FaSun } from "react-icons/fa";
+
+import { ThemeContext } from "../../context/ThemeContext";
 
 import logo from "../../assets/images/logo.png";
 
-
 function Navbar() {
-
-
   const [scrolled, setScrolled] = useState(false);
 
-  const [menuOpen, setMenuOpen] = useState(false);
-
-
+  const { darkMode, toggleTheme } = useContext(ThemeContext);
 
   useEffect(() => {
-
-
     const handleScroll = () => {
-
-
-      if(window.scrollY > 50){
-
-        setScrolled(true);
-
-      }else{
-
-        setScrolled(false);
-
-      }
-
-
+      setScrolled(window.scrollY > 50);
     };
-
 
     window.addEventListener("scroll", handleScroll);
 
-
     return () => {
-
       window.removeEventListener("scroll", handleScroll);
-
     };
-
-
-  },[]);
-
-
-
+  }, []);
 
   return (
-
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
+      {/* سمت چپ */}
 
+      <div className="left-actions">
+        <div className="theme-toggle">
+          <button onClick={toggleTheme}>
+            {darkMode ? <FaMoon /> : <FaSun />}
+          </button>
+        </div>
 
-      {/* دکمه همبرگری موبایل */}
-
-      <button
-
-        className="menu-toggle"
-
-        onClick={() => setMenuOpen(!menuOpen)}
-
-      >
-
-        {menuOpen ? <FaTimes /> : <FaBars />}
-
-      </button>
-
-
-
-
-
-      {/* Login Register دسکتاپ */}
-
-      <div className="auth-buttons">
-
-
-        <Link to="/login" className="login-btn">
-
-          Login
-
+        <Link to="/login" className="user-btn">
+          <FaUser />
+          Login | Register
         </Link>
+      </div>
+      {/* سرچ وسط */}
 
+      <div className="search-box">
+        <input type="text" placeholder="Search movies..." />
 
-
-        <Link to="/register" className="register-btn">
-
-         Register
-
-        </Link>
-
-
+        <FaSearch />
       </div>
 
+      {/* سمت راست */}
 
-
-
-
-
-      {/* منو + لوگو */}
-
-      <div className={`nav-content ${menuOpen ? "active" : ""}`}>
-
-
+      <div className="nav-content">
         <ul className="nav-links">
-
-
           <li>
-            <Link to="/" onClick={() => setMenuOpen(false)}>
-              Home
-            </Link>
+            <Link to="/">Home</Link>
           </li>
 
-
           <li>
-            <Link to="/movies" onClick={() => setMenuOpen(false)}>
-              Movies  
-            </Link>
+            <Link to="/movies">Movies</Link>
           </li>
 
-
           <li>
-            <Link to="/category" onClick={() => setMenuOpen(false)}>
-              Categories
-            </Link>
+            <Link to="/series">Series</Link>
           </li>
 
-
           <li>
-            <Link to="/search" onClick={() => setMenuOpen(false)}>
-              Search
-            </Link>
+            <Link to="/genres">Genres</Link>
           </li>
 
-
           <li>
-            <Link to="/favorites" onClick={() => setMenuOpen(false)}>
-               Favorites
-            </Link>
+            <Link to="/top-rated">Top Rated</Link>
           </li>
 
-
+          <li>
+            <Link to="/about">About Us</Link>
+          </li>
         </ul>
 
-
-
-
-
-        {/* لوگو */}
-
         <div className="logo">
-
-
-          <img src={logo} alt="logo"/>
-
+          <img src={logo} alt="logo" />
 
           <span>
             Movie<strong>Hub</strong>
           </span>
-
-
         </div>
-
-
-
-
-
-
-        {/* Login Register موبایل */}
-
-        <div className="mobile-auth">
-
-
-          <Link to="/login" className="login-btn">
-
-            Login
-
-          </Link>
-
-
-
-          <Link to="/register" className="register-btn">
-
-            Register
-
-          </Link>
-
-
-        </div>
-
-
-
       </div>
-
-
     </nav>
-
   );
-
 }
-
 
 export default Navbar;

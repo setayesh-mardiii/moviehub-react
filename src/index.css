@@ -1,16 +1,53 @@
-*{
+* {
+
+  box-sizing:border-box;
 
   margin:0;
 
   padding:0;
 
-  box-sizing:border-box;
+}
+
+
+
+html {
+
+  scroll-behavior:smooth;
 
 }
 
 
-body{
 
-  overflow-x:hidden;
+body {
+
+  min-height:100vh;
+
+  background:var(--bg-color);
+
+  color:var(--text-color);
+
+  font-family:"Poppins", sans-serif;
+
+  transition:background .3s ease, color .3s ease;
+
+}
+
+
+
+a {
+
+  text-decoration:none;
+
+  color:inherit;
+
+}
+
+
+
+button,
+
+input {
+
+  font-family:inherit;
 
 }

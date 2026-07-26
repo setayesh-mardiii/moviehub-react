@@ -1,25 +1,37 @@
+body.dark {
 
-:root {
+  --bg-color:#100807;
 
-  /* Background */
-  --bg-color: #1A1A1A;
+  --surface-color:#1E1212;
 
+  --card-color:#291717;
 
-  /* Navbar Glass */
-  --glass-bg: rgba(45,45,45,0.75);
+  --primary-color:#B8324A;
 
+  --secondary-color:#F3D7B6;
 
-  /* Main Colors */
-  --primary-color: #8B1E3F;   /* زرشکی */
+  --text-color:#FFF7ED;
 
-  --secondary-color: #F5E6CC; /* کرم */
+  --muted-color:#C8B6A6;
 
-
-  /* Text */
-  --text-color: #FFFFFF;
+}
 
 
-  /* Hover */
-  --primary-hover: #A52A4F;
+
+body.light {
+
+  --bg-color:#FFF7ED;
+
+  --surface-color:#FFFFFF;
+
+  --card-color:#F8EDE3;
+
+  --primary-color:#8E1F3F;
+
+  --secondary-color:#C98B5B;
+
+  --text-color:#2B1717;
+
+  --muted-color:#6E5550;
 
 }

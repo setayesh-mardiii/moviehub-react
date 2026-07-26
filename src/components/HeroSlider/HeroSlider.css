@@ -50,7 +50,7 @@
 
 
 
-/* لایه تاریک روی عکس */
+/* Overlay سینمایی */
 
 .overlay {
 
@@ -60,15 +60,17 @@
 
   background:linear-gradient(
     to left,
-    rgba(0,0,0,.75),
-    rgba(0,0,0,.25)
+    rgba(16,8,7,.85),
+    rgba(16,8,7,.25)
   );
 
 }
 
 
 
-/* متن سمت راست */
+
+
+/* متن */
 
 .slide-content {
 
@@ -82,7 +84,7 @@
 
   max-width:500px;
 
-  color:white;
+  color:var(--text-color);
 
   direction:rtl;
 
@@ -98,7 +100,9 @@
 
   margin-bottom:20px;
 
-  color:#F5E6CC;
+  color:var(--secondary-color);
+
+  font-weight:700;
 
 }
 
@@ -112,7 +116,11 @@
 
   margin-bottom:30px;
 
+  color:var(--text-color);
+
 }
+
+
 
 
 
@@ -126,9 +134,9 @@
 
   border-radius:30px;
 
-  background:#8B1E3F;
+  background:var(--primary-color);
 
-  color:#F5E6CC;
+  color:#FFF7ED;
 
   font-size:16px;
 
@@ -142,9 +150,9 @@
 
 .slide-content button:hover {
 
-  background:#F5E6CC;
+  background:var(--secondary-color);
 
-  color:#8B1E3F;
+  color:#2B1717;
 
   transform:translateY(-3px);
 
@@ -152,7 +160,9 @@
 
 
 
-/* فلش ها پایین سمت چپ */
+
+
+/* فلش ها */
 
 .slider-btn {
 
@@ -168,11 +178,11 @@
 
   border-radius:50%;
 
-  border:none;
+  border:1px solid var(--secondary-color);
 
-  background:rgba(0,0,0,.5);
+  background:rgba(0,0,0,.35);
 
-  color:white;
+  color:var(--secondary-color);
 
   font-size:18px;
 
@@ -186,7 +196,9 @@
 
 .slider-btn:hover {
 
-  background:#8B1E3F;
+  background:var(--primary-color);
+
+  color:#FFF7ED;
 
 }
 
@@ -208,7 +220,10 @@
 
 
 
-/* نقطه های اسلایدر */
+
+
+/* Pagination */
+
 .swiper-pagination {
 
   bottom:35px !important;
@@ -222,31 +237,6 @@
 }
 
 
-.swiper-pagination-bullet {
-
-  width:10px;
-
-  height:10px;
-
-  background:#8B1E3F !important;
-
-  opacity:.5;
-
-}
-
-
-.swiper-pagination-bullet-active {
-
-  background:#8B1E3F !important;
-
-  opacity:1;
-
-  box-shadow:
-  0 0 8px #8B1E3F,
-  0 0 15px #8B1E3F;
-
-}
-
 
 .swiper-pagination-bullet {
 
@@ -254,7 +244,7 @@
 
   height:10px;
 
-  background:#8B1E3F !important;
+  background:var(--secondary-color) !important;
 
   opacity:.5;
 
@@ -264,14 +254,50 @@
 
 .swiper-pagination-bullet-active {
 
-  background:#8B1E3F !important;
+  background:var(--primary-color) !important;
 
   opacity:1;
 
   box-shadow:
 
-  0 0 8px #8B1E3F,
+  0 0 8px var(--primary-color),
 
-  0 0 15px #8B1E3F;
+  0 0 15px var(--primary-color);
+
+}
+
+
+
+
+
+/* موبایل */
+
+@media(max-width:650px){
+
+
+.slide-content {
+
+  margin-right:25px;
+
+  max-width:90%;
+
+}
+
+
+
+.slide-content h1 {
+
+  font-size:38px;
+
+}
+
+
+
+.slide-content p {
+
+  font-size:16px;
+
+}
+
 
 }
