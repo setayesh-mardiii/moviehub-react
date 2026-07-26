@@ -41,7 +41,6 @@
 
 
 
-
 /* ================= LEFT ================= */
 
 
@@ -132,6 +131,11 @@
   transform:rotate(20deg) scale(1.05);
 
 }
+
+
+
+
+
 /* ================= SEARCH ================= */
 
 
@@ -183,16 +187,7 @@
 
   transform:translateY(-50%);
 
-  color:var(--primary-color);
-
 }
-
-
-
-
-
-
-
 /* ================= DESKTOP MENU ================= */
 
 
@@ -324,21 +319,17 @@
   color:var(--primary-color);
 
 }
-/* ================= HERO TRANSPARENT ================= */
-
-
-/* وقتی Navbar روی عکس Hero است */
-
-
-.navbar:not(.scrolled) .nav-links a {
-
-  color:#FFF8F0;
-
-}
 
 
 
-.navbar:not(.scrolled) .logo span {
+
+
+
+
+/* ================= HOME HERO NAVBAR ================= */
+
+
+.navbar.home-navbar:not(.scrolled) .nav-links a {
 
   color:#FFF8F0;
 
@@ -346,7 +337,15 @@
 
 
 
-.navbar:not(.scrolled) .logo strong {
+.navbar.home-navbar:not(.scrolled) .logo span {
+
+  color:#FFF8F0;
+
+}
+
+
+
+.navbar.home-navbar:not(.scrolled) .logo strong {
 
   color:var(--primary-color);
 
@@ -354,31 +353,12 @@
 
 
 
-.navbar:not(.scrolled) .search-box svg {
+.navbar.home-navbar:not(.scrolled) .user-btn {
 
-  color:#FFF8F0;
-
-}
-
-
-
-.navbar:not(.scrolled) .user-btn {
-
-  color:#FFF8F0;
+  color:#FFF7ED;
 
 }
-
-
-
-
-
-
-
-
 /* ================= SCROLLED NAVBAR ================= */
-
-
-/* وقتی اسکرول شد */
 
 
 .navbar.scrolled .nav-links a {
@@ -405,19 +385,16 @@
 
 
 
-.navbar.scrolled .search-box svg {
-
-  color:var(--primary-color);
-
-}
-
-
-
 .navbar.scrolled .user-btn {
 
   color:#FFF7ED;
 
 }
+
+
+
+
+
 /* ================= HAMBURGER ================= */
 
 
@@ -571,16 +548,7 @@
 
   transform:translateY(-50%);
 
-  color:var(--primary-color);
-
 }
-
-
-
-
-
-
-
 /* ================= MOBILE THEME BUTTON ================= */
 
 
@@ -614,8 +582,7 @@
 
 
 
-
-/* ================= TABLET ================= */
+/* ================= RESPONSIVE ================= */
 
 
 @media(max-width:1024px){
@@ -655,8 +622,15 @@
 }
 
 
+
+
+
+
 /* حذف Theme از منوی همبرگری در تبلت */
+
+
 @media (min-width:651px) and (max-width:1024px){
+
 
   .mobile-theme-btn {
 
@@ -670,7 +644,6 @@
 
 
 
-/* ================= MOBILE ================= */
 
 
 @media(max-width:650px){
@@ -745,4 +718,27 @@
   }
 
 
+}
+
+
+
+
+
+
+
+/* ================= SEARCH ICON FINAL FIX ================= */
+
+
+.search-box svg,
+.mobile-search svg {
+
+  transition:.3s ease;
+
+}
+.search-box svg {
+  color: inherit !important;
+}
+
+.mobile-search svg {
+  color: inherit !important;
 }

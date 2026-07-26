@@ -1,4 +1,4 @@
-import movies from "../../data/movies";
+import { movies } from "../../data/movies";
 import MovieCard from "../../components/MovieCard/MovieCard";
 
 
@@ -8,7 +8,6 @@ function Movies() {
   return (
 
     <div style={{ paddingTop: "100px" }}>
-
 
       <h1>
         Movies
