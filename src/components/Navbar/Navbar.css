@@ -468,3 +468,69 @@
 
 
 }
+/* ================= TRANSPARENT NAVBAR ================= */
+
+
+/* وقتی Navbar روی عکس Hero است */
+
+.navbar:not(.scrolled) .nav-links a,
+.navbar:not(.scrolled) .logo span,
+.navbar:not(.scrolled) .logo strong {
+
+  color:#FFF8F0;
+
+}
+
+
+
+.navbar:not(.scrolled) .search-box svg {
+
+  color:#FFF8F0;
+
+}
+
+
+
+.navbar:not(.scrolled) .user-btn {
+
+  color:#FFF8F0;
+
+}
+
+
+
+/* ================= SCROLLED NAVBAR ================= */
+
+
+/* وقتی اسکرول شد و Navbar بک گراند گرفت */
+
+.navbar.scrolled .nav-links a,
+.navbar.scrolled .logo span {
+
+  color:var(--text-color);
+
+}
+
+
+
+.navbar.scrolled .logo strong {
+
+  color:var(--primary-color);
+
+}
+
+
+
+.navbar.scrolled .search-box svg {
+
+  color:var(--primary-color);
+
+}
+
+
+
+.navbar.scrolled .user-btn {
+
+  color:#FFF7ED;
+
+}
