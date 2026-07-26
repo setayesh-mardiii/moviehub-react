@@ -1,13 +1,13 @@
-function MovieDetails() {
+function Series() {
 
   return (
     <div style={{paddingTop:"100px"}}>
       <h1>
-        Movie Details Works
+        Series Page Works
       </h1>
     </div>
   );
 
 }
 
-export default MovieDetails;
+export default Series;

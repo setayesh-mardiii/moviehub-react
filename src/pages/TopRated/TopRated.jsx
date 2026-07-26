@@ -1,13 +1,13 @@
-function MovieDetails() {
+function TopRated() {
 
   return (
     <div style={{paddingTop:"100px"}}>
       <h1>
-        Movie Details Works
+        Top Rated Page Works
       </h1>
     </div>
   );
 
 }
 
-export default MovieDetails;
+export default TopRated;

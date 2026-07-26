@@ -1,4 +1,21 @@
 
-.movie-details {
-  padding: 20px;
+.movie-details-page {
+
+  min-height:100vh;
+
+  padding:120px 50px;
+
+  background:var(--background-color);
+
+  color:var(--text-color);
+
+}
+
+
+.movie-details-page h1 {
+
+  font-size:40px;
+
+  color:var(--primary-color);
+
 }
