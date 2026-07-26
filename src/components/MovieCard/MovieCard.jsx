@@ -1,5 +1,6 @@
 
 import "./MovieCard.css";
+import { Link } from "react-router-dom";
 
 
 function MovieCard({ movie }) {
@@ -22,9 +23,13 @@ function MovieCard({ movie }) {
         <div className="movie-overlay">
 
 
-          <button>
-            مشاهده فیلم
-          </button>
+          <Link to={`/movie/${movie.id}`}>
+
+            <button>
+              مشاهده فیلم
+            </button>
+
+          </Link>
 
 
         </div>

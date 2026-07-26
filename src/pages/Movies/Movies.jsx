@@ -1,14 +1,43 @@
+import movies from "../../data/movies";
+import MovieCard from "../../components/MovieCard/MovieCard";
+
 
 function Movies() {
 
+
   return (
-    <div style={{paddingTop:"100px"}}>
+
+    <div style={{ paddingTop: "100px" }}>
+
+
       <h1>
-        Movies Page Works
+        Movies
       </h1>
+
+
+      <div className="movies-grid">
+
+
+        {
+          movies.map((movie) => (
+
+            <MovieCard
+              key={movie.id}
+              movie={movie}
+            />
+
+          ))
+        }
+
+
+      </div>
+
+
     </div>
+
   );
 
 }
+
 
 export default Movies;
