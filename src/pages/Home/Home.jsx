@@ -5,6 +5,7 @@ import MovieSection from "../../components/MovieSection/MovieSection";
 
 import { movies } from "../../data/movies";
 import { latestMovies } from "../../data/latestMovies";
+import { topRatedMovies } from "../../data/topRatedMovies";
 
 
 function Home() {
@@ -28,6 +29,8 @@ function Home() {
 
           movies={movies}
 
+          sectionClass="popular-section"
+
         />
 
 
@@ -37,6 +40,20 @@ function Home() {
           title="Latest Movies"
 
           movies={latestMovies}
+
+          sectionClass="latest-section"
+
+        />
+
+
+
+        <MovieSection
+
+          title="Top Rated Movies"
+
+          movies={topRatedMovies}
+
+          sectionClass="top-rated-section"
 
         />
 

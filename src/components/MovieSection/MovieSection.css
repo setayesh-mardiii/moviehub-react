@@ -1,6 +1,6 @@
 .movie-section {
 
-  padding:25px 0 45px;
+  padding:0;
 
   direction:rtl;
 
@@ -8,11 +8,6 @@
 
 }
 
-
-
-
-
-/* HEADER */
 
 .section-header {
 
@@ -25,9 +20,6 @@
   margin-bottom:25px;
 
 }
-
-
-
 
 
 .section-header h2 {
@@ -43,13 +35,6 @@
 }
 
 
-
-
-
-
-
-/* VIEW ALL */
-
 .view-all-btn {
 
   display:flex;
@@ -64,47 +49,8 @@
 
   font-size:15px;
 
-  cursor:pointer;
-
-  transition:.3s ease;
-
 }
 
-
-
-.view-all-btn svg {
-
-  font-size:14px;
-
-  transition:.3s ease;
-
-}
-
-
-
-.view-all-btn:hover {
-
-  color:var(--secondary-color);
-
-}
-
-
-
-.view-all-btn:hover svg {
-
-  transform:translateX(-5px);
-
-}
-
-
-
-
-
-
-
-
-
-/* فقط اسلایدر فیلم */
 
 .movie-slider-wrapper .swiper-slide {
 
@@ -115,26 +61,12 @@
 }
 
 
-
-
-
-
-
 .movie-slider {
 
   width:100%;
 
 }
 
-
-
-
-
-
-
-
-
-/* فلش های پایین کارت ها */
 
 .slider-buttons {
 
@@ -149,9 +81,6 @@
   margin-top:25px;
 
 }
-
-
-
 
 
 .slider-btn {
@@ -175,91 +104,5 @@
   justify-content:center;
 
   cursor:pointer;
-
-  transition:.3s ease;
-
-}
-
-
-
-
-
-.slider-btn:hover {
-
-  transform:scale(1.1);
-
-  background:var(--secondary-color);
-
-  color:#2B1717;
-
-}
-
-
-
-
-
-
-
-
-
-/* TABLET */
-
-@media(max-width:768px){
-
-
-  .movie-section {
-
-    padding:25px 0 40px;
-
-  }
-
-
-
-  .section-header h2 {
-
-    font-size:24px;
-
-  }
-
-
-}
-
-
-
-
-
-
-
-
-
-/* MOBILE */
-
-@media(max-width:650px){
-
-
-  .section-header h2 {
-
-    font-size:21px;
-
-  }
-
-
-
-  .view-all-btn {
-
-    font-size:14px;
-
-  }
-
-
-
-  .slider-btn {
-
-    width:32px;
-
-    height:32px;
-
-  }
-
 
 }
