@@ -2,29 +2,53 @@
 
   width:220px;
 
-  background:var(--card-color);
+  height:330px;
 
-  border-radius:15px;
+  position:relative;
 
   overflow:hidden;
 
   cursor:pointer;
 
-  transition:.3s ease;
+  background:#111;
 
-  box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+  /* گوشه های نرم نامنظم */
+
+  border-radius:
+
+  45px 20px 55px 30px;
+
+
+  transition:.35s ease;
+
+
+  box-shadow:
+
+  0 10px 30px rgba(0,0,0,.3);
 
 }
+
+
 
 
 
 .movie-card:hover {
 
-  transform:translateY(-10px);
+  transform:
 
-  box-shadow:0 15px 35px rgba(0,0,0,.4);
+  translateY(-12px)
+
+  scale(1.04);
+
+
+  box-shadow:
+
+  0 25px 50px rgba(0,0,0,.45);
 
 }
+
+
 
 
 
@@ -34,15 +58,15 @@
 
 .movie-image {
 
-  position:relative;
-
   width:100%;
 
-  height:330px;
+  height:100%;
 
-  overflow:hidden;
+  position:relative;
 
 }
+
+
 
 
 
@@ -60,11 +84,16 @@
 
 
 
+
+
 .movie-card:hover .movie-image img {
 
-  transform:scale(1.12);
+  transform:scale(1.1);
 
 }
+
+
+
 
 
 
@@ -78,19 +107,36 @@
 
   inset:0;
 
-  background:rgba(16,8,7,.75);
+
+  background:
+
+  linear-gradient(
+
+    to top,
+
+    rgba(0,0,0,.95),
+
+    rgba(0,0,0,.25)
+
+  );
+
 
   display:flex;
 
-  align-items:center;
+  align-items:flex-end;
 
-  justify-content:center;
+
+  padding:20px;
+
 
   opacity:0;
 
-  transition:.3s ease;
+
+  transition:.4s ease;
 
 }
+
+
 
 
 
@@ -104,35 +150,14 @@
 
 
 
-/* BUTTON */
-
-.movie-overlay button {
-
-  padding:10px 25px;
-
-  border:none;
-
-  border-radius:25px;
-
-  background:var(--primary-color);
-
-  color:#FFF7ED;
-
-  font-size:15px;
-
-  cursor:pointer;
-
-  transition:.3s;
-
-}
 
 
 
-.movie-overlay button:hover {
+/* محتویات هاور */
 
-  background:var(--secondary-color);
+.movie-hover-content {
 
-  color:#2B1717;
+  color:white;
 
 }
 
@@ -140,27 +165,33 @@
 
 
 
-/* INFO */
 
-.movie-info {
+.movie-hover-content h3 {
 
-  padding:15px;
+  font-size:20px;
+
+  margin-bottom:10px;
+
+}
+
+
+
+
+
+
+.movie-hover-content p {
+
+  font-size:13px;
+
+  line-height:1.6;
+
+  color:#ddd;
+
+  margin-bottom:15px;
 
 }
 
 
-
-
-
-.movie-info h3 {
-
-  color:var(--secondary-color);
-
-  font-size:18px;
-
-  margin-bottom:12px;
-
-}
 
 
 
@@ -170,11 +201,9 @@
 
   display:flex;
 
-  justify-content:space-between;
+  gap:8px;
 
-  color:var(--muted-color);
-
-  font-size:13px;
+  margin-bottom:15px;
 
 }
 
@@ -182,15 +211,98 @@
 
 
 
-/* Rating */
+
+
+.movie-meta span {
+
+  background:
+
+  rgba(255,107,0,.2);
+
+
+  padding:5px 10px;
+
+  border-radius:20px;
+
+  font-size:12px;
+
+}
+
+
+
+
+
+
 
 .movie-meta span:first-child {
 
-  color:var(--primary-color);
-
-  font-weight:600;
+  color:#ff6b00;
 
 }
+
+
+
+
+
+
+
+
+/* BUTTON */
+
+.movie-overlay button {
+
+
+  width:100%;
+
+
+  padding:10px;
+
+
+  border:none;
+
+
+  border-radius:25px;
+
+
+  background:
+
+  var(--primary-color);
+
+
+  color:white;
+
+
+  cursor:pointer;
+
+
+  font-size:14px;
+
+
+  transition:.3s;
+
+
+}
+
+
+
+
+
+.movie-overlay button:hover {
+
+
+  background:
+
+  var(--secondary-color);
+
+
+  color:#222;
+
+
+}
+
+
+
+
 
 
 
@@ -203,19 +315,7 @@
 
   width:180px;
 
-}
-
-
-.movie-image{
-
   height:270px;
-
-}
-
-
-.movie-info h3{
-
-  font-size:16px;
 
 }
 

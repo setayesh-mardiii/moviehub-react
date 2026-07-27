@@ -7,7 +7,6 @@ import a4 from "../assets/images/a4.jpg"
 import a5 from "../assets/images/a5.jpg";
 import a6 from "../assets/images/a6.jpg";
 import a7 from "../assets/images/a7.jpg";
-import a8 from "../assets/images/a8.jpg";
 import a9 from "../assets/images/a9.jpg";
 import a10 from "../assets/images/a10.jpg";
 import a11 from "../assets/images/a11.jpg";
@@ -30,304 +29,300 @@ import a26 from "../assets/images/a26.jpg";
 
 export const movies = [
 
-  {
-    id:1,
-    image:a1,
-    title:"Movie Title 1",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:8.8,
-    genre:"Action",
-    year:2025,
-    duration:"125 min",
-  },
-
-  {
-    id:2,
-    image:a2,
-    title:"Movie Title 2",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:8.3,
-    genre:"Drama",
-    year:2024,
-    duration:"118 min",
-  },
-
-  {
-    id:3,
-    image:a3,
-    title:"Movie Title 3",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:9.1,
-    genre:"Sci-Fi",
-    year:2023,
-    duration:"140 min",
-  },
-
-  {
-    id:4,
-    image:a4,
-    title:"Movie Title 4",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:7.9,
-    genre:"Comedy",
-    year:2025,
-    duration:"110 min",
-  },
-
-  {
-    id:5,
-    image:a5,
-    title:"Movie Title 5",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:8.5,
-    genre:"Adventure",
-    year:2022,
-    duration:"130 min",
-  },
-
-  {
-    id:6,
-    image:a6,
-    title:"Movie Title 6",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:8.1,
-    genre:"Thriller",
-    year:2021,
-    duration:"115 min",
-  },
-
-  {
-    id:7,
-    image:a7,
-    title:"Movie Title 7",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:9.0,
-    genre:"Fantasy",
-    year:2024,
-    duration:"145 min",
-  },
-    {
-    id:8,
-    image:a8,
-    title:"Movie Title 8",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:8.6,
-    genre:"Action",
-    year:2025,
-    duration:"122 min",
-  },
+{
+  id:1,
+  image:a1,
+  title:"هاوایی",
+  description:"داستان مردی که در جزیره هاوایی وارد ماجراهایی تازه می‌شود و مسیر زندگی‌اش تغییر می‌کند.",
+  rating:8.8,
+  genre:"کمدی",
+  year:2023,
+  duration:"125 min",
+},
 
 
-  {
-    id:9,
-    image:a9,
-    title:"Movie Title 9",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:8.0,
-    genre:"Drama",
-    year:2024,
-    duration:"108 min",
-  },
+{
+  id:2,
+  image:a2,
+  title:"جنگل پرتقال",
+  description:"روایتی احساسی از مردی که با گذشته، خاطرات و رابطه‌ای قدیمی روبه‌رو می‌شود.",
+  rating:8.3,
+  genre:"درام",
+  year:2023,
+  duration:"118 min",
+},
 
 
-  {
-    id:10,
-    image:a10,
-    title:"Movie Title 10",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:9.2,
-    genre:"Sci-Fi",
-    year:2025,
-    duration:"150 min",
-  },
+{
+  id:3,
+  image:a3,
+  title:"فسیل",
+  description:"کمدی نوستالژیک درباره زندگی سه دوست و اتفاقات عجیب در گذر زمان.",
+  rating:9.1,
+  genre:"کمدی",
+  year:2023,
+  duration:"140 min",
+},
 
 
-  {
-    id:11,
-    image:a11,
-    title:"Movie Title 11",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:7.8,
-    genre:"Comedy",
-    year:2023,
-    duration:"98 min",
-  },
+{
+  id:4,
+  image:a4,
+  title:"مغز استخوان",
+  description:"داستانی اجتماعی درباره زنی که برای نجات فرزندش با تصمیمی سخت روبه‌رو می‌شود.",
+  rating:7.9,
+  genre:"اجتماعی",
+  year:2020,
+  duration:"110 min",
+},
 
 
-  {
-    id:12,
-    image:a12,
-    title:"Movie Title 12",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:8.4,
-    genre:"Mystery",
-    year:2022,
-    duration:"116 min",
-  },
+{
+  id:5,
+  image:a5,
+  title:"ملاقات خصوصی",
+  description:"روایت رابطه‌ای پیچیده میان دو انسان که در شرایطی خاص به یکدیگر نزدیک می‌شوند.",
+  rating:8.5,
+  genre:"عاشقانه",
+  year:2022,
+  duration:"130 min",
+},
 
 
-  {
-    id:13,
-    image:a13,
-    title:"Movie Title 13",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:8.9,
-    genre:"Adventure",
-    year:2025,
-    duration:"135 min",
-  },
+{
+  id:6,
+  image:a6,
+  title:"شه‌سوار",
+  description:"داستان خانواده‌ای که درگیر ماجراهایی پرتنش و رازهای قدیمی می‌شوند.",
+  rating:8.1,
+  genre:"کمدی",
+  year:2024,
+  duration:"115 min",
+},
 
 
-  {
-    id:14,
-    image:a14,
-    title:"Movie Title 14",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:8.2,
-    genre:"Horror",
-    year:2024,
-    duration:"105 min",
-  },
-    {
-    id:15,
-    image:a15,
-    title:"Movie Title 15",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:8.7,
-    genre:"Action",
-    year:2025,
-    duration:"128 min",
-  },
+{
+  id:7,
+  image:a7,
+  title:"زودپز",
+  description:"کمدی خانوادگی که یک اتفاق ساده باعث شکل‌گیری ماجراهایی عجیب می‌شود.",
+  rating:9.0,
+  genre:"کمدی",
+  year:2024,
+  duration:"145 min",
+},
+{
+  id:9,
+  image:a9,
+  title:"مفت‌بر",
+  description:"داستانی کمدی درباره شخصیتی که برای رسیدن به خواسته‌هایش وارد ماجراهایی تازه می‌شود.",
+  rating:8.0,
+  genre:"کمدی",
+  year:2023,
+  duration:"108 min",
+},
 
 
-  {
-    id:16,
-    image:a16,
-    title:"Movie Title 16",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:8.1,
-    genre:"Drama",
-    year:2024,
-    duration:"112 min",
-  },
+{
+  id:10,
+  image:a10,
+  title:"دایناسور",
+  description:"کمدی اجتماعی با داستانی متفاوت که زندگی چند شخصیت را وارد اتفاقاتی غیرمنتظره می‌کند.",
+  rating:9.2,
+  genre:"کمدی",
+  year:2024,
+  duration:"150 min",
+},
 
 
-  {
-    id:17,
-    image:a17,
-    title:"Movie Title 17",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:9.3,
-    genre:"Sci-Fi",
-    year:2025,
-    duration:"142 min",
-  },
+{
+  id:11,
+  image:a11,
+  title:"شهر هرت",
+  description:"روایتی طنز از آدم‌هایی که درگیر مشکلات اجتماعی و موقعیت‌های خنده‌دار می‌شوند.",
+  rating:7.8,
+  genre:"کمدی اجتماعی",
+  year:2022,
+  duration:"98 min",
+},
 
 
-  {
-    id:18,
-    image:a18,
-    title:"Movie Title 18",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:7.6,
-    genre:"Comedy",
-    year:2023,
-    duration:"100 min",
-  },
+{
+  id:12,
+  image:a12,
+  title:"علفزار",
+  description:"داستانی اجتماعی و پرتنش درباره یک پرونده حساس و رازهایی که آشکار می‌شوند.",
+  rating:8.4,
+  genre:"اجتماعی",
+  year:2022,
+  duration:"116 min",
+},
 
 
-  {
-    id:19,
-    image:a19,
-    title:"Movie Title 19",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:8.4,
-    genre:"Thriller",
-    year:2022,
-    duration:"118 min",
-  },
+{
+  id:13,
+  image:a13,
+  title:"جادوگر",
+  description:"داستانی متفاوت با حال‌وهوای طنز درباره اتفاقاتی عجیب و شخصیت‌هایی خاص.",
+  rating:8.9,
+  genre:"کمدی",
+  year:2022,
+  duration:"135 min",
+},
 
 
-  {
-    id:20,
-    image:a20,
-    title:"Movie Title 20",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:8.8,
-    genre:"Adventure",
-    year:2025,
-    duration:"136 min",
-  },
+{
+  id:14,
+  image:a14,
+  title:"دینامیت",
+  description:"کمدی پرانرژی درباره چند شخصیت با دیدگاه‌های متفاوت که وارد ماجراهایی جذاب می‌شوند.",
+  rating:8.2,
+  genre:"کمدی",
+  year:2021,
+  duration:"105 min",
+},
 
 
-  {
-    id:21,
-    image:a21,
-    title:"Movie Title 21",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:8.5,
-    genre:"Fantasy",
-    year:2024,
-    duration:"124 min",
-  },
-    {
-    id:22,
-    image:a22,
-    title:"Movie Title 22",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:8.9,
-    genre:"Action",
-    year:2025,
-    duration:"130 min",
-  },
+{
+  id:15,
+  image:a15,
+  title:"بدنام",
+  description:"روایتی پرتنش از زندگی شخصیتی که با گذشته و تصمیم‌های سخت خود روبه‌رو می‌شود.",
+  rating:8.7,
+  genre:"درام",
+  year:2024,
+  duration:"128 min",
+},
+{
+  id:16,
+  image:a16,
+  title:"بامداد خمار",
+  description:"روایتی عاشقانه و اجتماعی درباره عشق، انتخاب‌های دشوار و پیامدهای تصمیم‌های زندگی.",
+  rating:8.1,
+  genre:"عاشقانه",
+  year:2025,
+  duration:"112 min",
+},
 
 
-  {
-    id:23,
-    image:a23,
-    title:"Movie Title 23",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:8.3,
-    genre:"Drama",
-    year:2024,
-    duration:"115 min",
-  },
+{
+  id:17,
+  image:a17,
+  title:"خاتون",
+  description:"داستان زنی مستقل در دوران پرآشوب تاریخی که برای خانواده و سرنوشت خود تلاش می‌کند.",
+  rating:9.3,
+  genre:"تاریخی",
+  year:2021,
+  duration:"142 min",
+},
 
 
-  {
-    id:24,
-    image:a24,
-    title:"Movie Title 24",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:9.1,
-    genre:"Adventure",
-    year:2025,
-    duration:"140 min",
-  },
+{
+  id:18,
+  image:a18,
+  title:"جیران",
+  description:"روایتی عاشقانه و تاریخی از زندگی جیران و اتفاقات دربار دوران قاجار.",
+  rating:7.6,
+  genre:"تاریخی - عاشقانه",
+  year:2022,
+  duration:"100 min",
+},
 
 
-  {
-    id:25,
-    image:a25,
-    title:"Movie Title 25",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:8.6,
-    genre:"Mystery",
-    year:2023,
-    duration:"118 min",
-  },
+{
+  id:19,
+  image:a19,
+  title:"شغال",
+  description:"داستانی جنایی و پرهیجان درباره رازها، روابط پیچیده و اتفاقات غیرمنتظره.",
+  rating:8.4,
+  genre:"جنایی",
+  year:2025,
+  duration:"118 min",
+},
 
 
-  {
-    id:26,
-    image:a26,
-    title:"Movie Title 26",
-    description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    rating:8.8,
-    genre:"Fantasy",
-    year:2024,
-    duration:"125 min",
-  },
+{
+  id:20,
+  image:a20,
+  title:"یاغی",
+  description:"داستان جوانی سرکش که برای تغییر زندگی خود با مشکلات و گذشته‌اش روبه‌رو می‌شود.",
+  rating:8.8,
+  genre:"اجتماعی",
+  year:2022,
+  duration:"136 min",
+},
+
+
+{
+  id:21,
+  image:a21,
+  title:"قطب شمال",
+  description:"روایتی معمایی و اجتماعی درباره رازهایی قدیمی که مسیر زندگی شخصیت‌ها را تغییر می‌دهد.",
+  rating:8.5,
+  genre:"معمایی",
+  year:2024,
+  duration:"124 min",
+},
+
+
+{
+  id:22,
+  image:a22,
+  title:"محکوم",
+  description:"داستانی اجتماعی و پرتنش درباره انسان‌هایی که درگیر انتخاب‌ها و سرنوشت خود هستند.",
+  rating:8.9,
+  genre:"اجتماعی",
+  year:2025,
+  duration:"130 min",
+},
+
+
+{
+  id:23,
+  image:a23,
+  title:"زخم کاری",
+  description:"داستان قدرت، خیانت و رقابت در دنیایی پر از روابط پیچیده و خطرناک.",
+  rating:8.3,
+  genre:"جنایی - درام",
+  year:2021,
+  duration:"115 min",
+},
+
+
+{
+  id:24,
+  image:a24,
+  title:"سیاه چاله",
+  description:"روایتی جنایی و تاریک از اتفاقاتی که زندگی چند شخصیت را به هم گره می‌زند.",
+  rating:9.1,
+  genre:"جنایی",
+  year:2023,
+  duration:"140 min",
+},
+
+
+{
+  id:25,
+  image:a25,
+  title:"شام ایرانی",
+  description:"برنامه‌ای سرگرم‌کننده با حضور چهره‌های شناخته‌شده در فضایی دوستانه و رقابتی.",
+  rating:8.6,
+  genre:"رئالیتی شو",
+  year:2024,
+  duration:"118 min",
+},
+
+
+{
+  id:26,
+  image:a26,
+  title:"آکتور",
+  description:"داستان هنرمندی که برای اجرای نقش‌های مختلف وارد بازی خطرناک زندگی واقعی می‌شود.",
+  rating:8.8,
+  genre:"درام",
+  year:2023,
+  duration:"125 min",
+},
 
 ];
 
