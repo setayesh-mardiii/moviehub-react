@@ -4,12 +4,27 @@
 
   min-height:100vh;
 
-  padding:20px;
-
   background:var(--bg-color);
 
   color:var(--text-color);
 
   transition:.3s ease;
+
+}
+
+
+
+/* ================= HOME CONTAINER ================= */
+
+
+.home-container {
+
+  width:100%;
+
+  max-width:1500px;
+
+  margin:0 auto;
+
+  padding:15px 60px;
 
 }

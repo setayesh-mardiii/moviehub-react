@@ -1,5 +1,9 @@
 import "./MovieCard.css";
+
 import { Link } from "react-router-dom";
+
+import { FaStar } from "react-icons/fa";
+
 
 
 function MovieCard({ movie }) {
@@ -7,10 +11,13 @@ function MovieCard({ movie }) {
 
   return (
 
+
     <div className="movie-card">
 
 
+
       <div className="movie-image">
+
 
 
         <img
@@ -23,10 +30,14 @@ function MovieCard({ movie }) {
 
 
 
+
+
         <div className="movie-overlay">
 
 
+
           <div className="movie-hover-content">
+
 
 
             <h3>
@@ -34,6 +45,8 @@ function MovieCard({ movie }) {
               {movie.title}
 
             </h3>
+
+
 
 
 
@@ -45,14 +58,21 @@ function MovieCard({ movie }) {
 
 
 
+
+
             <div className="movie-meta">
+
 
 
               <span>
 
-                ⭐ {movie.rating}
+                <FaStar />
+
+                {movie.rating}
 
               </span>
+
+
 
 
 
@@ -64,6 +84,8 @@ function MovieCard({ movie }) {
 
 
 
+
+
               <span>
 
                 {movie.genre}
@@ -71,12 +93,18 @@ function MovieCard({ movie }) {
               </span>
 
 
+
             </div>
 
 
 
 
+
+
+
             <Link to={`/movie/${movie.id}`}>
+
+
 
               <button>
 
@@ -85,14 +113,20 @@ function MovieCard({ movie }) {
               </button>
 
 
+
             </Link>
+
+
+
 
 
 
           </div>
 
 
+
         </div>
+
 
 
       </div>
@@ -100,6 +134,7 @@ function MovieCard({ movie }) {
 
 
     </div>
+
 
   );
 

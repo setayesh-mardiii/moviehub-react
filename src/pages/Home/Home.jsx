@@ -8,18 +8,34 @@ import { movies } from "../../data/movies";
 
 function Home() {
 
+
   return (
 
-    <>
+    <div className="home">
 
+
+      {/* Hero - Full Width */}
       <HeroSlider />
 
-      <MovieSection
-        title="Popular Movies"
-        movies={movies}
-      />
 
-    </>
+
+      {/* All Home Sections */}
+      <main className="home-container">
+
+
+        <MovieSection
+
+          title="Popular Movies"
+
+          movies={movies}
+
+        />
+
+
+      </main>
+
+
+    </div>
 
   );
 

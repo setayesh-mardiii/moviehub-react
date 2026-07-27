@@ -1,34 +1,187 @@
-
 import "./MovieSection.css";
 
 import MovieCard from "../MovieCard/MovieCard";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import { useRef } from "react";
+
+import { Link } from "react-router-dom";
+
+import {
+  FaChevronLeft,
+  FaChevronRight,
+  FaStar
+} from "react-icons/fa";
+
+import "swiper/css";
+
 
 function MovieSection({ title, movies }) {
+
+
+  const swiperRef = useRef(null);
+
+
 
   return (
 
     <section className="movie-section">
 
-      <h2>
-        {title}
-      </h2>
+
+      <div className="section-header">
 
 
-      <div className="movie-container">
+        <h2>
 
-        {
-          movies.map((movie) => (
+          <FaStar />
 
-            <MovieCard
-              key={movie.id}
-              movie={movie}
-            />
+          {title}
 
-          ))
-        }
+        </h2>
+
+
+
+
+        <Link
+
+          to="/movies"
+
+          className="view-all-btn"
+
+        >
+
+          مشاهده همه
+
+          <FaChevronLeft />
+
+        </Link>
+
+
 
       </div>
+
+
+
+
+
+      <div className="movie-slider-wrapper">
+
+
+        <Swiper
+
+
+          onSwiper={(swiper)=>{
+
+            swiperRef.current = swiper;
+
+          }}
+
+
+          spaceBetween={18}
+
+
+          breakpoints={{
+
+
+            0:{
+
+              slidesPerView:2,
+
+            },
+
+
+            768:{
+
+              slidesPerView:3,
+
+            },
+
+
+            1200:{
+
+              slidesPerView:5,
+
+            }
+
+
+          }}
+
+
+          className="movie-slider"
+
+
+
+        >
+
+
+          {
+
+            movies.map((movie)=>(
+
+
+              <SwiperSlide key={movie.id}>
+
+
+                <MovieCard movie={movie}/>
+
+
+              </SwiperSlide>
+
+
+            ))
+
+          }
+
+
+
+        </Swiper>
+
+
+
+      </div>
+
+
+
+
+
+
+      <div className="slider-buttons">
+
+
+
+        <button
+
+          className="slider-btn"
+
+          onClick={()=>swiperRef.current?.slidePrev()}
+
+        >
+
+          <FaChevronRight />
+
+        </button>
+
+
+
+
+
+        <button
+
+          className="slider-btn"
+
+          onClick={()=>swiperRef.current?.slideNext()}
+
+        >
+
+          <FaChevronLeft />
+
+        </button>
+
+
+
+      </div>
+
 
 
     </section>

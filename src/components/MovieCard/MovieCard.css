@@ -12,39 +12,21 @@
 
   background:#111;
 
-
-  /* گوشه های نرم نامنظم */
-
-  border-radius:
-
-  45px 20px 55px 30px;
-
+  border-radius:45px 20px 55px 30px;
 
   transition:.35s ease;
 
-
-  box-shadow:
-
-  0 10px 30px rgba(0,0,0,.3);
+  box-shadow:0 3px 10px rgba(0,0,0,.12);
 
 }
 
 
 
-
-
 .movie-card:hover {
 
-  transform:
+  transform:translateY(-6px) scale(1.02);
 
-  translateY(-12px)
-
-  scale(1.04);
-
-
-  box-shadow:
-
-  0 25px 50px rgba(0,0,0,.45);
+  box-shadow:0 8px 18px rgba(0,0,0,.18);
 
 }
 
@@ -68,8 +50,6 @@
 
 
 
-
-
 .movie-image img {
 
   width:100%;
@@ -84,14 +64,11 @@
 
 
 
-
-
 .movie-card:hover .movie-image img {
 
-  transform:scale(1.1);
+  transform:scale(1.08);
 
 }
-
 
 
 
@@ -107,36 +84,27 @@
 
   inset:0;
 
-
-  background:
-
-  linear-gradient(
+  background:linear-gradient(
 
     to top,
 
-    rgba(0,0,0,.95),
+    rgba(0,0,0,.9),
 
-    rgba(0,0,0,.25)
+    rgba(0,0,0,.15)
 
   );
-
 
   display:flex;
 
   align-items:flex-end;
 
-
   padding:20px;
 
-
   opacity:0;
-
 
   transition:.4s ease;
 
 }
-
-
 
 
 
@@ -152,17 +120,13 @@
 
 
 
-
-/* محتویات هاور */
+/* HOVER CONTENT */
 
 .movie-hover-content {
 
   color:white;
 
 }
-
-
-
 
 
 
@@ -173,9 +137,6 @@
   margin-bottom:10px;
 
 }
-
-
-
 
 
 
@@ -197,9 +158,13 @@
 
 
 
+/* META */
+
 .movie-meta {
 
   display:flex;
+
+  align-items:center;
 
   gap:8px;
 
@@ -209,16 +174,15 @@
 
 
 
-
-
-
-
 .movie-meta span {
 
-  background:
+  display:flex;
 
-  rgba(255,107,0,.2);
+  align-items:center;
 
+  gap:5px;
+
+  background:rgba(255,107,0,.18);
 
   padding:5px 10px;
 
@@ -230,16 +194,15 @@
 
 
 
+.movie-meta svg {
 
+  color:#ffb703;
 
+  font-size:13px;
 
-
-.movie-meta span:first-child {
-
-  color:#ff6b00;
+  flex-shrink:0;
 
 }
-
 
 
 
@@ -251,52 +214,33 @@
 
 .movie-overlay button {
 
-
   width:100%;
-
 
   padding:10px;
 
-
   border:none;
-
 
   border-radius:25px;
 
-
-  background:
-
-  var(--primary-color);
-
+  background:var(--primary-color);
 
   color:white;
 
-
   cursor:pointer;
-
 
   font-size:14px;
 
-
-  transition:.3s;
-
+  transition:.3s ease;
 
 }
-
-
 
 
 
 .movie-overlay button:hover {
 
-
-  background:
-
-  var(--secondary-color);
-
+  background:var(--secondary-color);
 
   color:#222;
-
 
 }
 
@@ -306,18 +250,18 @@
 
 
 
-
+/* MOBILE */
 
 @media(max-width:650px){
 
 
-.movie-card{
+  .movie-card {
 
-  width:180px;
+    width:180px;
 
-  height:270px;
+    height:270px;
 
-}
+  }
 
 
 }

@@ -1,10 +1,70 @@
 .movie-section {
 
-  padding:50px 80px;
+  padding:25px 0 45px;
+
+  direction:rtl;
 
   background:var(--bg-color);
 
-  direction:rtl;
+}
+
+
+
+
+
+/* HEADER */
+
+.section-header {
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  margin-bottom:25px;
+
+}
+
+
+
+
+
+.section-header h2 {
+
+  color:var(--secondary-color);
+
+  font-size:26px;
+
+  font-weight:700;
+
+  margin:0;
+
+}
+
+
+
+
+
+
+
+/* VIEW ALL */
+
+.view-all-btn {
+
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  color:var(--primary-color);
+
+  text-decoration:none;
+
+  font-size:15px;
+
+  cursor:pointer;
 
   transition:.3s ease;
 
@@ -12,13 +72,27 @@
 
 
 
-.movie-section h2 {
+.view-all-btn svg {
+
+  font-size:14px;
+
+  transition:.3s ease;
+
+}
+
+
+
+.view-all-btn:hover {
 
   color:var(--secondary-color);
 
-  font-size:32px;
+}
 
-  margin-bottom:30px;
+
+
+.view-all-btn:hover svg {
+
+  transform:translateX(-5px);
 
 }
 
@@ -26,17 +100,29 @@
 
 
 
-.movie-container {
 
 
-  display:grid;
 
 
-  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+/* فقط اسلایدر فیلم */
+
+.movie-slider-wrapper .swiper-slide {
+
+  display:flex;
+
+  justify-content:center;
+
+}
 
 
-  gap:25px;
 
+
+
+
+
+.movie-slider {
+
+  width:100%;
 
 }
 
@@ -44,48 +130,136 @@
 
 
 
-@media(max-width:1200px){
 
 
-.movie-section{
 
-  padding:50px 40px;
+
+/* فلش های پایین کارت ها */
+
+.slider-buttons {
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  gap:12px;
+
+  margin-top:25px;
 
 }
 
 
+
+
+
+.slider-btn {
+
+  width:36px;
+
+  height:36px;
+
+  border-radius:50%;
+
+  border:none;
+
+  background:var(--primary-color);
+
+  color:white;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  cursor:pointer;
+
+  transition:.3s ease;
+
 }
 
 
 
 
+
+.slider-btn:hover {
+
+  transform:scale(1.1);
+
+  background:var(--secondary-color);
+
+  color:#2B1717;
+
+}
+
+
+
+
+
+
+
+
+
+/* TABLET */
 
 @media(max-width:768px){
 
 
-.movie-section{
+  .movie-section {
 
-  padding:40px 20px;
+    padding:25px 0 40px;
 
-}
-
-
-
-.movie-section h2{
-
-  font-size:26px;
-
-}
+  }
 
 
 
-.movie-container{
+  .section-header h2 {
 
-  grid-template-columns:repeat(auto-fit, minmax(180px, 1fr));
+    font-size:24px;
 
-  gap:20px;
+  }
+
 
 }
+
+
+
+
+
+
+
+
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+
+  .section-header h2 {
+
+    font-size:21px;
+
+  }
+
+
+
+  .view-all-btn {
+
+    font-size:14px;
+
+  }
+
+
+
+  .slider-btn {
+
+    width:32px;
+
+    height:32px;
+
+  }
 
 
 }

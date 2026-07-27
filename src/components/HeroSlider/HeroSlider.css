@@ -1,6 +1,7 @@
 .hero-wrapper {
 
   width:100%;
+
   height:100vh;
 
   position:relative;
@@ -14,15 +15,19 @@
 .hero-slider {
 
   width:100%;
+
   height:100vh;
 
 }
 
 
 
-.swiper-slide {
+/* فقط برای Hero نه همه Swiper ها */
+
+.hero-slider .swiper-slide {
 
   width:100%;
+
   height:100vh;
 
 }
@@ -32,6 +37,7 @@
 .slide {
 
   width:100%;
+
   height:100vh;
 
   background-size:cover;
@@ -50,7 +56,10 @@
 
 
 
+
+
 /* Overlay سینمایی */
+
 
 .overlay {
 
@@ -59,9 +68,13 @@
   inset:0;
 
   background:linear-gradient(
+
     to left,
+
     rgba(0,0,0,.8),
+
     rgba(0,0,0,.25)
+
   );
 
 }
@@ -70,7 +83,10 @@
 
 
 
+
+
 /* متن Hero */
+
 
 .slide-content {
 
@@ -98,6 +114,7 @@
 
 .slide-content h1 {
 
+
   font-size:60px;
 
   margin-bottom:20px;
@@ -117,6 +134,7 @@
 
 
 .slide-content p {
+
 
   font-size:20px;
 
@@ -138,9 +156,11 @@
 
 
 
-/* دکمه */
+/* دکمه تریلر */
+
 
 .slide-content button {
+
 
   padding:12px 35px;
 
@@ -156,7 +176,7 @@
 
   cursor:pointer;
 
-  transition:.3s;
+  transition:.3s ease;
 
 }
 
@@ -164,9 +184,8 @@
 
 .slide-content button:hover {
 
-  background:var(--secondary-color);
 
-  color:#FFF7ED;
+  background:var(--secondary-color);
 
   transform:translateY(-3px);
 
@@ -178,49 +197,77 @@
 
 
 
-/* فلش ها */
 
-.slider-btn {
+/* ================= HERO ARROWS ================= */
+
+
+.hero-slider-btn {
+
 
   position:absolute;
 
+
   bottom:40px;
 
-  z-index:5;
+
+  z-index:10;
+
 
   width:45px;
 
+
   height:45px;
+
 
   border-radius:50%;
 
+
   border:1px solid var(--secondary-color);
+
 
   background:rgba(0,0,0,.35);
 
+
   color:#FFF8F0;
+
+
+  display:flex;
+
+
+  align-items:center;
+
+
+  justify-content:center;
+
 
   font-size:18px;
 
+
   cursor:pointer;
 
-  transition:.3s;
+
+  transition:.3s ease;
+
 
 }
 
 
 
-.slider-btn:hover {
+.hero-slider-btn:hover {
+
 
   background:var(--primary-color);
 
-  color:#FFF7ED;
+  color:white;
 
 }
 
 
 
-.prev {
+
+
+.hero-slider-btn.prev {
+
 
   left:30px;
 
@@ -228,7 +275,10 @@
 
 
 
-.next {
+
+
+.hero-slider-btn.next {
+
 
   left:90px;
 
@@ -240,9 +290,12 @@
 
 
 
-/* Pagination */
 
-.swiper-pagination {
+/* ================= PAGINATION ================= */
+
+
+.hero-slider .swiper-pagination {
+
 
   bottom:35px !important;
 
@@ -256,7 +309,10 @@
 
 
 
-.swiper-pagination-bullet {
+
+
+.hero-slider .swiper-pagination-bullet {
+
 
   width:10px;
 
@@ -270,11 +326,15 @@
 
 
 
-.swiper-pagination-bullet-active {
+
+
+.hero-slider .swiper-pagination-bullet-active {
+
 
   background:var(--primary-color) !important;
 
   opacity:1;
+
 
   box-shadow:
 
@@ -290,34 +350,82 @@
 
 
 
-/* موبایل */
+
+
+/* ================= MOBILE ================= */
+
 
 @media(max-width:650px){
 
 
-.slide-content {
 
-  margin-right:25px;
-
-  max-width:90%;
-
-}
+  .slide-content {
 
 
+    margin-right:25px;
 
-.slide-content h1 {
+    max-width:90%;
 
-  font-size:38px;
-
-}
+  }
 
 
 
-.slide-content p {
 
-  font-size:16px;
 
-}
+  .slide-content h1 {
+
+
+    font-size:38px;
+
+  }
+
+
+
+
+
+  .slide-content p {
+
+
+    font-size:16px;
+
+  }
+
+
+
+
+
+  .hero-slider-btn {
+
+
+    width:35px;
+
+    height:35px;
+
+    bottom:25px;
+
+  }
+
+
+
+
+
+  .hero-slider-btn.prev {
+
+
+    left:20px;
+
+  }
+
+
+
+
+
+  .hero-slider-btn.next {
+
+
+    left:65px;
+
+  }
 
 
 }
