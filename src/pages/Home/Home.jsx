@@ -4,6 +4,7 @@ import HeroSlider from "../../components/HeroSlider/HeroSlider";
 import MovieSection from "../../components/MovieSection/MovieSection";
 
 import { movies } from "../../data/movies";
+import { latestMovies } from "../../data/latestMovies";
 
 
 function Home() {
@@ -14,12 +15,10 @@ function Home() {
     <div className="home">
 
 
-      {/* Hero - Full Width */}
       <HeroSlider />
 
 
 
-      {/* All Home Sections */}
       <main className="home-container">
 
 
@@ -28,6 +27,16 @@ function Home() {
           title="Popular Movies"
 
           movies={movies}
+
+        />
+
+
+
+        <MovieSection
+
+          title="Latest Movies"
+
+          movies={latestMovies}
 
         />
 

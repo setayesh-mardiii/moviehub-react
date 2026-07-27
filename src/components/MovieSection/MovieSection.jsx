@@ -10,11 +10,11 @@ import { Link } from "react-router-dom";
 
 import {
   FaChevronLeft,
-  FaChevronRight,
-  FaStar
+  FaChevronRight
 } from "react-icons/fa";
 
 import "swiper/css";
+
 
 
 function MovieSection({ title, movies }) {
@@ -26,19 +26,21 @@ function MovieSection({ title, movies }) {
 
   return (
 
+
     <section className="movie-section">
+
 
 
       <div className="section-header">
 
 
-        <h2>
 
-          <FaStar />
+        <h2>
 
           {title}
 
         </h2>
+
 
 
 
@@ -65,7 +67,10 @@ function MovieSection({ title, movies }) {
 
 
 
+
+
       <div className="movie-slider-wrapper">
+
 
 
         <Swiper
@@ -78,10 +83,13 @@ function MovieSection({ title, movies }) {
           }}
 
 
+
           spaceBetween={18}
 
 
+
           breakpoints={{
+
 
 
             0:{
@@ -91,11 +99,13 @@ function MovieSection({ title, movies }) {
             },
 
 
+
             768:{
 
               slidesPerView:3,
 
             },
+
 
 
             1200:{
@@ -105,7 +115,9 @@ function MovieSection({ title, movies }) {
             }
 
 
+
           }}
+
 
 
           className="movie-slider"
@@ -113,6 +125,7 @@ function MovieSection({ title, movies }) {
 
 
         >
+
 
 
           {
@@ -140,6 +153,8 @@ function MovieSection({ title, movies }) {
 
 
       </div>
+
+
 
 
 
@@ -185,6 +200,7 @@ function MovieSection({ title, movies }) {
 
 
     </section>
+
 
   );
 
