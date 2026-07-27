@@ -34,8 +34,6 @@
 
 
 
-
-
 /* IMAGE */
 
 .movie-image {
@@ -69,8 +67,6 @@
   transform:scale(1.08);
 
 }
-
-
 
 
 
@@ -118,8 +114,6 @@
 
 
 
-
-
 /* HOVER CONTENT */
 
 .movie-hover-content {
@@ -151,8 +145,6 @@
   margin-bottom:15px;
 
 }
-
-
 
 
 
@@ -208,8 +200,6 @@
 
 
 
-
-
 /* BUTTON */
 
 .movie-overlay button {
@@ -248,6 +238,24 @@
 
 
 
+/* TABLET */
+
+@media(max-width:900px){
+
+
+  .movie-card {
+
+    width:200px;
+
+    height:300px;
+
+  }
+
+
+}
+
+
+
 
 
 /* MOBILE */
@@ -257,9 +265,55 @@
 
   .movie-card {
 
-    width:180px;
+    width:165px;
 
-    height:270px;
+    height:250px;
+
+  }
+
+
+  .movie-overlay {
+
+    padding:15px;
+
+  }
+
+
+  .movie-hover-content h3 {
+
+    font-size:17px;
+
+  }
+
+
+  .movie-hover-content p {
+
+    font-size:12px;
+
+  }
+
+
+  .movie-meta {
+
+    gap:5px;
+
+  }
+
+
+  .movie-meta span {
+
+    padding:4px 8px;
+
+    font-size:11px;
+
+  }
+
+
+  .movie-overlay button {
+
+    padding:8px;
+
+    font-size:13px;
 
   }
 

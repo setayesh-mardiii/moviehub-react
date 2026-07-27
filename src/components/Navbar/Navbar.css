@@ -124,6 +124,8 @@
 
 }
 
+
+
 .theme-toggle button:hover {
 
   transform:rotate(20deg) scale(1.05);
@@ -188,13 +190,6 @@
   transition:.3s ease;
 
 }
-
-
-
-
-
-
-
 /* ================= DESKTOP MENU ================= */
 
 
@@ -280,7 +275,6 @@
 
 
 
-
 /* ================= LOGO ================= */
 
 
@@ -326,6 +320,10 @@
 
 }
 
+
+
+
+
 /* ================= HOME HERO NAVBAR ================= */
 
 
@@ -363,8 +361,6 @@
 
 
 
-
-
 /* ================= SCROLLED NAVBAR ================= */
 
 
@@ -397,8 +393,6 @@
   color:#FFF7ED;
 
 }
-
-
 
 
 
@@ -448,8 +442,6 @@
   z-index:3001;
 
 }
-
-
 
 
 
@@ -521,40 +513,6 @@
   color:var(--primary-color);
 
 }
-
-
-
-/* خط فقط روی Hover موبایل */
-
-
-.mobile-menu a::after {
-
-  content:"";
-
-  position:absolute;
-
-  bottom:-7px;
-
-  left:0;
-
-  width:0;
-
-  height:2px;
-
-  background:var(--primary-color);
-
-  transition:.3s ease;
-
-}
-
-
-
-.mobile-menu a:hover::after {
-
-  width:100%;
-
-}
-
 /* ================= MOBILE SEARCH ================= */
 
 
@@ -724,12 +682,80 @@
 
 
 }
-/* ================= SEARCH ICON FINAL ================= */
 
 
-/* حالت عادی Light */
+
+
+
+
+
+/* موبایل خیلی کوچک */
+
+@media(max-width:380px){
+
+
+  .navbar {
+
+    padding:0 12px;
+
+  }
+
+
+
+  .logo span {
+
+    display:none;
+
+  }
+
+
+
+  .logo img {
+
+    width:42px;
+
+    height:42px;
+
+  }
+
+
+
+  .user-btn {
+
+    padding:7px 10px;
+
+    font-size:12px;
+
+  }
+
+
+
+  .mobile-menu-btn button {
+
+    width:36px;
+
+    height:36px;
+
+    font-size:16px;
+
+  }
+
+
+}
+
+
+
+
+
+
+
+/* ================= SEARCH ICON COLOR ================= */
+
+
+/* Light Mode */
 
 .search-box svg,
+
 .mobile-search svg {
 
   color:#000 !important;
@@ -738,9 +764,12 @@
 
 
 
+
+
 /* Dark Mode */
 
 body.dark .search-box svg,
+
 body.dark .mobile-search svg {
 
   color:#fff !important;
@@ -749,34 +778,12 @@ body.dark .mobile-search svg {
 
 
 
-/* فقط وقتی Home Hero شفاف است */
-
-body.dark .navbar.home-navbar:not(.scrolled) .search-box svg,
-body.dark .navbar.home-navbar:not(.scrolled) .mobile-search svg {
-
-  color:#fff !important;
-
-}
-
-/* Dark Mode */
-
-body.dark .search-box svg,
-body.dark .mobile-search svg {
-
-  color:var(--text-color);
-
-}
 
 
-
-
-
-
-
-/* Home Hero (Navbar شفاف روی عکس) */
-
+/* Home Hero transparent navbar */
 
 .navbar.home-navbar:not(.scrolled) .search-box svg,
+
 .navbar.home-navbar:not(.scrolled) .mobile-search svg {
 
   color:#fff;
