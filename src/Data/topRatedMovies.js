@@ -1,4 +1,4 @@
-import { movies } from "./movies";
+import { movies } from "./Movies";
 
 
 export const topRatedMovies = movies.filter((movie) => {

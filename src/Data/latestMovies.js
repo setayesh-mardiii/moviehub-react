@@ -1,4 +1,4 @@
-import { movies } from "./movies";
+import { movies } from "./Movies";
 
 
 export const latestMovies = movies.filter((movie) => {
