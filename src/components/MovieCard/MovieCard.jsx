@@ -4,15 +4,27 @@ import { Link } from "react-router-dom";
 
 import { FaStar } from "react-icons/fa";
 
+import { useState } from "react";
+
 
 
 function MovieCard({ movie }) {
 
 
+  const [showInfo, setShowInfo] = useState(false);
+
+
+
   return (
 
 
-    <div className="movie-card">
+    <div
+
+      className={`movie-card ${showInfo ? "show-info" : ""}`}
+
+      onClick={() => setShowInfo(!showInfo)}
+
+    >
 
 
 
@@ -100,9 +112,13 @@ function MovieCard({ movie }) {
 
 
 
+            <Link
 
+              to={`/movie/${movie.id}`}
 
-            <Link to={`/movie/${movie.id}`}>
+              onClick={(e)=>e.stopPropagation()}
+
+            >
 
 
 

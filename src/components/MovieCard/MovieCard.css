@@ -114,6 +114,26 @@
 
 
 
+/* MOBILE TOUCH STATE */
+
+.movie-card.show-info .movie-overlay {
+
+  opacity:1;
+
+}
+
+
+
+.movie-card.show-info .movie-image img {
+
+  transform:scale(1.08);
+
+}
+
+
+
+
+
 /* HOVER CONTENT */
 
 .movie-hover-content {
@@ -270,6 +290,35 @@
     height:250px;
 
   }
+
+
+
+  /* حذف رفتار Hover در موبایل */
+
+  .movie-card:hover {
+
+    transform:none;
+
+    box-shadow:0 3px 10px rgba(0,0,0,.12);
+
+  }
+
+
+
+  .movie-card:hover .movie-overlay {
+
+    opacity:0;
+
+  }
+
+
+
+  .movie-card:hover .movie-image img {
+
+    transform:scale(1);
+
+  }
+
 
 
   .movie-overlay {
