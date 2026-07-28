@@ -1,30 +1,30 @@
 
 
-import a1 from "../assets/images/a1.jpg";
-import a2 from "../assets/images/a2.jpg";
-import a3 from "../assets/images/a3.jpg";
-import a4 from "../assets/images/a4.jpg"
-import a5 from "../assets/images/a5.jpg";
-import a6 from "../assets/images/a6.jpg";
-import a7 from "../assets/images/a7.jpg";
-import a9 from "../assets/images/a9.jpg";
-import a10 from "../assets/images/a10.jpg";
-import a11 from "../assets/images/a11.jpg";
-import a12 from "../assets/images/a12.jpg";
-import a13 from "../assets/images/a13.jpg";
-import a14 from "../assets/images/a14.jpg";
-import a15 from "../assets/images/a15.jpg";
-import a16 from "../assets/images/a16.jpg";
-import a17 from "../assets/images/a17.jpg";
-import a18 from "../assets/images/a18.jpg";
-import a19 from "../assets/images/a19.jpg";
-import a20 from "../assets/images/a20.jpg";
-import a21 from "../assets/images/a21.jpg";
-import a22 from "../assets/images/a22.jpg";
-import a23 from "../assets/images/a23.jpg";
-import a24 from "../assets/images/a24.jpg";
-import a25 from "../assets/images/a25.jpg";
-import a26 from "../assets/images/a26.jpg";
+import a1 from "../assets/images/a1.JPG";
+import a2 from "../assets/images/a2.JPG";
+import a3 from "../assets/images/a3.JPG";
+import a4 from "../assets/images/a4.JPG"
+import a5 from "../assets/images/a5.JPG";
+import a6 from "../assets/images/a6.JPG";
+import a7 from "../assets/images/a7.JPG";
+import a9 from "../assets/images/a9.JPG";
+import a10 from "../assets/images/a10.JPG";
+import a11 from "../assets/images/a11.JPG";
+import a12 from "../assets/images/a12.JPG";
+import a13 from "../assets/images/a13.JPG";
+import a14 from "../assets/images/a14.JPG";
+import a15 from "../assets/images/a15.JPG";
+import a16 from "../assets/images/a16.JPG";
+import a17 from "../assets/images/a17.JPG";
+import a18 from "../assets/images/a18.JPG";
+import a19 from "../assets/images/a19.JPG";
+import a20 from "../assets/images/a20.JPG";
+import a21 from "../assets/images/a21.JPG";
+import a22 from "../assets/images/a22.JPG";
+import a23 from "../assets/images/a23.JPG";
+import a24 from "../assets/images/a24.JPG";
+import a25 from "../assets/images/a25.JPG";
+import a26 from "../assets/images/a26.JPG";
 
 
 export const movies = [

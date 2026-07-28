@@ -3,7 +3,7 @@ import "./Home.css";
 import HeroSlider from "../../components/HeroSlider/HeroSlider";
 import MovieSection from "../../components/MovieSection/MovieSection";
 
-import { movies } from "../../Data/movies";
+import { movies } from "../../Data/Movies";
 import { latestMovies } from "../../Data/latestMovies";
 import { topRatedMovies } from "../../Data/topRatedMovies";
 
