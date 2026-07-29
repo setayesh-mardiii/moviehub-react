@@ -4,12 +4,25 @@ import { Link } from "react-router-dom";
 
 import { FaStar } from "react-icons/fa";
 
+import { useState } from "react";
 
 
-function MovieCard({ movie, activeMovie, setActiveMovie }) {
+function MovieCard({ movie }) {
 
 
-  const showInfo = activeMovie === movie.id;
+  const [showInfo, setShowInfo] = useState(false);
+
+
+
+  const handleClick = () => {
+
+    if (window.matchMedia("(max-width: 650px)").matches) {
+
+      setShowInfo((prev) => !prev);
+
+    }
+
+  };
 
 
 
@@ -18,22 +31,9 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
 
     <div
 
-
       className={`movie-card ${showInfo ? "show-info" : ""}`}
 
-
-      onClick={() => {
-
-
-        setActiveMovie(
-
-          showInfo ? null : movie.id
-
-        );
-
-
-      }}
-
+      onClick={handleClick}
 
     >
 
@@ -63,28 +63,16 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
 
 
 
-            <h3>
-
-              {movie.title}
-
-            </h3>
+            <h3>{movie.title}</h3>
 
 
 
-
-
-            <p>
-
-              {movie.description}
-
-            </p>
-
+            <p>{movie.description}</p>
 
 
 
 
             <div className="movie-meta">
-
 
 
               <span>
@@ -96,25 +84,10 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
               </span>
 
 
+              <span>{movie.year}</span>
 
 
-
-              <span>
-
-                {movie.year}
-
-              </span>
-
-
-
-
-
-              <span>
-
-                {movie.genre}
-
-              </span>
-
+              <span>{movie.genre}</span>
 
 
             </div>
@@ -122,19 +95,13 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
 
 
 
-
             <Link
-
 
               to={`/movie/${movie.id}`}
 
-
-              onClick={(e) => e.stopPropagation()}
-
+              onClick={(e)=>e.stopPropagation()}
 
             >
-
-
 
               <button>
 
@@ -143,22 +110,17 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
               </button>
 
 
-
             </Link>
-
 
 
 
           </div>
 
 
-
         </div>
 
 
-
       </div>
-
 
 
     </div>

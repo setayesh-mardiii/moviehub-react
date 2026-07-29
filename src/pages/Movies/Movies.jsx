@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 import { movies } from "../../Data/Movies";
 
 import MovieCard from "../../components/MovieCard/MovieCard";
@@ -8,12 +6,7 @@ import MovieCard from "../../components/MovieCard/MovieCard";
 function Movies() {
 
 
-  const [activeMovie, setActiveMovie] = useState(null);
-
-
-
   return (
-
 
     <div style={{ paddingTop: "100px" }}>
 
@@ -23,44 +16,26 @@ function Movies() {
       </h1>
 
 
-
       <div className="movies-grid">
 
 
-        {
+        {movies.map((movie) => (
 
-          movies.map((movie) => (
+          <MovieCard
 
+            key={movie.id}
 
-            <MovieCard
+            movie={movie}
 
+          />
 
-              key={movie.id}
-
-
-              movie={movie}
-
-
-              activeMovie={activeMovie}
-
-
-              setActiveMovie={setActiveMovie}
-
-
-            />
-
-
-          ))
-
-        }
+        ))}
 
 
       </div>
 
 
-
     </div>
-
 
   );
 

@@ -1,11 +1,9 @@
 .movie-card {
 
   width:220px;
-
   height:330px;
 
   position:relative;
-
   overflow:hidden;
 
   cursor:pointer;
@@ -22,19 +20,40 @@
 
 
 
-.movie-card:hover {
+/* فقط دسکتاپ hover */
 
-  transform:translateY(-6px) scale(1.02);
+@media (min-width:651px) {
 
-  box-shadow:0 8px 18px rgba(0,0,0,.18);
+
+  .movie-card:hover {
+
+    transform:translateY(-6px) scale(1.02);
+
+    box-shadow:0 8px 18px rgba(0,0,0,.18);
+
+  }
+
+
+
+  .movie-card:hover .movie-image img {
+
+    transform:scale(1.08);
+
+  }
+
+
+
+  .movie-card:hover .movie-overlay {
+
+    opacity:1;
+
+  }
 
 }
 
 
 
 
-
-/* IMAGE */
 
 .movie-image {
 
@@ -62,17 +81,7 @@
 
 
 
-.movie-card:hover .movie-image img {
 
-  transform:scale(1.08);
-
-}
-
-
-
-
-
-/* OVERLAY */
 
 .movie-overlay {
 
@@ -104,17 +113,9 @@
 
 
 
-.movie-card:hover .movie-overlay {
-
-  opacity:1;
-
-}
 
 
-
-
-
-/* MOBILE CLICK STATE */
+/* کلیک موبایل */
 
 .movie-card.show-info .movie-overlay {
 
@@ -129,6 +130,11 @@
   transform:scale(1.08);
 
 }
+
+
+
+
+
 .movie-hover-content {
 
   color:white;
@@ -162,8 +168,6 @@
 
 
 
-
-/* META */
 
 .movie-meta {
 
@@ -205,15 +209,11 @@
 
   font-size:13px;
 
-  flex-shrink:0;
-
 }
 
 
 
 
-
-/* BUTTON */
 
 .movie-overlay button {
 
@@ -233,25 +233,11 @@
 
   font-size:14px;
 
-  transition:.3s ease;
-
-}
-
-
-
-.movie-overlay button:hover {
-
-  background:var(--secondary-color);
-
-  color:#222;
-
 }
 
 
 
 
-
-/* TABLET */
 
 @media(max-width:900px){
 
@@ -266,6 +252,11 @@
 
 
 }
+
+
+
+
+
 @media(max-width:650px){
 
 
@@ -279,7 +270,7 @@
 
 
 
-  /* جلوگیری از رفتار Hover روی موبایل */
+  /* حذف کامل hover موبایل */
 
   .movie-card:hover {
 
@@ -288,37 +279,6 @@
     box-shadow:0 3px 10px rgba(0,0,0,.12);
 
   }
-
-
-
-  /*
-    در موبایل اطلاعات فقط با کلیک/لمس باز می‌شود
-    نه با hover
-  */
-
-  .movie-card:hover .movie-overlay {
-
-    opacity:0;
-
-  }
-
-
-
-  .movie-card.show-info .movie-overlay {
-
-    opacity:1;
-
-  }
-
-
-
-  .movie-card.show-info .movie-image img {
-
-    transform:scale(1.08);
-
-  }
-
-
 
 
 
