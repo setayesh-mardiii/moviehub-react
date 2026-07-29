@@ -5,9 +5,7 @@ import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 
 
-
 function MovieCard({ movie, activeMovie, setActiveMovie }) {
-
 
 
   const showInfo = activeMovie === movie.id;
@@ -16,10 +14,10 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
 
   return (
 
-
     <div
 
       className={`movie-card ${showInfo ? "show-info" : ""}`}
+
 
       onClick={() => {
 
@@ -31,12 +29,18 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
 
       }}
 
+
+      onTouchStart={() => {
+
+        setActiveMovie(movie.id);
+
+      }}
+
     >
 
 
 
       <div className="movie-image">
-
 
 
         <img
@@ -49,13 +53,7 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
 
 
 
-
-        <div
-
-          className="movie-overlay"
-
-        >
-
+        <div className="movie-overlay">
 
 
           <div className="movie-hover-content">
@@ -70,7 +68,6 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
 
 
 
-
             <p>
 
               {movie.description}
@@ -79,10 +76,7 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
 
 
 
-
-
             <div className="movie-meta">
-
 
 
               <span>
@@ -95,13 +89,11 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
 
 
 
-
               <span>
 
                 {movie.year}
 
               </span>
-
 
 
 
@@ -117,8 +109,6 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
 
 
 
-
-
             <Link
 
               to={`/movie/${movie.id}`}
@@ -127,8 +117,6 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
 
             >
 
-
-
               <button>
 
                 مشاهده فیلم
@@ -136,24 +124,17 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
               </button>
 
 
-
             </Link>
-
-
 
 
 
           </div>
 
 
-
         </div>
 
 
-
-
       </div>
-
 
 
     </div>
