@@ -16,11 +16,16 @@ function MovieCard({ movie }) {
 
   const handleClick = () => {
 
-    if (window.matchMedia("(max-width: 650px)").matches) {
+
+    // فقط دستگاه‌های لمسی (موبایل/تبلت)
+    if ("ontouchstart" in window) {
+
 
       setShowInfo((prev) => !prev);
 
+
     }
+
 
   };
 
@@ -31,9 +36,12 @@ function MovieCard({ movie }) {
 
     <div
 
+
       className={`movie-card ${showInfo ? "show-info" : ""}`}
 
+
       onClick={handleClick}
+
 
     >
 
@@ -63,16 +71,28 @@ function MovieCard({ movie }) {
 
 
 
-            <h3>{movie.title}</h3>
+            <h3>
+
+              {movie.title}
+
+            </h3>
 
 
 
-            <p>{movie.description}</p>
+
+
+            <p>
+
+              {movie.description}
+
+            </p>
+
 
 
 
 
             <div className="movie-meta">
+
 
 
               <span>
@@ -84,10 +104,25 @@ function MovieCard({ movie }) {
               </span>
 
 
-              <span>{movie.year}</span>
 
 
-              <span>{movie.genre}</span>
+
+              <span>
+
+                {movie.year}
+
+              </span>
+
+
+
+
+
+              <span>
+
+                {movie.genre}
+
+              </span>
+
 
 
             </div>
@@ -95,13 +130,19 @@ function MovieCard({ movie }) {
 
 
 
+
             <Link
+
 
               to={`/movie/${movie.id}`}
 
-              onClick={(e)=>e.stopPropagation()}
+
+              onClick={(e) => e.stopPropagation()}
+
 
             >
+
+
 
               <button>
 
@@ -110,17 +151,22 @@ function MovieCard({ movie }) {
               </button>
 
 
+
             </Link>
+
 
 
 
           </div>
 
 
+
         </div>
 
 
+
       </div>
+
 
 
     </div>
