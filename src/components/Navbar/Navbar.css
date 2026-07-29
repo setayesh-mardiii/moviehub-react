@@ -531,8 +531,17 @@
 
 /* ================= RESPONSIVE ================= */
 
-
 @media(max-width:1024px){
+
+
+  .navbar {
+
+    justify-content:flex-start;
+
+    gap:15px;
+
+  }
+
 
 
   .nav-links {
@@ -546,6 +555,20 @@
   .mobile-menu-btn {
 
     display:flex;
+
+    align-items:center;
+
+  }
+
+
+
+  .left-actions {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
 
   }
 
@@ -565,10 +588,8 @@
 
   }
 
+
 }
-
-
-
 
 
 @media(max-width:650px){
@@ -580,6 +601,10 @@
 
     padding:0 15px;
 
+    justify-content:flex-start;
+
+    gap:8px;
+
   }
 
 
@@ -587,6 +612,7 @@
 
 
   /* ترتیب و راستای آیتم ها */
+
 
   .mobile-menu-btn {
 
@@ -598,6 +624,8 @@
 
 
 
+
+
   .left-actions {
 
     display:flex;
@@ -606,6 +634,8 @@
 
     gap:8px;
 
+    margin-left:0;
+
   }
 
 
@@ -613,6 +643,7 @@
 
 
   /* Theme */
+
 
   .theme-toggle {
 
@@ -637,6 +668,7 @@
 
 
   /* User فقط آیکون */
+
 
   .user-btn {
 
@@ -674,6 +706,7 @@
 
   /* حذف سرچ دسکتاپ */
 
+
   .search-box {
 
     display:none;
@@ -693,6 +726,7 @@
 
 
   /* لوگو */
+
 
   .nav-content {
 
@@ -736,10 +770,6 @@
 
 
 }
-
-
-
-
 
 @media(max-width:380px){
 
