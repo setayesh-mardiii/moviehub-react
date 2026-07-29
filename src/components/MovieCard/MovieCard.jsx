@@ -4,14 +4,13 @@ import { Link } from "react-router-dom";
 
 import { FaStar } from "react-icons/fa";
 
-import { useState } from "react";
+
+
+function MovieCard({ movie, activeMovie, setActiveMovie }) {
 
 
 
-function MovieCard({ movie }) {
-
-
-  const [showInfo, setShowInfo] = useState(false);
+  const showInfo = activeMovie === movie.id;
 
 
 
@@ -22,7 +21,15 @@ function MovieCard({ movie }) {
 
       className={`movie-card ${showInfo ? "show-info" : ""}`}
 
-      onClick={() => setShowInfo(!showInfo)}
+      onClick={() => {
+
+        setActiveMovie(
+
+          showInfo ? null : movie.id
+
+        );
+
+      }}
 
     >
 
@@ -43,8 +50,11 @@ function MovieCard({ movie }) {
 
 
 
+        <div
 
-        <div className="movie-overlay">
+          className="movie-overlay"
+
+        >
 
 
 
@@ -57,7 +67,6 @@ function MovieCard({ movie }) {
               {movie.title}
 
             </h3>
-
 
 
 
@@ -87,13 +96,11 @@ function MovieCard({ movie }) {
 
 
 
-
               <span>
 
                 {movie.year}
 
               </span>
-
 
 
 
@@ -116,7 +123,7 @@ function MovieCard({ movie }) {
 
               to={`/movie/${movie.id}`}
 
-              onClick={(e)=>e.stopPropagation()}
+              onClick={(e) => e.stopPropagation()}
 
             >
 
@@ -136,12 +143,12 @@ function MovieCard({ movie }) {
 
 
 
-
           </div>
 
 
 
         </div>
+
 
 
 
