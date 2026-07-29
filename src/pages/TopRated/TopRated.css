@@ -1,0 +1,67 @@
+.top-rated-page {
+
+  width:100%;
+
+  min-height:100vh;
+
+  background:var(--bg-color);
+
+  direction:rtl;
+
+}
+
+
+
+.top-rated-container {
+
+  width:100%;
+
+  max-width:1500px;
+
+  margin:0 auto;
+
+  padding:50px 60px;
+
+}
+
+
+
+
+
+/* HEADER */
+
+.top-rated-header {
+
+  margin-bottom:35px;
+
+  text-align:right;
+
+}
+
+
+
+.top-rated-header h1 {
+
+  color:var(--secondary-color);
+
+  font-size:28px;
+
+  font-weight:700;
+
+  margin:50px 0 10px;
+
+}
+
+
+
+.top-rated-header p {
+
+  color:var(--text-color);
+
+  font-size:16px;
+
+  opacity:.8;
+
+  margin:0;
+
+}
