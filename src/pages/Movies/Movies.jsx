@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { movies } from "../../Data/Movies";
+
 import MovieCard from "../../components/MovieCard/MovieCard";
 
 
@@ -28,6 +29,7 @@ function Movies() {
         {
           movies.map((movie) => (
 
+
             <MovieCard
 
               key={movie.id}
@@ -39,6 +41,7 @@ function Movies() {
               setActiveMovie={setActiveMovie}
 
             />
+
 
           ))
         }

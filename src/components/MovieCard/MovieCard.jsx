@@ -14,12 +14,15 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
 
   return (
 
+
     <div
+
 
       className={`movie-card ${showInfo ? "show-info" : ""}`}
 
 
       onClick={() => {
+
 
         setActiveMovie(
 
@@ -27,20 +30,16 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
 
         );
 
-      }}
-
-
-      onTouchStart={() => {
-
-        setActiveMovie(movie.id);
 
       }}
+
 
     >
 
 
 
       <div className="movie-image">
+
 
 
         <img
@@ -53,7 +52,10 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
 
 
 
+
+
         <div className="movie-overlay">
+
 
 
           <div className="movie-hover-content">
@@ -68,6 +70,8 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
 
 
 
+
+
             <p>
 
               {movie.description}
@@ -76,7 +80,10 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
 
 
 
+
+
             <div className="movie-meta">
+
 
 
               <span>
@@ -89,11 +96,15 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
 
 
 
+
+
               <span>
 
                 {movie.year}
 
               </span>
+
+
 
 
 
@@ -109,13 +120,20 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
 
 
 
+
+
             <Link
+
 
               to={`/movie/${movie.id}`}
 
+
               onClick={(e) => e.stopPropagation()}
 
+
             >
+
+
 
               <button>
 
@@ -124,17 +142,23 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
               </button>
 
 
+
             </Link>
+
+
 
 
 
           </div>
 
 
+
         </div>
 
 
+
       </div>
+
 
 
     </div>
