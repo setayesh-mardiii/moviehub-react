@@ -4,13 +4,12 @@ import { Link } from "react-router-dom";
 
 import { FaStar } from "react-icons/fa";
 
-import { useState } from "react";
 
 
-function MovieCard({ movie }) {
+function MovieCard({ movie, activeMovie, setActiveMovie }) {
 
 
-  const [showInfo, setShowInfo] = useState(false);
+  const showInfo = activeMovie === movie.id;
 
 
 
@@ -26,7 +25,11 @@ function MovieCard({ movie }) {
       onClick={() => {
 
 
-        setShowInfo((prev) => !prev);
+        setActiveMovie(
+
+          showInfo ? null : movie.id
+
+        );
 
 
       }}
@@ -47,6 +50,7 @@ function MovieCard({ movie }) {
           alt={movie.title}
 
         />
+
 
 
 
@@ -131,6 +135,7 @@ function MovieCard({ movie }) {
             >
 
 
+
               <button>
 
                 مشاهده فیلم
@@ -138,17 +143,22 @@ function MovieCard({ movie }) {
               </button>
 
 
+
             </Link>
+
 
 
 
           </div>
 
 
+
         </div>
 
 
+
       </div>
+
 
 
     </div>

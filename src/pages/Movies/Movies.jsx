@@ -1,9 +1,15 @@
+import { useState } from "react";
+
 import { movies } from "../../Data/Movies";
 
 import MovieCard from "../../components/MovieCard/MovieCard";
 
 
 function Movies() {
+
+
+  const [activeMovie, setActiveMovie] = useState(null);
+
 
 
   return (
@@ -13,16 +19,12 @@ function Movies() {
 
 
       <h1>
-
         Movies
-
       </h1>
 
 
 
-
       <div className="movies-grid">
-
 
 
         {
@@ -39,13 +41,18 @@ function Movies() {
               movie={movie}
 
 
+              activeMovie={activeMovie}
+
+
+              setActiveMovie={setActiveMovie}
+
+
             />
 
 
           ))
 
         }
-
 
 
       </div>
