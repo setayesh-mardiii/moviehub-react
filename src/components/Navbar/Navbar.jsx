@@ -1,6 +1,6 @@
 import "./Navbar.css";
 
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { NavLink, Link, useLocation } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 
 import {
@@ -59,6 +59,15 @@ function Navbar() {
 
 
 
+  const closeMenu = () => {
+
+    setMenuOpen(false);
+
+  };
+
+
+
+
   return (
 
     <nav
@@ -73,25 +82,34 @@ function Navbar() {
 
 
 
+      {/* Hamburger */}
+
       <div className="mobile-menu-btn">
 
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
+        <button onClick={() => setMenuOpen(!menuOpen)}>
 
           {
             menuOpen
-            ?
-            <FaTimes />
-            :
-            <FaBars />
+              ?
+              <FaTimes />
+              :
+              <FaBars />
           }
 
         </button>
 
       </div>
-            <div className="left-actions">
 
+
+
+
+
+      {/* Left Actions */}
+
+      <div className="left-actions">
+
+
+        {/* Theme */}
 
         <div className="theme-toggle">
 
@@ -99,10 +117,10 @@ function Navbar() {
 
             {
               darkMode
-              ?
-              <FaMoon />
-              :
-              <FaSun />
+                ?
+                <FaMoon />
+                :
+                <FaSun />
             }
 
           </button>
@@ -111,14 +129,26 @@ function Navbar() {
 
 
 
-        <Link 
+
+
+        {/* User */}
+
+        <Link
+
           to="/login"
+
           className="user-btn"
+
         >
 
           <FaUser />
 
-          Login | Register
+          <span>
+
+            Login | Register
+
+          </span>
+
 
         </Link>
 
@@ -128,6 +158,9 @@ function Navbar() {
 
 
 
+
+
+      {/* Desktop Search */}
 
       <div className="search-box">
 
@@ -141,8 +174,6 @@ function Navbar() {
         />
 
 
-        {/* رنگ آیکون از CSS کنترل می‌شود */}
-
         <FaSearch />
 
 
@@ -154,85 +185,47 @@ function Navbar() {
 
 
 
+
+      {/* Logo + Links */}
+
       <div className="nav-content">
+
 
 
         <ul className="nav-links">
 
 
           <li>
-
-            <NavLink to="/">
-
-              Home
-
-            </NavLink>
-
+            <NavLink to="/">Home</NavLink>
           </li>
 
 
-
           <li>
-
-            <NavLink to="/movies">
-
-              Movies
-
-            </NavLink>
-
+            <NavLink to="/movies">Movies</NavLink>
           </li>
 
 
-
           <li>
-
-            <NavLink to="/series">
-
-              Series
-
-            </NavLink>
-
+            <NavLink to="/series">Series</NavLink>
           </li>
 
 
-
           <li>
-
-            <NavLink to="/genres">
-
-              Genres
-
-            </NavLink>
-
+            <NavLink to="/genres">Genres</NavLink>
           </li>
 
 
-
           <li>
-
-            <NavLink to="/top-rated">
-
-              Top Rated
-
-            </NavLink>
-
+            <NavLink to="/top-rated">Top Rated</NavLink>
           </li>
 
 
-
           <li>
-
-            <NavLink to="/about">
-
-              About Us
-
-            </NavLink>
-
+            <NavLink to="/about">About Us</NavLink>
           </li>
 
 
         </ul>
-
 
 
 
@@ -250,7 +243,6 @@ function Navbar() {
           />
 
 
-
           <span>
 
             Movie<strong>Hub</strong>
@@ -261,19 +253,23 @@ function Navbar() {
         </div>
 
 
-
       </div>
-            {/* Mobile Menu */}
 
+
+
+
+
+
+
+
+
+      {/* Mobile Menu */}
 
       <div
 
-        className={`mobile-menu ${
-          menuOpen ? "active" : ""
-        }`}
+        className={`mobile-menu ${menuOpen ? "active" : ""}`}
 
       >
-
 
 
         <div className="mobile-search">
@@ -288,9 +284,6 @@ function Navbar() {
           />
 
 
-
-          {/* رنگ آیکون از CSS کنترل می‌شود */}
-
           <FaSearch />
 
 
@@ -300,100 +293,39 @@ function Navbar() {
 
 
 
-
-
-        <NavLink
-
-          onClick={() => setMenuOpen(false)}
-
-          to="/"
-
-        >
-
+        <NavLink onClick={closeMenu} to="/">
           Home
-
         </NavLink>
 
 
-
-
-
-        <NavLink
-
-          onClick={() => setMenuOpen(false)}
-
-          to="/movies"
-
-        >
-
+        <NavLink onClick={closeMenu} to="/movies">
           Movies
-
         </NavLink>
 
 
-
-
-
-        <NavLink
-
-          onClick={() => setMenuOpen(false)}
-
-          to="/series"
-
-        >
-
+        <NavLink onClick={closeMenu} to="/series">
           Series
-
         </NavLink>
 
 
-
-
-
-        <NavLink
-
-          onClick={() => setMenuOpen(false)}
-
-          to="/genres"
-
-        >
-
+        <NavLink onClick={closeMenu} to="/genres">
           Genres
-
         </NavLink>
 
 
-
-
-
-        <NavLink
-
-          onClick={() => setMenuOpen(false)}
-
-          to="/top-rated"
-
-        >
-
+        <NavLink onClick={closeMenu} to="/top-rated">
           Top Rated
-
         </NavLink>
 
 
-
-
-
-        <NavLink
-
-          onClick={() => setMenuOpen(false)}
-
-          to="/about"
-
-        >
-
+        <NavLink onClick={closeMenu} to="/about">
           About Us
-
         </NavLink>
-              </div>
+
+
+
+       
+      </div>
 
 
 
@@ -402,7 +334,6 @@ function Navbar() {
   );
 
 }
-
 
 
 export default Navbar;

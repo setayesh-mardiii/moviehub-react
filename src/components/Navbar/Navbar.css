@@ -40,9 +40,7 @@
 
 
 
-
-
-/* ================= LEFT ================= */
+/* ================= LEFT ACTIONS ================= */
 
 
 .left-actions {
@@ -63,6 +61,8 @@
 
   align-items:center;
 
+  justify-content:center;
+
   gap:10px;
 
   background:var(--primary-color);
@@ -75,7 +75,7 @@
 
   text-decoration:none;
 
-  transition:.3s;
+  transition:.3s ease;
 
   white-space:nowrap;
 
@@ -90,6 +90,7 @@
   color:#2B1717 !important;
 
 }
+
 
 
 
@@ -130,11 +131,6 @@
   transform:rotate(20deg) scale(1.05);
 
 }
-
-
-
-
-
 /* ================= SEARCH ================= */
 
 
@@ -186,10 +182,13 @@
 
   transform:translateY(-50%);
 
-  transition:.3s ease;
-
 }
-/* ================= DESKTOP MENU ================= */
+
+
+
+
+
+/* ================= NAV CONTENT ================= */
 
 
 .nav-content {
@@ -318,12 +317,7 @@
   color:var(--primary-color);
 
 }
-
-
-
-
-
-/* ================= HOME HERO NAVBAR ================= */
+/* ================= HOME NAVBAR ================= */
 
 
 .navbar.home-navbar:not(.scrolled) .nav-links a {
@@ -360,7 +354,7 @@
 
 
 
-/* ================= SCROLLED NAVBAR ================= */
+/* ================= SCROLLED ================= */
 
 
 .navbar.scrolled .nav-links a {
@@ -387,17 +381,9 @@
 
 
 
-.navbar.scrolled .user-btn {
-
-  color:#FFF7ED;
-
-}
 
 
-
-
-
-/* ================= HAMBURGER FIX ================= */
+/* ================= HAMBURGER ================= */
 
 
 .mobile-menu-btn {
@@ -435,10 +421,6 @@
   align-items:center;
 
   justify-content:center;
-
-  position:relative;
-
-  z-index:3001;
 
 }
 
@@ -499,18 +481,6 @@
 
   font-size:18px;
 
-  position:relative;
-
-  transition:.3s ease;
-
-}
-
-
-
-.mobile-menu a:hover {
-
-  color:var(--primary-color);
-
 }
 /* ================= MOBILE SEARCH ================= */
 
@@ -553,11 +523,7 @@
 
   transform:translateY(-50%);
 
-  transition:.3s ease;
-
 }
-
-
 
 
 
@@ -599,10 +565,7 @@
 
   }
 
-
 }
-
-
 
 
 
@@ -615,19 +578,101 @@
 
     height:70px;
 
-    padding:0 20px;
+    padding:0 15px;
 
   }
 
 
 
+
+
+  /* ترتیب و راستای آیتم ها */
+
+  .mobile-menu-btn {
+
+    display:flex;
+
+    align-items:center;
+
+  }
+
+
+
+  .left-actions {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+  }
+
+
+
+
+
+  /* Theme */
+
   .theme-toggle {
+
+    display:flex;
+
+  }
+
+
+
+  .theme-toggle button {
+
+    width:38px;
+
+    height:38px;
+
+    font-size:15px;
+
+  }
+
+
+
+
+
+  /* User فقط آیکون */
+
+  .user-btn {
+
+    width:38px;
+
+    height:38px;
+
+    padding:0;
+
+    border-radius:50%;
+
+    justify-content:center;
+
+  }
+
+
+
+  .user-btn span {
 
     display:none;
 
   }
 
 
+
+  .user-btn svg {
+
+    font-size:18px;
+
+  }
+
+
+
+
+
+  /* حذف سرچ دسکتاپ */
 
   .search-box {
 
@@ -645,65 +690,29 @@
 
 
 
-  .logo img {
-
-    width:45px;
-
-    height:45px;
-
-  }
 
 
-
-  .logo span {
-
-    font-size:17px;
-
-  }
-
-
-
-  .user-btn {
-
-    padding:8px 15px;
-
-    font-size:13px;
-
-  }
-
-
+  /* لوگو */
 
   .nav-content {
 
     margin-left:auto;
 
-  }
+    display:flex;
 
-
-}
-
-
-
-
-
-
-
-/* موبایل خیلی کوچک */
-
-@media(max-width:380px){
-
-
-  .navbar {
-
-    padding:0 12px;
+    align-items:center;
 
   }
 
 
 
-  .logo span {
+  .logo {
 
-    display:none;
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
 
   }
 
@@ -719,11 +728,43 @@
 
 
 
-  .user-btn {
+  .logo span {
 
-    padding:7px 10px;
+    font-size:17px;
 
-    font-size:12px;
+  }
+
+
+}
+
+
+
+
+
+@media(max-width:380px){
+
+
+  .navbar {
+
+    padding:0 10px;
+
+  }
+
+
+
+  .logo span {
+
+    display:none;
+
+  }
+
+
+
+  .logo img {
+
+    width:38px;
+
+    height:38px;
 
   }
 
@@ -735,10 +776,27 @@
 
     height:36px;
 
-    font-size:16px;
+  }
+
+
+
+  .user-btn {
+
+    width:36px;
+
+    height:36px;
 
   }
 
+
+
+  .theme-toggle button {
+
+    width:36px;
+
+    height:36px;
+
+  }
 
 }
 
@@ -746,12 +804,8 @@
 
 
 
-
-
 /* ================= SEARCH ICON COLOR ================= */
 
-
-/* Light Mode */
 
 .search-box svg,
 
@@ -763,28 +817,10 @@
 
 
 
-
-
-/* Dark Mode */
-
 body.dark .search-box svg,
 
 body.dark .mobile-search svg {
 
   color:#fff !important;
-
-}
-
-
-
-
-
-/* Home Hero transparent navbar */
-
-.navbar.home-navbar:not(.scrolled) .search-box svg,
-
-.navbar.home-navbar:not(.scrolled) .mobile-search svg {
-
-  color:#fff;
 
 }
