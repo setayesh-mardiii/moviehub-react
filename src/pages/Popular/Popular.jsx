@@ -14,41 +14,46 @@ function Popular() {
     <section className="popular-page">
 
 
-      <div className="popular-header">
+      <div className="popular-container">
 
 
-        <h1>
-          Popular Movies
-        </h1>
+        <div className="popular-header">
 
 
-        <p>
-          Discover the most popular movies loved by audiences
-        </p>
+          <h1>
+            فیلم‌های محبوب
+          </h1>
 
 
-      </div>
+          <p>
+            محبوب‌ترین فیلم‌هایی که بیشترین توجه و امتیاز را از کاربران گرفته‌اند
+          </p>
+
+
+        </div>
 
 
 
 
+        <div className="movies-grid">
 
-      <div className="movies-grid">
+
+          {
+            popularMovies.map((movie)=>(
+
+              <MovieCard
+
+                key={movie.id}
+
+                movie={movie}
+
+              />
+
+            ))
+          }
 
 
-        {
-          popularMovies.map((movie) => (
-
-            <MovieCard
-
-              key={movie.id}
-
-              movie={movie}
-
-            />
-
-          ))
-        }
+        </div>
 
 
       </div>
@@ -59,7 +64,6 @@ function Popular() {
   );
 
 }
-
 
 
 export default Popular;

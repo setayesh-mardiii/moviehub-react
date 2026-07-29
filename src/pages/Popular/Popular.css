@@ -1,10 +1,26 @@
 .popular-page {
 
+  width:100%;
+
   min-height:100vh;
 
-  padding:120px 50px 60px;
+  background:var(--bg-color);
 
-  background:var(--background-color);
+  direction:rtl;
+
+}
+
+
+
+.popular-container {
+
+  width:100%;
+
+  max-width:1500px;
+
+  margin:0 auto;
+
+  padding:50px 60px;
 
 }
 
@@ -16,9 +32,9 @@
 
 .popular-header {
 
-  text-align:center;
+  margin-bottom:35px;
 
-  margin-bottom:50px;
+  text-align:right;
 
 }
 
@@ -26,21 +42,27 @@
 
 .popular-header h1 {
 
-  font-size:42px;
+  color:var(--secondary-color);
 
-  color:var(--text-color);
+  font-size:28px;
 
-  margin-bottom:15px;
+  font-weight:700;
 
+  margin:50px 0 10px;
+  
 }
 
 
 
 .popular-header p {
 
-  color:var(--muted-color);
+  color:var(--text-color);
 
-  font-size:17px;
+  font-size:16px;
+
+  opacity:.8;
+
+  margin:0;
 
 }
 
@@ -48,19 +70,21 @@
 
 
 
-/* MOVIES GRID */
+/* GRID */
 
 .movies-grid {
 
   display:grid;
 
-  grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns:repeat(auto-fit,220px);
 
-  gap:35px;
+  justify-content:center;
 
-  justify-items:center;
+  gap:30px;
 
 }
+
+
 
 
 
@@ -68,26 +92,20 @@
 
 /* TABLET */
 
-@media(max-width:1024px){
+@media(max-width:900px){
 
 
-  .popular-page {
+  .popular-container {
 
-    padding:110px 30px 50px;
-
-  }
-
-
-
-  .popular-header h1 {
-
-    font-size:36px;
+    padding:40px 35px;
 
   }
 
 
 
   .movies-grid {
+
+    grid-template-columns:repeat(3,220px);
 
     gap:25px;
 
@@ -100,38 +118,16 @@
 
 
 
+
+
 /* MOBILE */
 
 @media(max-width:650px){
 
 
-  .popular-page {
+  .popular-container {
 
-    padding:100px 15px 40px;
-
-  }
-
-
-
-  .popular-header {
-
-    margin-bottom:30px;
-
-  }
-
-
-
-  .popular-header h1 {
-
-    font-size:28px;
-
-  }
-
-
-
-  .popular-header p {
-
-    font-size:14px;
+    padding:35px 15px;
 
   }
 
@@ -139,9 +135,25 @@
 
   .movies-grid {
 
-    grid-template-columns:repeat(2, 1fr);
+    grid-template-columns:repeat(2,160px);
 
     gap:20px;
+
+  }
+
+
+
+  .popular-header h1 {
+
+    font-size:22px;
+
+  }
+
+
+
+  .popular-header p {
+
+    font-size:13px;
 
   }
 

@@ -1,0 +1,99 @@
+
+.category-page {
+
+  padding:40px 60px;
+
+  direction:rtl;
+
+  background:var(--bg-color);
+
+  min-height:100vh;
+
+}
+
+
+
+
+
+.category-page h1 {
+
+  color:var(--secondary-color);
+
+  font-size:28px;
+
+  font-weight:700;
+
+  margin-bottom:35px;
+
+}
+
+
+
+
+
+.category-movies {
+
+  display:grid;
+
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+
+  gap:30px;
+
+}
+
+
+
+
+
+@media(max-width:900px){
+
+
+  .category-page {
+
+    padding:35px;
+
+  }
+
+
+  .category-movies {
+
+    gap:25px;
+
+  }
+
+
+}
+
+
+
+
+
+@media(max-width:650px){
+
+
+  .category-page {
+
+    padding:25px 20px;
+
+  }
+
+
+
+  .category-page h1 {
+
+    font-size:22px;
+
+  }
+
+
+
+  .category-movies {
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+  }
+
+
+}
