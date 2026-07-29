@@ -4,29 +4,23 @@ import { Link } from "react-router-dom";
 
 import { FaStar } from "react-icons/fa";
 
+import { useState } from "react";
 
 
-function MovieCard({ movie, activeMovie, setActiveMovie }) {
+function MovieCard({ movie }) {
 
 
-
-  const showInfo = activeMovie === movie.id;
+  const [showInfo, setShowInfo] = useState(false);
 
 
 
   const handleClick = () => {
 
 
-    // فقط موبایل و دستگاه لمسی
-
-    if ("ontouchstart" in window) {
+    if (window.matchMedia("(pointer: coarse)").matches) {
 
 
-      setActiveMovie(
-
-        showInfo ? null : movie.id
-
-      );
+      setShowInfo((prev) => !prev);
 
 
     }
@@ -41,19 +35,14 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
 
     <div
 
-
       className={`movie-card ${showInfo ? "show-info" : ""}`}
 
-
       onClick={handleClick}
-
 
     >
 
 
-
       <div className="movie-image">
-
 
 
         <img
@@ -66,38 +55,20 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
 
 
 
-
-
         <div className="movie-overlay">
-
 
 
           <div className="movie-hover-content">
 
 
-
-            <h3>
-
-              {movie.title}
-
-            </h3>
+            <h3>{movie.title}</h3>
 
 
-
-
-
-            <p>
-
-              {movie.description}
-
-            </p>
-
-
+            <p>{movie.description}</p>
 
 
 
             <div className="movie-meta">
-
 
 
               <span>
@@ -109,45 +80,23 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
               </span>
 
 
+              <span>{movie.year}</span>
 
 
-
-              <span>
-
-                {movie.year}
-
-              </span>
-
-
-
-
-
-              <span>
-
-                {movie.genre}
-
-              </span>
-
+              <span>{movie.genre}</span>
 
 
             </div>
 
 
 
-
-
             <Link
-
 
               to={`/movie/${movie.id}`}
 
-
-              onClick={(e) => e.stopPropagation()}
-
+              onClick={(e)=>e.stopPropagation()}
 
             >
-
-
 
               <button>
 
@@ -156,22 +105,17 @@ function MovieCard({ movie, activeMovie, setActiveMovie }) {
               </button>
 
 
-
             </Link>
-
 
 
 
           </div>
 
 
-
         </div>
 
 
-
       </div>
-
 
 
     </div>
