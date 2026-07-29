@@ -1,6 +1,9 @@
+import "./Movies.css";
+
 import { movies } from "../../Data/Movies";
 
 import MovieCard from "../../components/MovieCard/MovieCard";
+
 
 
 function Movies() {
@@ -8,41 +11,75 @@ function Movies() {
 
   return (
 
-    <div style={{ paddingTop: "100px" }}>
+
+    <section className="movies-page">
 
 
-      <h1>
-        Movies
-      </h1>
+      <div className="movies-container">
 
 
 
-      <div className="movies-grid">
+        <div className="movies-header">
 
 
-        {movies.map((movie) => (
+          <h1>
+
+            همه فیلم‌ها
+
+          </h1>
 
 
-          <MovieCard
 
-            key={movie.id}
+          <p>
 
-            movie={movie}
+            مجموعه‌ای از جدیدترین و محبوب‌ترین فیلم‌های سینمایی
 
-          />
+          </p>
 
 
-        ))}
+
+        </div>
+
+
+
+
+
+        <div className="movies-grid">
+
+
+          {
+
+            movies.map((movie)=>(
+
+
+              <MovieCard
+
+                key={movie.id}
+
+                movie={movie}
+
+              />
+
+
+            ))
+
+          }
+
+
+        </div>
+
 
 
       </div>
 
 
-    </div>
+    </section>
+
 
   );
 
 }
+
 
 
 export default Movies;
