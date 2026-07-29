@@ -1,0 +1,149 @@
+.popular-page {
+
+  min-height:100vh;
+
+  padding:120px 50px 60px;
+
+  background:var(--background-color);
+
+}
+
+
+
+
+
+/* HEADER */
+
+.popular-header {
+
+  text-align:center;
+
+  margin-bottom:50px;
+
+}
+
+
+
+.popular-header h1 {
+
+  font-size:42px;
+
+  color:var(--text-color);
+
+  margin-bottom:15px;
+
+}
+
+
+
+.popular-header p {
+
+  color:var(--muted-color);
+
+  font-size:17px;
+
+}
+
+
+
+
+
+/* MOVIES GRID */
+
+.movies-grid {
+
+  display:grid;
+
+  grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+
+  gap:35px;
+
+  justify-items:center;
+
+}
+
+
+
+
+
+/* TABLET */
+
+@media(max-width:1024px){
+
+
+  .popular-page {
+
+    padding:110px 30px 50px;
+
+  }
+
+
+
+  .popular-header h1 {
+
+    font-size:36px;
+
+  }
+
+
+
+  .movies-grid {
+
+    gap:25px;
+
+  }
+
+
+}
+
+
+
+
+
+/* MOBILE */
+
+@media(max-width:650px){
+
+
+  .popular-page {
+
+    padding:100px 15px 40px;
+
+  }
+
+
+
+  .popular-header {
+
+    margin-bottom:30px;
+
+  }
+
+
+
+  .popular-header h1 {
+
+    font-size:28px;
+
+  }
+
+
+
+  .popular-header p {
+
+    font-size:14px;
+
+  }
+
+
+
+  .movies-grid {
+
+    grid-template-columns:repeat(2, 1fr);
+
+    gap:20px;
+
+  }
+
+
+}

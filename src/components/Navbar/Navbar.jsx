@@ -160,6 +160,7 @@ function Navbar() {
 
 
 
+
       {/* Desktop Search */}
 
       <div className="search-box">
@@ -207,6 +208,11 @@ function Navbar() {
 
           <li>
             <NavLink to="/series">Series</NavLink>
+          </li>
+
+
+          <li>
+            <NavLink to="/popular">Popular</NavLink>
           </li>
 
 
@@ -262,7 +268,6 @@ function Navbar() {
 
 
 
-
       {/* Mobile Menu */}
 
       <div
@@ -308,6 +313,11 @@ function Navbar() {
         </NavLink>
 
 
+        <NavLink onClick={closeMenu} to="/popular">
+          Popular
+        </NavLink>
+
+
         <NavLink onClick={closeMenu} to="/genres">
           Genres
         </NavLink>
@@ -324,7 +334,6 @@ function Navbar() {
 
 
 
-       
       </div>
 
 
