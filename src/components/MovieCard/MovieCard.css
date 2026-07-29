@@ -20,6 +20,8 @@
 
 
 
+
+
 /* فقط دسکتاپ hover */
 
 @media (min-width:651px) {
@@ -90,13 +92,9 @@
   inset:0;
 
   background:linear-gradient(
-
     to top,
-
     rgba(0,0,0,.9),
-
     rgba(0,0,0,.15)
-
   );
 
   display:flex;
@@ -262,9 +260,9 @@
 
   .movie-card {
 
-    width:165px;
+    width:160px;
 
-    height:250px;
+    height:245px;
 
   }
 

@@ -260,7 +260,7 @@
 
   .genre-page-grid {
 
-    grid-template-columns:repeat(3,120px);
+    grid-template-columns:repeat(2,120px);
 
     gap:20px;
 
