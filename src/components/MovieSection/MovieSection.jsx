@@ -4,7 +4,7 @@ import MovieCard from "../MovieCard/MovieCard";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -21,6 +21,9 @@ function MovieSection({ title, movies }) {
 
 
   const swiperRef = useRef(null);
+
+
+  const [activeMovie, setActiveMovie] = useState(null);
 
 
 
@@ -62,7 +65,6 @@ function MovieSection({ title, movies }) {
 
 
       </div>
-
 
 
 
@@ -136,7 +138,17 @@ function MovieSection({ title, movies }) {
               <SwiperSlide key={movie.id}>
 
 
-                <MovieCard movie={movie}/>
+                <MovieCard
+
+                  movie={movie}
+
+                  showInfo={activeMovie === movie.id}
+
+                  setShowInfo={() => setActiveMovie(movie.id)}
+
+                  closeInfo={() => setActiveMovie(null)}
+
+                />
 
 
               </SwiperSlide>
@@ -176,6 +188,7 @@ function MovieSection({ title, movies }) {
           <FaChevronRight />
 
         </button>
+
 
 
 

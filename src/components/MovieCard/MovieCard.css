@@ -10,7 +10,7 @@
 
   background:#111;
 
-  border-radius:45px 20px 55px 30px;
+  border-radius:25px;
 
   transition:.35s ease;
 
@@ -20,11 +20,9 @@
 
 
 
+/* فقط دسکتاپ Hover */
 
-
-/* فقط دسکتاپ hover */
-
-@media (min-width:651px) {
+@media (min-width:901px) {
 
 
   .movie-card:hover {
@@ -91,19 +89,24 @@
 
   inset:0;
 
+
   background:linear-gradient(
     to top,
     rgba(0,0,0,.9),
     rgba(0,0,0,.15)
   );
 
+
   display:flex;
 
   align-items:flex-end;
 
+
   padding:20px;
 
+
   opacity:0;
+
 
   transition:.4s ease;
 
@@ -113,7 +116,7 @@
 
 
 
-/* کلیک موبایل */
+/* Click در Tablet و Mobile */
 
 .movie-card.show-info .movie-overlay {
 
@@ -141,9 +144,13 @@
 
 
 
+
+
 .movie-hover-content h3 {
 
   font-size:20px;
+
+  font-weight:700;
 
   margin-bottom:10px;
 
@@ -151,9 +158,13 @@
 
 
 
+
+
 .movie-hover-content p {
 
   font-size:13px;
+
+  font-weight:500;
 
   line-height:1.6;
 
@@ -181,6 +192,8 @@
 
 
 
+
+
 .movie-meta span {
 
   display:flex;
@@ -189,15 +202,22 @@
 
   gap:5px;
 
-  background:rgba(255,107,0,.18);
+
+  background:rgba(255,255,255,.15);
+
 
   padding:5px 10px;
 
   border-radius:20px;
 
+
   font-size:12px;
 
+  font-weight:600;
+
 }
+
+
 
 
 
@@ -217,25 +237,34 @@
 
   width:100%;
 
+
   padding:10px;
+
 
   border:none;
 
   border-radius:25px;
 
+
   background:var(--primary-color);
 
   color:white;
 
+
   cursor:pointer;
 
+
   font-size:14px;
+
+  font-weight:700;
 
 }
 
 
 
 
+
+/* TABLET */
 
 @media(max-width:900px){
 
@@ -255,6 +284,8 @@
 
 
 
+/* MOBILE */
+
 @media(max-width:650px){
 
 
@@ -263,18 +294,6 @@
     width:160px;
 
     height:245px;
-
-  }
-
-
-
-  /* حذف کامل hover موبایل */
-
-  .movie-card:hover {
-
-    transform:none;
-
-    box-shadow:0 3px 10px rgba(0,0,0,.12);
 
   }
 
