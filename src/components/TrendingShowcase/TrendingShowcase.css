@@ -372,47 +372,23 @@
 
 
 }
-
-
-
-
-
-
-
-
-
-/* Mobile */
-
+/* موبایل */
 @media(max-width:650px){
-
-
-  .trending-showcase {
-
-    padding:35px 0;
-
-  }
-
-
-
-  .trending-showcase h2 {
-
-    font-size:22px;
-
-  }
-
-
 
   .trending-container {
 
-    flex-direction:column;
+    flex-direction:row;
+
+    gap:12px;
 
   }
-
 
 
   .featured-movie {
 
-    height:420px;
+    height:360px;
+
+    width:70%;
 
   }
 
@@ -420,13 +396,13 @@
 
   .small-movies {
 
-    width:100%;
+    width:30%;
 
-    display:grid;
+    display:flex;
 
-    grid-template-columns:repeat(3,1fr);
+    flex-direction:column;
 
-    gap:12px;
+    gap:10px;
 
   }
 
@@ -434,7 +410,7 @@
 
   .small-movie {
 
-    height:120px;
+    height:110px;
 
   }
 
@@ -442,7 +418,7 @@
 
   .featured-info {
 
-    padding:20px;
+    padding:15px;
 
   }
 
@@ -450,7 +426,7 @@
 
   .featured-info h3 {
 
-    font-size:24px;
+    font-size:20px;
 
   }
 
@@ -458,9 +434,10 @@
 
   .featured-info p {
 
-    font-size:13px;
+    font-size:11px;
 
   }
+
 
 
 }
