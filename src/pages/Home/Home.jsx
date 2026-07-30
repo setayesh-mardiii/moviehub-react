@@ -1,5 +1,7 @@
 import "./Home.css";
 
+import { useState } from "react";
+
 
 import HeroSlider from "../../components/HeroSlider/HeroSlider";
 import MovieSection from "../../components/MovieSection/MovieSection";
@@ -15,16 +17,26 @@ import { topRatedMovies } from "../../Data/topRatedMovies";
 function Home() {
 
 
+  const [activeMovie, setActiveMovie] = useState(null);
+
+
+
   return (
 
+
     <div className="home">
+
 
 
       <HeroSlider />
 
 
 
+
+
       <main className="home-container">
+
+
 
 
 
@@ -34,9 +46,15 @@ function Home() {
 
           movies={movies}
 
+          activeMovie={activeMovie}
+
+          setActiveMovie={setActiveMovie}
+
           sectionClass="popular-section"
 
         />
+
+
 
 
 
@@ -48,9 +66,15 @@ function Home() {
 
           movies={latestMovies}
 
+          activeMovie={activeMovie}
+
+          setActiveMovie={setActiveMovie}
+
           sectionClass="latest-section"
 
         />
+
+
 
 
 
@@ -62,9 +86,15 @@ function Home() {
 
           movies={topRatedMovies}
 
+          activeMovie={activeMovie}
+
+          setActiveMovie={setActiveMovie}
+
           sectionClass="top-rated-section"
 
         />
+
+
 
 
 
@@ -74,10 +104,15 @@ function Home() {
 
 
 
+
+
       </main>
 
 
+
+
     </div>
+
 
   );
 

@@ -4,7 +4,7 @@ import MovieCard from "../MovieCard/MovieCard";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -17,13 +17,16 @@ import "swiper/css";
 
 
 
-function MovieSection({ title, movies }) {
+function MovieSection({ 
+  title, 
+  movies, 
+  activeMovie, 
+  setActiveMovie 
+}) {
+
 
 
   const swiperRef = useRef(null);
-
-
-  const [activeMovie, setActiveMovie] = useState(null);
 
 
 
@@ -65,6 +68,8 @@ function MovieSection({ title, movies }) {
 
 
       </div>
+
+
 
 
 
@@ -146,8 +151,6 @@ function MovieSection({ title, movies }) {
 
                   setShowInfo={() => setActiveMovie(movie.id)}
 
-                  closeInfo={() => setActiveMovie(null)}
-
                 />
 
 
@@ -194,6 +197,7 @@ function MovieSection({ title, movies }) {
 
 
 
+
         <button
 
           className="slider-btn"
@@ -212,12 +216,14 @@ function MovieSection({ title, movies }) {
 
 
 
+
     </section>
 
 
   );
 
 }
+
 
 
 export default MovieSection;
