@@ -4,6 +4,7 @@ import { useState } from "react";
 
 
 import HeroSlider from "../../components/HeroSlider/HeroSlider";
+import TrendingShowcase from "../../components/TrendingShowcase/TrendingShowcase";
 import MovieSection from "../../components/MovieSection/MovieSection";
 import Genres from "../../components/Genres/Genres";
 
@@ -14,17 +15,24 @@ import { topRatedMovies } from "../../Data/topRatedMovies";
 
 
 
+
 function Home() {
+
 
 
   const [activeMovie, setActiveMovie] = useState(null);
 
 
 
+
+
   return (
 
 
+
     <div className="home">
+
+
 
 
 
@@ -34,7 +42,17 @@ function Home() {
 
 
 
+
       <main className="home-container">
+
+
+
+
+
+        <TrendingShowcase />
+
+
+
 
 
 
@@ -53,6 +71,8 @@ function Home() {
           sectionClass="popular-section"
 
         />
+
+
 
 
 
@@ -80,6 +100,8 @@ function Home() {
 
 
 
+
+
         <MovieSection
 
           title="Top Rated Movies"
@@ -100,6 +122,7 @@ function Home() {
 
 
 
+
         <Genres />
 
 
@@ -107,6 +130,7 @@ function Home() {
 
 
       </main>
+
 
 
 
