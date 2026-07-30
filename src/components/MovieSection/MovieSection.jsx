@@ -18,10 +18,15 @@ import "swiper/css";
 
 
 function MovieSection({ 
+
   title, 
+
   movies, 
+
   activeMovie, 
+
   setActiveMovie 
+
 }) {
 
 
@@ -68,7 +73,6 @@ function MovieSection({
 
 
       </div>
-
 
 
 
@@ -140,21 +144,30 @@ function MovieSection({
             movies.map((movie)=>(
 
 
+
               <SwiperSlide key={movie.id}>
 
 
                 <MovieCard
 
+
                   movie={movie}
+
 
                   showInfo={activeMovie === movie.id}
 
+
                   setShowInfo={() => setActiveMovie(movie.id)}
+
+
+                  closeInfo={() => setActiveMovie(null)}
+
 
                 />
 
 
               </SwiperSlide>
+
 
 
             ))
@@ -168,7 +181,6 @@ function MovieSection({
 
 
       </div>
-
 
 
 
@@ -213,6 +225,7 @@ function MovieSection({
 
 
       </div>
+
 
 
 
