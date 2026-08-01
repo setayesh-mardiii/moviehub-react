@@ -8,7 +8,7 @@ export const ThemeContext = createContext(null);
 export function ThemeProvider({ children }) {
 
 
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
 
 
