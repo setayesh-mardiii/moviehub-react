@@ -1,41 +1,24 @@
 import { createContext, useState, useEffect } from "react";
 
 
-export const ThemeContext = createContext();
+export const ThemeContext = createContext(null);
 
 
 
 export function ThemeProvider({ children }) {
 
 
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
 
 
 
   useEffect(() => {
 
+    document.body.classList.toggle("dark", darkMode);
 
-    if(darkMode){
-
-      document.body.classList.add("dark");
-
-      document.body.classList.remove("light");
-
-
-    }else{
-
-
-      document.body.classList.add("light");
-
-      document.body.classList.remove("dark");
-
-
-    }
-
+    document.body.classList.toggle("light", !darkMode);
 
   }, [darkMode]);
-
-
 
 
 
@@ -44,8 +27,6 @@ export function ThemeProvider({ children }) {
     setDarkMode(prev => !prev);
 
   };
-
-
 
 
 
