@@ -16,6 +16,7 @@ import Register from "./pages/Register/Register";
 import About from "./pages/About/About";
 import GenrePage from "./pages/GenrePage/GenrePage";
 
+
 // Components
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -81,7 +82,6 @@ function App() {
           element={<h1 style={{ marginTop: "100px" }}>Page Not Found</h1>}
         />
       </Routes>
-
       <Footer />
     </BrowserRouter>
   );

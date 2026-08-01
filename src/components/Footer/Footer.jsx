@@ -12,8 +12,7 @@ import {
   FaTelegramPlane,
   FaGithub,
   FaEnvelope,
-  FaCode,
-} from "react-icons/fa";
+ } from "react-icons/fa";
 
 function Footer() {
   return (
