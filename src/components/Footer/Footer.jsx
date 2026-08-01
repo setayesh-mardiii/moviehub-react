@@ -101,7 +101,7 @@ function Footer() {
 
       <div className="footer-bottom">
         <p>
-          <strong>Designed & Developed by Setayesh Mardi</strong>
+          <strong>Designed & Front-End Developed by Setayesh Mardi</strong>
           <span>© 2026 • All Rights Reserved</span>
         </p>
       </div>
