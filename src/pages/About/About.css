@@ -39,13 +39,6 @@
   text-align:center;
 
 }
-
-
-
-
-
-
-
 .hero-tag{
 
   display:inline-flex;
@@ -54,28 +47,19 @@
 
   justify-content:center;
 
-  padding:8px 22px;
+  padding:0;
 
-  border-radius:30px;
-
-  background:rgba(220,20,60,.12);
+  background:transparent;
 
   color:var(--primary-color);
 
-  font-size:14px;
+  font-size:19px;
 
-  font-weight:bold;
+  font-weight:700;
 
   margin-bottom:25px;
 
 }
-
-
-
-
-
-
-
 .about-hero h1{
 
   font-size:48px;
@@ -305,18 +289,11 @@
 
   justify-content:center;
 
-  border-radius:50%;
-
-  background:rgba(220,20,60,.12);
-
-  font-size:32px;
+  font-size:38px;
 
   transition:.3s ease;
 
 }
-
-
-
 
 .feature-card h3{
 
@@ -555,16 +532,7 @@
 }
 
 
-
-
-
-
-
-
-
 /* Developer Icon */
-
-
 .developer-avatar{
 
   width:90px;
@@ -579,22 +547,11 @@
 
   justify-content:center;
 
-  border-radius:50%;
-
-  background:rgba(220,20,60,.12);
-
   color:var(--primary-color);
 
-  font-size:42px;
+  font-size:75px;
 
 }
-
-
-
-
-
-
-
 .developer-card h3{
 
   font-size:26px;
@@ -824,12 +781,6 @@
 
 
 
-
-
-
-
-
-
 /* =====================
         Dark Mode
 ===================== */
@@ -852,24 +803,11 @@
 }
 
 
-
-
-
-
-
 .dark .about-page{
 
   background:#111;
 
 }
-
-
-
-
-
-
-
-
 
 /* =====================
         Light Mode
