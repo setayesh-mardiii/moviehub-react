@@ -1,0 +1,752 @@
+/* =====================
+        Register Page
+===================== */
+
+
+.register-page{
+
+  min-height:100vh;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  padding:120px 20px 60px;
+
+  background:var(--background-color);
+
+  direction:rtl;
+
+}
+
+
+
+
+
+
+
+/* =====================
+        Register Card
+===================== */
+
+
+.register-card{
+
+  width:100%;
+
+  max-width:430px;
+
+  padding:40px;
+
+  border-radius:22px;
+
+  background:var(--card-bg);
+
+  border:1px solid rgba(255,255,255,.08);
+
+  box-shadow:
+
+  0 20px 60px rgba(0,0,0,.45);
+
+}
+
+
+
+
+
+
+
+.register-card h1{
+
+  text-align:center;
+
+  color:var(--text-color);
+
+  font-size:32px;
+
+  margin-bottom:35px;
+
+}
+
+
+
+
+
+
+
+
+/* =====================
+        Inputs
+===================== */
+
+
+.input-box{
+
+  width:100%;
+
+  height:55px;
+
+  display:flex;
+
+  align-items:center;
+
+  gap:12px;
+
+  padding:0 18px;
+
+  margin-bottom:8px;
+
+  border-radius:12px;
+
+  background:var(--input-bg);
+
+  border:1px solid transparent;
+
+  transition:.3s ease;
+
+}
+
+
+
+
+
+
+
+.input-box svg{
+
+  color:var(--primary-color);
+
+  font-size:18px;
+
+}
+
+
+
+
+
+
+
+.input-box input{
+
+  width:100%;
+
+  height:100%;
+
+  border:none;
+
+  outline:none;
+
+  background:transparent;
+
+  color:var(--text-color);
+
+  font-size:15px;
+
+}
+
+
+
+
+
+
+
+.input-box input::placeholder{
+
+  color:var(--muted-text);
+
+}
+
+
+
+
+
+
+
+.input-box:focus-within{
+
+  border-color:var(--primary-color);
+
+}
+/* =====================
+        Validation
+===================== */
+
+
+.error{
+
+  display:block;
+
+  color:#ff5252;
+
+  font-size:12px;
+
+  margin:5px 10px 15px;
+
+}
+
+
+
+
+
+
+
+
+/* =====================
+        Register Button
+===================== */
+
+
+.register-card button{
+
+  width:100%;
+
+  height:55px;
+
+  margin-top:15px;
+
+  border:none;
+
+  border-radius:12px;
+
+  background:var(--primary-color);
+
+  color:white;
+
+  cursor:pointer;
+
+  font-size:17px;
+
+  font-weight:600;
+
+  transition:.3s ease;
+
+}
+
+
+
+
+
+
+
+.register-card button:hover{
+
+  transform:translateY(-3px);
+
+  box-shadow:
+
+  0 12px 25px rgba(0,0,0,.3);
+
+}
+
+
+
+
+
+
+
+
+/* =====================
+        Login Link
+===================== */
+
+
+.register-link{
+
+  text-align:center;
+
+  margin-top:25px;
+
+  color:var(--muted-text);
+
+  font-size:14px;
+
+}
+
+
+
+
+
+
+
+.register-link a{
+
+  color:var(--primary-color);
+
+  margin-right:8px;
+
+  text-decoration:none;
+
+  font-weight:bold;
+
+}
+
+
+
+
+
+
+
+.register-link a:hover{
+
+  text-decoration:underline;
+
+}
+
+
+
+
+
+
+
+
+/* =====================
+        Dark Mode
+===================== */
+
+
+.dark .register-card{
+
+  background:#1c1c1c;
+
+  border:
+
+  1px solid rgba(255,255,255,.12);
+
+}
+
+
+
+
+
+
+
+.dark .input-box{
+
+  background:#252525;
+
+}
+
+
+
+
+
+
+
+.dark .input-box input{
+
+  color:#fff;
+
+}
+
+
+
+
+
+
+
+
+/* =====================
+        Light Mode
+===================== */
+
+
+.light .register-card{
+
+  background:#ffffff;
+
+  border:
+
+  1px solid rgba(120,20,40,.15);
+
+  box-shadow:
+
+  0 20px 50px rgba(0,0,0,.12);
+
+}
+
+
+
+
+
+
+
+.light .input-box{
+
+  background:#f5f1ed;
+
+}
+
+
+
+
+
+
+
+.light .input-box input{
+
+  color:#222;
+
+}
+/* =====================
+        Success Modal
+===================== */
+
+
+.success-overlay{
+
+  position:fixed;
+
+  inset:0;
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  z-index:99999;
+
+  background:rgba(255,255,255,.35);
+
+  backdrop-filter:blur(10px);
+
+}
+
+
+
+
+
+
+
+.success-modal{
+
+  width:350px;
+
+  padding:40px 30px;
+
+  text-align:center;
+
+  border-radius:22px;
+
+  background:#ffffff;
+
+  border:
+
+  1px solid rgba(0,0,0,.08);
+
+  box-shadow:
+
+  0 20px 60px rgba(0,0,0,.25);
+
+  animation:popup .35s ease;
+
+}
+
+
+
+
+
+
+
+.success-icon{
+
+  width:70px;
+
+  height:70px;
+
+  margin:0 auto 20px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:#22c55e;
+
+  color:white;
+
+  font-size:38px;
+
+  font-weight:bold;
+
+}
+
+
+
+
+
+
+
+.success-modal h2{
+
+  color:#22c55e;
+
+  font-size:24px;
+
+  margin-bottom:12px;
+
+}
+
+
+
+
+
+
+
+.success-modal p{
+
+  color:#666;
+
+  font-size:14px;
+
+  line-height:1.8;
+
+}
+
+
+
+
+
+
+
+.success-modal button{
+
+  width:130px;
+
+  height:45px;
+
+  margin-top:25px;
+
+  border:none;
+
+  border-radius:12px;
+
+  background:#22c55e;
+
+  color:white;
+
+  cursor:pointer;
+
+  font-size:15px;
+
+  font-weight:600;
+
+  transition:.3s ease;
+
+}
+
+
+
+
+
+
+
+.success-modal button:hover{
+
+  transform:translateY(-3px);
+
+}
+
+
+
+
+
+
+
+
+/* =====================
+        Dark Modal
+===================== */
+
+
+.dark .success-overlay{
+
+  background:rgba(0,0,0,.35);
+
+}
+
+
+
+
+
+
+
+.dark .success-modal{
+
+  background:#1f1f1f;
+
+  border:
+
+  1px solid rgba(255,255,255,.1);
+
+}
+
+
+
+
+
+
+
+.dark .success-modal p{
+
+  color:#aaa;
+
+}
+
+
+
+
+
+
+
+
+/* =====================
+        Animation
+===================== */
+
+
+@keyframes popup{
+
+
+  from{
+
+    opacity:0;
+
+    transform:scale(.85);
+
+  }
+
+
+  to{
+
+    opacity:1;
+
+    transform:scale(1);
+
+  }
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================
+        Tablet
+===================== */
+
+
+@media(max-width:900px){
+
+
+  .register-card{
+
+    max-width:420px;
+
+  }
+
+
+}
+
+
+
+
+
+
+
+
+/* =====================
+        Mobile
+===================== */
+
+
+@media(max-width:600px){
+
+
+  .register-page{
+
+    padding:
+
+    100px 15px 40px;
+
+  }
+
+
+
+
+
+  .register-card{
+
+    padding:30px 20px;
+
+    border-radius:18px;
+
+  }
+
+
+
+
+
+  .register-card h1{
+
+    font-size:26px;
+
+  }
+
+
+
+
+
+  .input-box{
+
+    height:50px;
+
+  }
+
+
+
+
+
+  .register-card button{
+
+    height:50px;
+
+    font-size:16px;
+
+  }
+
+
+
+
+
+  .success-modal{
+
+    width:90%;
+
+    max-width:330px;
+
+    padding:35px 20px;
+
+  }
+
+
+
+
+
+  .success-modal h2{
+
+    font-size:21px;
+
+  }
+
+
+}
