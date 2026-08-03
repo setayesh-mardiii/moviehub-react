@@ -21,11 +21,7 @@ function MovieSection({
 
   title,
 
-  movies,
-
-  activeMovie,
-
-  setActiveMovie
+  movies
 
 }) {
 
@@ -37,6 +33,7 @@ function MovieSection({
 
 
   return (
+
 
     <section className="movie-section">
 
@@ -69,6 +66,7 @@ function MovieSection({
 
 
       </div>
+
 
 
 
@@ -173,43 +171,13 @@ function MovieSection({
 
                 <MovieCard
 
-
                   movie={movie}
-
-
-
-                  showInfo={
-
-                    activeMovie === movie.id
-
-                  }
-
-
-
-                  setShowInfo={()=>{
-
-
-                    setActiveMovie(movie.id);
-
-
-                  }}
-
-
-
-                  closeInfo={()=>{
-
-
-                    setActiveMovie(null);
-
-
-                  }}
-
-
 
                 />
 
 
               </SwiperSlide>
+
 
 
             ))
@@ -222,7 +190,9 @@ function MovieSection({
         </Swiper>
 
 
+
       </div>
+
 
 
 
@@ -285,6 +255,7 @@ function MovieSection({
 
 
     </section>
+
 
   );
 

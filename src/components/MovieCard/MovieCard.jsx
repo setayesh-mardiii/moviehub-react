@@ -2,144 +2,71 @@ import "./MovieCard.css";
 
 import { Link } from "react-router-dom";
 
-import { useEffect, useRef } from "react";
 
 
-function MovieCard({
-
-  movie,
-
-  showInfo,
-
-  setShowInfo,
-
-  closeInfo
-
-}) {
-
-
-  const cardRef = useRef(null);
-
-
-
-  useEffect(() => {
-
-
-    const handleOutsideClick = (event) => {
-
-
-      if (
-
-        cardRef.current &&
-
-        !cardRef.current.contains(event.target)
-
-      ) {
-
-        closeInfo();
-
-      }
-
-
-    };
-
-
-
-    document.addEventListener(
-      "click",
-      handleOutsideClick
-    );
-
-
-
-    return () => {
-
-      document.removeEventListener(
-        "click",
-        handleOutsideClick
-      );
-
-    };
-
-
-  }, [closeInfo]);
-
-
-
-
-
-  const handleCardClick = (event) => {
-
-
-    event.stopPropagation();
-
-
-    // فقط نمایش دایره
-
-    setShowInfo();
-
-
-  };
-
-
-
+function MovieCard({ movie }) {
 
 
   return (
 
-    <div
 
-      ref={cardRef}
+    <Link
 
-      className={`movie-card ${showInfo ? "show-info" : ""}`}
+      to={`/movie/${movie.id}`}
 
-      onClick={handleCardClick}
+      className="movie-card-link"
 
     >
 
 
-      <div className="movie-image">
-
-
-        <img
-
-          src={movie.image}
-
-          alt={movie.title}
-
-        />
+      <div className="movie-card">
 
 
 
-        <div className="movie-overlay">
+        <div className="movie-image">
 
 
-          <Link
 
-            to={`/movie/${movie.id}`}
+          <img
 
-            onClick={(e)=>e.stopPropagation()}
+            src={movie.image}
 
-          >
+            alt={movie.title}
+
+          />
 
 
-            <button className="details-circle">
+
+
+
+          <div className="movie-overlay">
+
+
+
+            <div className="details-circle">
+
 
               مشاهده جزئیات
 
-            </button>
+
+            </div>
 
 
-          </Link>
+
+          </div>
+
 
 
         </div>
 
 
+
       </div>
 
 
-    </div>
+
+    </Link>
+
 
   );
 
