@@ -12,6 +12,7 @@
 
 
 
+
 /* HEADER */
 
 .section-header {
@@ -25,8 +26,6 @@
   margin-bottom:25px;
 
 }
-
-
 
 
 
@@ -62,9 +61,17 @@
 
   font-size:15px;
 
+  transition:.3s ease;
+
 }
 
 
+
+.view-all-btn:hover {
+
+  opacity:.8;
+
+}
 
 
 
@@ -78,7 +85,19 @@
 
 
 
-/* SLIDER */
+
+
+/* SWIPER */
+
+.movie-slider-wrapper {
+
+  width:100%;
+
+  overflow:hidden;
+
+}
+
+
 
 .movie-slider-wrapper .swiper-slide {
 
@@ -87,8 +106,6 @@
   justify-content:center;
 
 }
-
-
 
 
 
@@ -102,7 +119,9 @@
 
 
 
-/* SLIDER BUTTONS */
+
+
+/* دکمه های اسلایدر */
 
 .slider-buttons {
 
@@ -114,20 +133,17 @@
 
   gap:12px;
 
-  margin-top:15px;
-
-  margin-bottom:0;
+  margin-top:20px;
 
 }
 
 
 
-
 .slider-btn {
 
-  width:36px;
+  width:38px;
 
-  height:36px;
+  height:38px;
 
   border-radius:50%;
 
@@ -148,8 +164,6 @@
   transition:.3s ease;
 
 }
-
-
 
 
 
@@ -174,6 +188,15 @@
 @media(max-width:900px){
 
 
+
+  .section-header {
+
+    margin-bottom:20px;
+
+  }
+
+
+
   .section-header h2 {
 
     font-size:23px;
@@ -181,11 +204,13 @@
   }
 
 
-  .section-header {
 
-    margin-bottom:20px;
+  .movie-slider-wrapper {
+
+    padding:0 5px;
 
   }
+
 
 
 }
@@ -196,9 +221,11 @@
 
 
 
+
 /* MOBILE */
 
 @media(max-width:650px){
+
 
 
   .section-header h2 {
@@ -221,15 +248,35 @@
 
   .view-all-btn svg {
 
-    font-size:12px;
+    font-size:11px;
 
   }
 
 
 
+
+  .movie-slider-wrapper {
+
+    padding:0;
+
+  }
+
+
+
+
+  .movie-slider-wrapper .swiper-slide {
+
+    justify-content:center;
+
+  }
+
+
+
+
+
   .slider-buttons {
 
-    margin-top:18px;
+    margin-top:15px;
 
   }
 
@@ -240,6 +287,8 @@
     width:32px;
 
     height:32px;
+
+    font-size:12px;
 
   }
 

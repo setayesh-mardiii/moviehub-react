@@ -2,6 +2,8 @@ import "./MovieCard.css";
 
 import { Link } from "react-router-dom";
 
+import { useEffect, useRef } from "react";
+
 
 function MovieCard({
 
@@ -9,18 +11,89 @@ function MovieCard({
 
   showInfo,
 
-  setShowInfo
+  setShowInfo,
+
+  closeInfo
 
 }) {
+
+
+  const cardRef = useRef(null);
+
+
+
+  useEffect(() => {
+
+
+    const handleOutsideClick = (event) => {
+
+
+      if (
+
+        cardRef.current &&
+
+        !cardRef.current.contains(event.target)
+
+      ) {
+
+        closeInfo();
+
+      }
+
+
+    };
+
+
+
+    document.addEventListener(
+      "click",
+      handleOutsideClick
+    );
+
+
+
+    return () => {
+
+      document.removeEventListener(
+        "click",
+        handleOutsideClick
+      );
+
+    };
+
+
+  }, [closeInfo]);
+
+
+
+
+
+  const handleCardClick = (event) => {
+
+
+    event.stopPropagation();
+
+
+    // فقط نمایش دایره
+
+    setShowInfo();
+
+
+  };
+
+
+
 
 
   return (
 
     <div
 
+      ref={cardRef}
+
       className={`movie-card ${showInfo ? "show-info" : ""}`}
 
-      onClick={() => setShowInfo()}
+      onClick={handleCardClick}
 
     >
 
@@ -52,9 +125,7 @@ function MovieCard({
 
             <button className="details-circle">
 
-
               مشاهده جزئیات
-
 
             </button>
 

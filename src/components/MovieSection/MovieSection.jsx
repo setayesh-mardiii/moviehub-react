@@ -17,15 +17,15 @@ import "swiper/css";
 
 
 
-function MovieSection({ 
+function MovieSection({
 
-  title, 
+  title,
 
-  movies, 
+  movies,
 
-  activeMovie, 
+  activeMovie,
 
-  setActiveMovie 
+  setActiveMovie
 
 }) {
 
@@ -35,8 +35,8 @@ function MovieSection({
 
 
 
-  return (
 
+  return (
 
     <section className="movie-section">
 
@@ -45,14 +45,11 @@ function MovieSection({
       <div className="section-header">
 
 
-
         <h2>
 
           {title}
 
         </h2>
-
-
 
 
 
@@ -71,7 +68,6 @@ function MovieSection({
         </Link>
 
 
-
       </div>
 
 
@@ -79,9 +75,7 @@ function MovieSection({
 
 
 
-
       <div className="movie-slider-wrapper">
-
 
 
         <Swiper
@@ -95,7 +89,24 @@ function MovieSection({
 
 
 
-          spaceBetween={18}
+          allowTouchMove={true}
+
+
+          simulateTouch={true}
+
+
+          preventClicks={false}
+
+
+          preventClicksPropagation={false}
+
+
+          touchStartPreventDefault={false}
+
+
+          touchMoveStopPropagation={false}
+
+
 
 
 
@@ -105,7 +116,11 @@ function MovieSection({
 
             0:{
 
+
               slidesPerView:2,
+
+              spaceBetween:12
+
 
             },
 
@@ -113,7 +128,11 @@ function MovieSection({
 
             768:{
 
+
               slidesPerView:3,
+
+              spaceBetween:16
+
 
             },
 
@@ -121,7 +140,11 @@ function MovieSection({
 
             1200:{
 
+
               slidesPerView:5,
+
+              spaceBetween:18
+
 
             }
 
@@ -134,12 +157,12 @@ function MovieSection({
           className="movie-slider"
 
 
-
         >
 
 
 
           {
+
 
             movies.map((movie)=>(
 
@@ -154,13 +177,33 @@ function MovieSection({
                   movie={movie}
 
 
-                  showInfo={activeMovie === movie.id}
+
+                  showInfo={
+
+                    activeMovie === movie.id
+
+                  }
 
 
-                  setShowInfo={() => setActiveMovie(movie.id)}
+
+                  setShowInfo={()=>{
 
 
-                  closeInfo={() => setActiveMovie(null)}
+                    setActiveMovie(movie.id);
+
+
+                  }}
+
+
+
+                  closeInfo={()=>{
+
+
+                    setActiveMovie(null);
+
+
+                  }}
+
 
 
                 />
@@ -169,15 +212,14 @@ function MovieSection({
               </SwiperSlide>
 
 
-
             ))
+
 
           }
 
 
 
         </Swiper>
-
 
 
       </div>
@@ -194,9 +236,17 @@ function MovieSection({
 
         <button
 
+
           className="slider-btn"
 
-          onClick={()=>swiperRef.current?.slidePrev()}
+
+          onClick={()=>
+
+
+            swiperRef.current?.slidePrev()
+
+          }
+
 
         >
 
@@ -208,13 +258,19 @@ function MovieSection({
 
 
 
-
-
         <button
+
 
           className="slider-btn"
 
-          onClick={()=>swiperRef.current?.slideNext()}
+
+          onClick={()=>
+
+
+            swiperRef.current?.slideNext()
+
+          }
+
 
         >
 
@@ -228,10 +284,7 @@ function MovieSection({
 
 
 
-
-
     </section>
-
 
   );
 
