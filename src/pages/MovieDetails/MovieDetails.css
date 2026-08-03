@@ -1,21 +1,240 @@
+.movie-details {
 
-.movie-details-page {
+  min-height: 100vh;
 
-  min-height:100vh;
+  padding: 100px 40px 50px;
 
-  padding:120px 50px;
+  background: #0f0f0f;
 
-  background:var(--background-color);
+  color: white;
 
-  color:var(--text-color);
+}
+.movie-details-container {
+
+  max-width: 1200px;
+
+  margin: auto;
+
+  display: flex;
+
+  direction: rtl;
+
+  gap: 50px;
+
+  align-items: flex-start;
 
 }
 
 
-.movie-details-page h1 {
+.movie-poster {
 
-  font-size:40px;
+  width: 350px;
 
-  color:var(--primary-color);
+  height: 500px;
+
+  object-fit: cover;
+
+  border-radius: 20px;
+
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+
+}
+
+
+
+.movie-info {
+
+  flex: 1;
+  text-align: right;
+}
+
+
+
+.movie-info h1 {
+
+  font-size: 45px;
+
+  margin-bottom: 25px;
+
+}
+
+
+
+.description {
+
+  color: #ddd;
+
+  font-size: 18px;
+
+  line-height: 2;
+
+  max-width: 650px;
+
+}
+
+
+
+.movie-meta {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 15px;
+
+  margin-top: 30px;
+
+}
+
+
+
+.movie-meta span {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  background: #222;
+
+  padding: 12px 18px;
+
+  border-radius: 12px;
+
+  color: #eee;
+
+}
+
+
+
+.movie-meta svg {
+
+  color: #ffc107;
+
+}
+
+
+
+
+.actors {
+
+  max-width:1200px;
+
+  margin:60px auto 0;
+
+}
+
+
+
+.actors h2 {
+
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+  font-size:30px;
+
+}
+
+
+
+.actors h2 svg {
+
+  color:#ffc107;
+
+}
+
+
+
+.actor-list {
+
+  display:flex;
+
+  flex-wrap:wrap;
+
+  gap:15px;
+
+  margin-top:25px;
+
+}
+
+
+
+.actor-card {
+
+  background:#1e1e1e;
+
+  padding:15px 25px;
+
+  border-radius:15px;
+
+  font-size:18px;
+
+  transition:.3s;
+
+}
+
+
+
+.actor-card:hover {
+
+  transform:translateY(-5px);
+
+  background:#292929;
+
+}
+
+
+
+
+
+@media(max-width:768px){
+
+
+.movie-details {
+
+  padding:90px 20px 40px;
+
+}
+
+
+
+.movie-details-container {
+
+  flex-direction:column;
+
+  text-align:center;
+
+}
+
+
+
+.movie-poster {
+
+  width:280px;
+
+  height:400px;
+
+}
+
+
+
+.movie-info h1 {
+
+  font-size:32px;
+
+}
+
+
+
+.movie-meta {
+
+  justify-content:center;
+
+}
+
 
 }

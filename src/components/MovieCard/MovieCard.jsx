@@ -2,10 +2,6 @@ import "./MovieCard.css";
 
 import { Link } from "react-router-dom";
 
-import { FaStar } from "react-icons/fa";
-
-import { useEffect, useRef } from "react";
-
 
 function MovieCard({
 
@@ -13,125 +9,23 @@ function MovieCard({
 
   showInfo,
 
-  setShowInfo,
-
-  closeInfo
+  setShowInfo
 
 }) {
 
 
-  const cardRef = useRef(null);
-
-
-
-  useEffect(() => {
-
-
-    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
-
-
-
-    if (!isTouchDevice) return;
-
-
-
-    const handleOutsideClick = (event) => {
-
-
-      if (
-
-        cardRef.current &&
-
-        !cardRef.current.contains(event.target)
-
-      ) {
-
-        closeInfo();
-
-      }
-
-
-    };
-
-
-
-    document.addEventListener(
-
-      "click",
-
-      handleOutsideClick
-
-    );
-
-
-
-    return () => {
-
-
-      document.removeEventListener(
-
-        "click",
-
-        handleOutsideClick
-
-      );
-
-
-    };
-
-
-  }, [closeInfo]);
-
-
-
-
-
-
-  const handleClick = (event) => {
-
-
-    event.stopPropagation();
-
-
-
-    const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
-
-
-
-    if (isTouchDevice) {
-
-      setShowInfo();
-
-    }
-
-
-  };
-
-
-
-
-
   return (
-
 
     <div
 
-
-      ref={cardRef}
-
-
       className={`movie-card ${showInfo ? "show-info" : ""}`}
 
-
-      onClick={handleClick}
-
+      onClick={() => setShowInfo()}
 
     >
 
 
-
       <div className="movie-image">
-
 
 
         <img
@@ -144,121 +38,37 @@ function MovieCard({
 
 
 
-
-
         <div className="movie-overlay">
 
 
+          <Link
 
-          <div className="movie-hover-content">
+            to={`/movie/${movie.id}`}
 
+            onClick={(e)=>e.stopPropagation()}
 
+          >
 
-            <h3>
 
-              {movie.title}
+            <button className="details-circle">
 
-            </h3>
 
+              مشاهده جزئیات
 
 
+            </button>
 
 
-            <p>
-
-              {movie.description}
-
-            </p>
-
-
-
-
-
-
-
-            <div className="movie-meta">
-
-
-
-              <span>
-
-                <FaStar />
-
-                {movie.rating}
-
-              </span>
-
-
-
-
-
-              <span>
-
-                {movie.year}
-
-              </span>
-
-
-
-
-
-              <span>
-
-                {movie.genre}
-
-              </span>
-
-
-
-            </div>
-
-
-
-
-
-
-
-
-            <Link
-
-
-              to={`/movie/${movie.id}`}
-
-
-              onClick={(e)=>e.stopPropagation()}
-
-
-            >
-
-
-              <button>
-
-                مشاهده فیلم
-
-              </button>
-
-
-            </Link>
-
-
-
-
-
-          </div>
-
+          </Link>
 
 
         </div>
 
 
-
-
       </div>
 
 
-
     </div>
-
 
   );
 

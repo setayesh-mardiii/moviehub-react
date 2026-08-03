@@ -4,6 +4,7 @@
   height:330px;
 
   position:relative;
+
   overflow:hidden;
 
   cursor:pointer;
@@ -14,43 +15,10 @@
 
   transition:.35s ease;
 
-  box-shadow:0 3px 10px rgba(0,0,0,.12);
+  box-shadow:
+  0 3px 12px rgba(0,0,0,.2);
 
 }
-
-
-
-/* فقط دسکتاپ Hover */
-
-@media (min-width:901px) {
-
-
-  .movie-card:hover {
-
-    transform:translateY(-6px) scale(1.02);
-
-    box-shadow:0 8px 18px rgba(0,0,0,.18);
-
-  }
-
-
-
-  .movie-card:hover .movie-image img {
-
-    transform:scale(1.08);
-
-  }
-
-
-
-  .movie-card:hover .movie-overlay {
-
-    opacity:1;
-
-  }
-
-}
-
 
 
 
@@ -64,6 +32,8 @@
   position:relative;
 
 }
+
+
 
 
 
@@ -83,32 +53,39 @@
 
 
 
+
 .movie-overlay {
+
 
   position:absolute;
 
   inset:0;
 
 
-  background:linear-gradient(
+  background:
+
+  linear-gradient(
+
     to top,
-    rgba(0,0,0,.9),
+
+    rgba(0,0,0,.65),
+
     rgba(0,0,0,.15)
+
   );
 
 
   display:flex;
 
-  align-items:flex-end;
+  align-items:center;
 
-
-  padding:20px;
+  justify-content:center;
 
 
   opacity:0;
 
 
-  transition:.4s ease;
+  transition:.35s ease;
 
 }
 
@@ -116,17 +93,78 @@
 
 
 
-/* Click در Tablet و Mobile */
 
-.movie-card.show-info .movie-overlay {
 
-  opacity:1;
+.details-circle {
+
+
+  width:85px;
+
+  height:85px;
+
+
+  border-radius:50%;
+
+
+  border:1px solid rgba(255,255,255,.45);
+
+
+  background:
+
+  rgba(255,255,255,.18);
+
+
+  backdrop-filter:blur(12px);
+
+
+  color:white;
+
+
+  font-size:12px;
+
+
+  font-weight:700;
+
+
+  cursor:pointer;
+
+
+  display:flex;
+
+
+  align-items:center;
+
+
+  justify-content:center;
+
+
+  text-align:center;
+
+
+  line-height:1.5;
+
+
+  transition:.35s ease;
+
+
+  box-shadow:
+
+  0 8px 20px rgba(0,0,0,.45);
 
 }
 
 
 
-.movie-card.show-info .movie-image img {
+
+
+
+.details-circle:hover {
+
+
+  background:
+
+  rgba(255,255,255,.35);
+
 
   transform:scale(1.08);
 
@@ -136,9 +174,54 @@
 
 
 
-.movie-hover-content {
 
-  color:white;
+
+
+/* دسکتاپ */
+
+@media(min-width:901px){
+
+
+  .movie-card:hover {
+
+
+    transform:
+
+    translateY(-7px)
+
+    scale(1.03);
+
+
+    box-shadow:
+
+    0 12px 25px rgba(0,0,0,.3);
+
+  }
+
+
+
+
+  .movie-card:hover .movie-image img {
+
+
+    transform:scale(1.08);
+
+
+    filter:brightness(.55);
+
+  }
+
+
+
+
+  .movie-card:hover .movie-overlay {
+
+
+    opacity:1;
+
+  }
+
+
 
 }
 
@@ -146,134 +229,48 @@
 
 
 
-.movie-hover-content h3 {
 
-  font-size:20px;
 
-  font-weight:700;
 
-  margin-bottom:10px;
 
-}
-
-
-
-
-
-.movie-hover-content p {
-
-  font-size:13px;
-
-  font-weight:500;
-
-  line-height:1.6;
-
-  color:#ddd;
-
-  margin-bottom:15px;
-
-}
-
-
-
-
-
-.movie-meta {
-
-  display:flex;
-
-  align-items:center;
-
-  gap:8px;
-
-  margin-bottom:15px;
-
-}
-
-
-
-
-
-.movie-meta span {
-
-  display:flex;
-
-  align-items:center;
-
-  gap:5px;
-
-
-  background:rgba(255,255,255,.15);
-
-
-  padding:5px 10px;
-
-  border-radius:20px;
-
-
-  font-size:12px;
-
-  font-weight:600;
-
-}
-
-
-
-
-
-.movie-meta svg {
-
-  color:#ffb703;
-
-  font-size:13px;
-
-}
-
-
-
-
-
-.movie-overlay button {
-
-  width:100%;
-
-
-  padding:10px;
-
-
-  border:none;
-
-  border-radius:25px;
-
-
-  background:var(--primary-color);
-
-  color:white;
-
-
-  cursor:pointer;
-
-
-  font-size:14px;
-
-  font-weight:700;
-
-}
-
-
-
-
-
-/* TABLET */
+/* تبلت و موبایل */
 
 @media(max-width:900px){
 
 
-  .movie-card {
+  .movie-card.show-info .movie-overlay {
 
-    width:200px;
 
-    height:300px;
+    opacity:1;
+
+  }
+
+
+
+
+  .movie-card.show-info .movie-image img {
+
+
+    transform:scale(1.08);
+
+
+    filter:brightness(.55);
+
+  }
+
+
+
+
+  .details-circle {
+
+
+    width:75px;
+
+
+    height:75px;
+
+
+    font-size:11px;
 
   }
 
@@ -284,14 +281,19 @@
 
 
 
-/* MOBILE */
+
+
+
+/* موبایل */
 
 @media(max-width:650px){
 
 
   .movie-card {
 
+
     width:160px;
+
 
     height:245px;
 
@@ -299,53 +301,17 @@
 
 
 
-  .movie-overlay {
 
-    padding:15px;
-
-  }
+  .details-circle {
 
 
-
-  .movie-hover-content h3 {
-
-    font-size:17px;
-
-  }
+    width:70px;
 
 
-
-  .movie-hover-content p {
-
-    font-size:12px;
-
-  }
+    height:70px;
 
 
-
-  .movie-meta {
-
-    gap:5px;
-
-  }
-
-
-
-  .movie-meta span {
-
-    padding:4px 8px;
-
-    font-size:11px;
-
-  }
-
-
-
-  .movie-overlay button {
-
-    padding:8px;
-
-    font-size:13px;
+    font-size:10px;
 
   }
 

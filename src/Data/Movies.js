@@ -29,7 +29,7 @@ import a26 from "../assets/images/a26.JPG";
 
 export const movies = [
 
-{
+  {
   id:1,
   image:a1,
   title:"هاوایی",
@@ -38,6 +38,9 @@ export const movies = [
   genre:"کمدی",
   year:2023,
   duration:"125 min",
+  country:"ایران",
+  director:"بهزاد نعلبندی",
+  actors:["امین حیایی","امیر جعفری","نازنین بیاتی"]
 },
 
 
@@ -50,6 +53,9 @@ export const movies = [
   genre:"درام",
   year:2023,
   duration:"118 min",
+  country:"ایران",
+  director:"آرش خوانساری",
+  actors:["سارا بهرامی","میرسعید مولویان","دیبا زاهدی"]
 },
 
 
@@ -62,6 +68,9 @@ export const movies = [
   genre:"کمدی",
   year:2023,
   duration:"140 min",
+  country:"ایران",
+  director:"کریم امینی",
+  actors:["بهرام افشاری","هادی کاظمی","ایمان صفا"]
 },
 
 
@@ -74,6 +83,9 @@ export const movies = [
   genre:"اجتماعی",
   year:2020,
   duration:"110 min",
+  country:"ایران",
+  director:"حمیدرضا قربانی",
+  actors:["پریناز ایزدیار","بابک حمیدیان","نوید پورفرج"]
 },
 
 
@@ -86,6 +98,9 @@ export const movies = [
   genre:"عاشقانه",
   year:2022,
   duration:"130 min",
+  country:"ایران",
+  director:"امید شمس",
+  actors:["پریناز ایزدیار","هوتن شکیبا","ریما رامین‌فر"]
 },
 
 
@@ -98,6 +113,9 @@ export const movies = [
   genre:"کمدی",
   year:2024,
   duration:"115 min",
+  country:"ایران",
+  director:"حسین نمازی",
+  actors:["حامد بهداد","هادی کاظمی","مهراوه شریفی‌نیا"]
 },
 
 
@@ -110,6 +128,9 @@ export const movies = [
   genre:"کمدی",
   year:2024,
   duration:"145 min",
+  country:"ایران",
+  director:"رامبد جوان",
+  actors:["نوید محمدزاده","محسن تنابنده","گلاره عباسی"]
 },
 {
   id:9,
@@ -120,6 +141,13 @@ export const movies = [
   genre:"کمدی",
   year:2023,
   duration:"108 min",
+  country:"ایران",
+  director:"عادل تبریزی",
+  actors:[
+    "حامد بهداد",
+    "باران کوثری",
+    "سارا بهرامی"
+  ]
 },
 
 
@@ -132,6 +160,13 @@ export const movies = [
   genre:"کمدی",
   year:2024,
   duration:"150 min",
+  country:"ایران",
+  director:"مسعود اطیابی",
+  actors:[
+    "احمد مهران‌فر",
+    "بهاره کیان‌افشار",
+    "رضا عطاران"
+  ]
 },
 
 
@@ -144,6 +179,13 @@ export const movies = [
   genre:"کمدی اجتماعی",
   year:2022,
   duration:"98 min",
+  country:"ایران",
+  director:"کریم امینی",
+  actors:[
+    "پژمان جمشیدی",
+    "شبنم مقدمی",
+    "فرهاد آییش"
+  ]
 },
 
 
@@ -156,6 +198,13 @@ export const movies = [
   genre:"اجتماعی",
   year:2022,
   duration:"116 min",
+  country:"ایران",
+  director:"کاظم دانشی",
+  actors:[
+    "پژمان جمشیدی",
+    "سارا بهرامی",
+    "ترلان پروانه"
+  ]
 },
 
 
@@ -168,6 +217,13 @@ export const movies = [
   genre:"کمدی",
   year:2022,
   duration:"135 min",
+  country:"ایران",
+  director:"مهدی تقی‌زاده",
+  actors:[
+    "شبنم مقدمی",
+    "مانی حقیقی",
+    "احمد مهران‌فر"
+  ]
 },
 
 
@@ -180,6 +236,13 @@ export const movies = [
   genre:"کمدی",
   year:2021,
   duration:"105 min",
+  country:"ایران",
+  director:"مسعود اطیابی",
+  actors:[
+    "احمد مهران‌فر",
+    "پژمان جمشیدی",
+    "نازنین بیاتی"
+  ]
 },
 
 
@@ -192,7 +255,16 @@ export const movies = [
   genre:"درام",
   year:2024,
   duration:"128 min",
+  country:"ایران",
+  director:"نامشخص",
+  actors:[
+    "بازیگر اول",
+    "بازیگر دوم",
+    "بازیگر سوم"
+  ]
 },
+
+
 {
   id:16,
   image:a16,
@@ -202,6 +274,13 @@ export const movies = [
   genre:"عاشقانه",
   year:2025,
   duration:"112 min",
+  country:"ایران",
+  director:"نامشخص",
+  actors:[
+    "بازیگر اول",
+    "بازیگر دوم",
+    "بازیگر سوم"
+  ]
 },
 
 
@@ -214,9 +293,14 @@ export const movies = [
   genre:"تاریخی",
   year:2021,
   duration:"142 min",
+  country:"ایران",
+  director:"تینا پاکروان",
+  actors:[
+    "نگار جواهریان",
+    "اشکان خطیبی",
+    "بابک حمیدیان"
+  ]
 },
-
-
 {
   id:18,
   image:a18,
@@ -226,6 +310,13 @@ export const movies = [
   genre:"تاریخی - عاشقانه",
   year:2022,
   duration:"100 min",
+  country:"ایران",
+  director:"حسن فتحی",
+  actors:[
+    "پریناز ایزدیار",
+    "بهرام رادان",
+    "مریلا زارعی"
+  ]
 },
 
 
@@ -238,6 +329,13 @@ export const movies = [
   genre:"جنایی",
   year:2025,
   duration:"118 min",
+  country:"ایران",
+  director:"نامشخص",
+  actors:[
+    "بازیگر اول",
+    "بازیگر دوم",
+    "بازیگر سوم"
+  ]
 },
 
 
@@ -250,6 +348,13 @@ export const movies = [
   genre:"اجتماعی",
   year:2022,
   duration:"136 min",
+  country:"ایران",
+  director:"محمد کارت",
+  actors:[
+    "علی شادمان",
+    "پارسا پیروزفر",
+    "طناز طباطبایی"
+  ]
 },
 
 
@@ -262,6 +367,13 @@ export const movies = [
   genre:"معمایی",
   year:2024,
   duration:"124 min",
+  country:"ایران",
+  director:"امیرحسین عنقا",
+  actors:[
+    "فرزاد فرزین",
+    "آناهیتا درگاهی",
+    "الهام اخوان"
+  ]
 },
 
 
@@ -274,6 +386,13 @@ export const movies = [
   genre:"اجتماعی",
   year:2025,
   duration:"130 min",
+  country:"ایران",
+  director:"نامشخص",
+  actors:[
+    "بازیگر اول",
+    "بازیگر دوم",
+    "بازیگر سوم"
+  ]
 },
 
 
@@ -286,6 +405,13 @@ export const movies = [
   genre:"جنایی - درام",
   year:2021,
   duration:"115 min",
+  country:"ایران",
+  director:"محمدحسین مهدویان",
+  actors:[
+    "جواد عزتی",
+    "رعنا آزادی‌ور",
+    "الناز ملک"
+  ]
 },
 
 
@@ -298,6 +424,13 @@ export const movies = [
   genre:"جنایی",
   year:2023,
   duration:"140 min",
+  country:"ایران",
+  director:"نامشخص",
+  actors:[
+    "بازیگر اول",
+    "بازیگر دوم",
+    "بازیگر سوم"
+  ]
 },
 
 
@@ -310,6 +443,13 @@ export const movies = [
   genre:"رئالیتی شو",
   year:2024,
   duration:"118 min",
+  country:"ایران",
+  director:"سعید ابوطالب",
+  actors:[
+    "هنرمندان ایرانی",
+    "مهمانان ویژه",
+    "چهره‌های شناخته‌شده"
+  ]
 },
 
 
@@ -322,7 +462,13 @@ export const movies = [
   genre:"درام",
   year:2023,
   duration:"125 min",
+  country:"ایران",
+  director:"نیما جاویدی",
+  actors:[
+    "نوید محمدزاده",
+    "احمد مهران‌فر",
+    "هانیه توسلی"
+  ]
 },
-
-];
+]
 
