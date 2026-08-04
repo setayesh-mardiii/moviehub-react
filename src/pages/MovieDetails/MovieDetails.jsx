@@ -5,8 +5,8 @@ import {
   FaFilm,
   FaCalendarAlt,
   FaClock,
-  FaGlobe,
-  FaUserTie,
+  FaPlay,
+  FaHeart,
   FaUsers
 } from "react-icons/fa";
 
@@ -21,9 +21,12 @@ function MovieDetails() {
   const { id } = useParams();
 
 
+
   const movie = movies.find(
-    (item) => item.id === Number(id)
+    item => item.id === Number(id)
   );
+
+
 
 
 
@@ -31,7 +34,10 @@ function MovieDetails() {
 
     return (
 
-      <div className="movie-details" dir="rtl">
+      <div
+        className="movie-details"
+        dir="rtl"
+      >
 
         <h1>
           فیلم پیدا نشد
@@ -45,48 +51,85 @@ function MovieDetails() {
 
 
 
+
+
+
+
   return (
 
-    <div className="movie-details" dir="rtl">
 
-
-      <div className="movie-details-container">
-
-
-        {/* پوستر */}
-
-        <img
-
-          src={movie.image}
-
-          alt={movie.title}
-
-          className="movie-poster"
-
-        />
+    <div
+      className="movie-details"
+      dir="rtl"
+    >
 
 
 
-        {/* اطلاعات فیلم */}
 
-        <div className="movie-info">
+
+      <div className="details-shape">
+
+
+
+
+
+        {/* BLOB BACKGROUND */}
+
+        <div className="blob-bg"></div>
+
+
+
+
+
+
+
+        {/* POSTER */}
+
+
+        <div className="poster-area">
+
+
+          <img
+
+            src={movie.image}
+
+            alt={movie.title}
+
+          />
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+        {/* INFORMATION */}
+
+
+
+        <div className="info-area">
+
 
 
           <h1>
+
             {movie.title}
+
           </h1>
 
 
 
-          <p className="description">
-
-            {movie.description}
-
-          </p>
 
 
 
-          <div className="movie-meta">
+
+          <div className="meta-pills">
+
 
 
             <span>
@@ -98,14 +141,6 @@ function MovieDetails() {
             </span>
 
 
-
-            <span>
-
-              <FaFilm />
-
-              {movie.genre}
-
-            </span>
 
 
 
@@ -119,6 +154,8 @@ function MovieDetails() {
 
 
 
+
+
             <span>
 
               <FaClock />
@@ -129,21 +166,13 @@ function MovieDetails() {
 
 
 
-            <span>
-
-              <FaGlobe />
-
-              {movie.country || "ایران"}
-
-            </span>
-
 
 
             <span>
 
-              <FaUserTie />
+              <FaFilm />
 
-              {movie.director || "نامشخص"}
+              {movie.genre}
 
             </span>
 
@@ -152,7 +181,158 @@ function MovieDetails() {
           </div>
 
 
+
+
+
+
+
+
+
+          <p className="description">
+
+
+            {movie.description}
+
+
+          </p>
+
+
+
+
+
+
+
+
+
+          <div className="action-buttons">
+
+
+
+            <button className="watch-btn">
+
+
+              <FaPlay />
+
+              تماشا
+
+
+            </button>
+
+
+
+
+
+
+
+            <button className="trailer-btn">
+
+
+              <FaFilm />
+
+              تریلر
+
+
+            </button>
+
+
+
+
+
+
+
+
+            <button className="favorite-btn">
+
+
+              <FaHeart />
+
+
+            </button>
+
+
+
+          </div>
+
+
+
+
+
+
+
+
+
+          <section className="actors">
+
+
+
+            <h2>
+
+              <FaUsers />
+
+              بازیگران
+
+            </h2>
+
+
+
+
+
+
+
+            <div className="actor-list">
+
+
+
+              {
+
+                movie.actors?.map(
+
+                  (actor,index)=>(
+
+
+                    <span
+
+                      key={index}
+
+                      className="actor-pill"
+
+                    >
+
+                      {actor}
+
+                    </span>
+
+
+                  )
+
+                )
+
+              }
+
+
+
+            </div>
+
+
+
+
+
+
+          </section>
+
+
+
+
+
+
+
+
         </div>
+
+
+
+
+
 
 
       </div>
@@ -160,78 +340,11 @@ function MovieDetails() {
 
 
 
-      {/* بازیگران */}
-
-      <section className="actors">
-
-
-        <h2>
-
-          <FaUsers />
-
-          بازیگران
-
-        </h2>
-
-
-
-        <div className="actor-list">
-
-
-          {
-
-            movie.actors && movie.actors.length > 0 ?
-
-
-            (
-
-              movie.actors.map((actor,index)=>(
-
-
-                <div
-
-                  key={index}
-
-                  className="actor-card"
-
-                >
-
-                  {actor}
-
-
-                </div>
-
-
-              ))
-
-            )
-
-
-            :
-
-
-            (
-
-              <p>
-
-                اطلاعات بازیگران موجود نیست
-
-              </p>
-
-            )
-
-
-          }
-
-
-        </div>
-
-
-      </section>
 
 
 
     </div>
+
 
   );
 
