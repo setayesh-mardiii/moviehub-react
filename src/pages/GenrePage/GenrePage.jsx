@@ -1,7 +1,7 @@
 
 import "./GenrePage.css";
 
-import { genres } from "../../Data/genres";
+import genres from "../../Data/genres.json";
 
 import { Link } from "react-router-dom";
 
