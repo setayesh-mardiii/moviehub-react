@@ -11,7 +11,7 @@ import Genres from "../../components/Genres/Genres";
 
 
 
-import { movies } from "../../Data/Movies";
+import movies from "../../Data/movies.json";
 
 import { latestMovies } from "../../Data/latestMovies";
 

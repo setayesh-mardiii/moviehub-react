@@ -2,7 +2,7 @@ import "./Category.css";
 
 import { useParams } from "react-router-dom";
 
-import { movies } from "../../Data/Movies";
+import movies from "../../Data/movies.json";
 
 import MovieCard from "../../components/MovieCard/MovieCard";
 

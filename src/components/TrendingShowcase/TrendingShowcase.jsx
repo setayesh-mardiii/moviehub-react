@@ -4,7 +4,8 @@ import { useState } from "react";
 
 import { motion, AnimatePresence } from "framer-motion";
 
-import { FaFire, FaStar } from "react-icons/fa";
+import { FaStar } from "react-icons/fa";
+
 
 import { trendingMovies } from "../../Data/trendingMovies";
 

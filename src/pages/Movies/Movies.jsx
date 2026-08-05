@@ -1,6 +1,6 @@
 import "./Movies.css";
 
-import { movies } from "../../Data/Movies";
+import movies from "../../Data/movies.json";
 
 import MovieCard from "../../components/MovieCard/MovieCard";
 

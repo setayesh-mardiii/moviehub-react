@@ -10,7 +10,7 @@ import {
   FaUsers
 } from "react-icons/fa";
 
-import { movies } from "../../Data/Movies";
+import movies from "../../Data/movies.json";
 
 import "./MovieDetails.css";
 
