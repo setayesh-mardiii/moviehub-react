@@ -6,11 +6,23 @@ A modern and responsive movie web application built with **React** and **Vite**.
 
 # 📖 درباره پروژه
 
-Movie App یک پروژه فرانت‌اند حرفه‌ای است که با React ساخته شده است.
+**Movie App** یک پروژه فرانت‌اند حرفه‌ای است که با React ساخته شده است.
 
 هدف این پروژه ساخت یک وب‌سایت نمایش فیلم با رابط کاربری مدرن، طراحی واکنش‌گرا و ساختار حرفه‌ای کامپوننت‌ها بوده است.
 
 تمام اطلاعات فیلم‌ها به صورت محلی داخل فایل‌های **JSON** نگهداری می‌شوند و پروژه بدون وابستگی به API خارجی طراحی شده است.
+
+در این پروژه مفاهیم مهم توسعه فرانت‌اند مدرن مانند:
+
+- ساخت کامپوننت‌های قابل استفاده مجدد
+- مدیریت داده‌های محلی
+- جداسازی Data از UI
+- استفاده از Utility Functions
+- طراحی Responsive
+- مدیریت Theme
+- ساخت صفحات مختلف
+
+به صورت عملی پیاده‌سازی شده‌اند.
 
 ---
 
@@ -24,7 +36,7 @@ Movie App یک پروژه فرانت‌اند حرفه‌ای است که با R
 * 🎭 Framer Motion
 * 🎞 Swiper.js
 * 🔗 React Router
-* 📄 JSON
+* 📄 JSON Data Management
 * 💾 LocalStorage
 
 ---
@@ -34,45 +46,55 @@ Movie App یک پروژه فرانت‌اند حرفه‌ای است که با R
 ## 🎥 بخش فیلم‌ها
 
 * نمایش لیست فیلم‌ها
+* نمایش کارت اختصاصی فیلم‌ها
 * نمایش اطلاعات کامل فیلم
 * نمایش ژانر
 * نمایش سال انتشار
 * نمایش امتیاز
 * نمایش کشور
-* نمایش مدت زمان
+* نمایش مدت زمان فیلم
 * نمایش بازیگران
 
 ---
 
 ## 🏠 صفحه اصلی
 
-- 🎞 Hero Slider
+- 🎞 Hero Slider حرفه‌ای
 - 🔥 Trending Movies
 - ⭐ Popular Movies
 - 🆕 Latest Movies
 - 🏆 Top Rated Movies
 - 🎭 Explore Genres
-- 🎬 صفحات مجزای Movies، Series، Popular و Top Rated
+- 🎬 صفحات جداگانه:
+  - Movies
+  - Series
+  - Popular
+  - Top Rated
+  - Movie Details
+  - Genres
 
 ---
 
 ## 🎨 رابط کاربری
 
-* طراحی مدرن
-* Responsive کامل
+* طراحی مدرن و مینیمال
+* Responsive کامل برای موبایل، تبلت و دسکتاپ
 * Dark / Light Theme
-* انیمیشن‌های نرم
-* کامپوننت‌های قابل استفاده مجدد (Reusable Components)
+* Animation های نرم با Framer Motion
+* استفاده از کامپوننت‌های قابل استفاده مجدد
 
 ---
 
-## 🧩 ساختار کدنویسی
+# 🧩 ساختار کدنویسی
+
+ویژگی‌های معماری پروژه:
 
 * Component Based Architecture
-* Utility Functions
-* JSON Data Management
-* Clean Folder Structure
 * Reusable Components
+* JSON Data Management
+* Utility Functions
+* Clean Folder Structure
+* Separation of Data and UI
 
 ---
 
@@ -85,14 +107,27 @@ project/
 │   └── images/
 │
 ├── src/
+│   │
 │   ├── Data/
 │   │   ├── movies.json
 │   │   ├── heroMovies.json
 │   │   └── genres.json
 │   │
 │   ├── components/
+│   │   ├── MovieCard/
+│   │   ├── HeroSlider/
+│   │   ├── MovieSection/
+│   │   ├── Genres/
+│   │   └── TrendingShowcase/
 │   │
 │   ├── pages/
+│   │   ├── Home/
+│   │   ├── Movies/
+│   │   ├── Series/
+│   │   ├── Popular/
+│   │   ├── TopRated/
+│   │   ├── MovieDetails/
+│   │   └── Genres/
 │   │
 │   ├── hooks/
 │   │
@@ -107,33 +142,51 @@ project/
 
 # 📊 مدیریت داده‌ها
 
-اطلاعات فیلم‌ها از طریق فایل‌های JSON مدیریت می‌شوند.
+تمام اطلاعات فیلم‌ها به صورت Local داخل فایل‌های JSON مدیریت می‌شوند.
 
-برای ذخیره اطلاعات کاربر نیز از **LocalStorage** استفاده خواهد شد.
+ساختار دیتا:
+
+```text
+Data/
+│
+├── movies.json
+├── heroMovies.json
+└── genres.json
+```
+
+منطق پردازش و فیلتر فیلم‌ها در:
+
+```text
+utils/movieFilters.js
+```
+
+قرار دارد.
+
+این پروژه برای دریافت اطلاعات به API خارجی وابسته نیست و تمام داده‌ها به صورت Local مدیریت می‌شوند.
 
 ---
 
-# 🛠️ نصب پروژه
+# 🛠️ نصب و اجرا
 
-Clone Repository
-
-```bash
-git clone https://github.com/setayesh-mardiii/movie-app.git
-```
-
-ورود به پوشه پروژه
+ابتدا پروژه را Clone کنید:
 
 ```bash
-cd movie-app
+git clone https://github.com/setayesh-mardiii/moviehub-react.git
 ```
 
-نصب پکیج‌ها
+ورود به پوشه پروژه:
+
+```bash
+cd moviehub-react
+```
+
+نصب پکیج‌ها:
 
 ```bash
 npm install
 ```
 
-اجرای پروژه
+اجرای پروژه:
 
 ```bash
 npm run dev
@@ -143,15 +196,15 @@ npm run dev
 
 # 🚧 وضعیت پروژه
 
-این پروژه همچنان در حال توسعه است و امکانات جدید به آن اضافه خواهد شد.
+این پروژه همچنان در حال توسعه است و امکانات جدید به مرور به آن اضافه خواهد شد.
 
 ---
 
 # 🔮 امکانات آینده
 
-* 🔍 جستجوی فیلم‌ها
-* ❤️ Favorites (LocalStorage)
-* 👁 Recently Viewed
+* 🔍 جستجوی پیشرفته فیلم‌ها
+* ❤️ سیستم Favorites با LocalStorage
+* 👁 Recently Viewed Movies
 * 🎭 فیلتر بر اساس ژانر
 * 🌙 بهبود Dark / Light Theme
 * ⏳ Skeleton Loading
@@ -159,7 +212,7 @@ npm run dev
 * ❌ صفحه 404
 * ⚡ بهینه‌سازی Performance
 * 🖼 Lazy Loading تصاویر
-* 🎨 انیمیشن‌های بیشتر
+* 🎨 Animation های بیشتر
 
 ---
 
@@ -167,10 +220,10 @@ npm run dev
 
 **Setayesh Mardi**
 
-GitHub
+GitHub:
 
 https://github.com/setayesh-mardiii
 
 ---
 
-⭐ اگر این پروژه برای شما مفید بود خوشحال می‌شوم با یک Star از آن حمایت کنید.
+⭐ اگر این پروژه برای شما مفید بود، خوشحال می‌شوم با یک Star از آن حمایت کنید.
