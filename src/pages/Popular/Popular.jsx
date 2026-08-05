@@ -2,11 +2,15 @@ import "./Popular.css";
 
 import MovieCard from "../../components/MovieCard/MovieCard";
 
-import { popularMovies } from "../../Data/popularMovies";
+import movies from "../../Data/movies.json";
 
+import { getPopularMovies } from "../../utils/movieFilters";
 
 
 function Popular() {
+
+
+  const popularMovies = getPopularMovies(movies);
 
 
   return (

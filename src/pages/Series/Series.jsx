@@ -2,11 +2,15 @@ import "./Series.css";
 
 import MovieCard from "../../components/MovieCard/MovieCard";
 
-import { series } from "../../Data/series";
+import movies from "../../Data/movies.json";
 
+import { getSeries } from "../../utils/movieFilters";
 
 
 function Series() {
+
+
+  const series = getSeries(movies);
 
 
   return (

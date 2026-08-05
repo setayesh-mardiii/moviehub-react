@@ -2,11 +2,15 @@ import "./TopRated.css";
 
 import MovieCard from "../../components/MovieCard/MovieCard";
 
-import { topRatedMovies } from "../../Data/topRatedMovies";
+import movies from "../../Data/movies.json";
 
+import { getTopRatedMovies } from "../../utils/movieFilters";
 
 
 function TopRated() {
+
+
+  const topRatedMovies = getTopRatedMovies(movies);
 
 
   return (

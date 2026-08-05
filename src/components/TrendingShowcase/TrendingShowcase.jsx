@@ -7,7 +7,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaStar } from "react-icons/fa";
 
 
-import { trendingMovies } from "../../Data/trendingMovies";
+import moviesData from "../../Data/movies.json";
+
+import { getTrendingMovies } from "../../utils/movieFilters";
 
 
 
@@ -15,7 +17,9 @@ function TrendingShowcase() {
 
 
 
-  const [movies, setMovies] = useState(trendingMovies);
+  const [movies, setMovies] = useState(
+    getTrendingMovies(moviesData)
+  );
 
 
 
@@ -44,6 +48,7 @@ function TrendingShowcase() {
 
 
   };
+
 
 
 
@@ -182,6 +187,7 @@ function TrendingShowcase() {
 
 
 
+
               <img
 
 
@@ -225,11 +231,14 @@ function TrendingShowcase() {
 
 
 
+
               <p>
 
                 {featuredMovie.description}
 
               </p>
+
+
 
 
 
@@ -304,7 +313,12 @@ function TrendingShowcase() {
 
 
 
+
         </AnimatePresence>
+
+
+
+
 
 
 
@@ -348,6 +362,7 @@ function TrendingShowcase() {
 
 
 
+
                 whileHover={{
 
 
@@ -363,6 +378,7 @@ function TrendingShowcase() {
 
 
 
+
                 whileTap={{
 
 
@@ -370,6 +386,7 @@ function TrendingShowcase() {
 
 
                 }}
+
 
 
 
@@ -408,6 +425,7 @@ function TrendingShowcase() {
 
 
 
+
               </motion.div>
 
 
@@ -429,7 +447,9 @@ function TrendingShowcase() {
 
 
 
+
       </div>
+
 
 
 
