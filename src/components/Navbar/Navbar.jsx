@@ -1,6 +1,6 @@
 import "./Navbar.css";
 
-import { NavLink, Link, useLocation } from "react-router-dom";
+import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 
 import {
@@ -16,6 +16,8 @@ import { ThemeContext } from "../../context/ThemeContext";
 
 import logo from "../../assets/images/logo.png";
 
+import movies from "../../Data/movies.json";
+
 
 function Navbar() {
 
@@ -29,8 +31,17 @@ function Navbar() {
 
   const [menuOpen, setMenuOpen] = useState(false);
 
+  const [search, setSearch] = useState("");
+
+  const [suggestions, setSuggestions] = useState([]);
+
+
 
   const { darkMode, toggleTheme } = useContext(ThemeContext);
+
+  const navigate = useNavigate();
+
+
 
 
 
@@ -44,17 +55,139 @@ function Navbar() {
     };
 
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener(
+      "scroll",
+      handleScroll
+    );
 
 
     return () => {
 
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener(
+        "scroll",
+        handleScroll
+      );
 
     };
 
 
   }, []);
+
+
+
+
+
+
+
+  const handleSearch = (e) => {
+
+
+    if (
+      e.key === "Enter" &&
+      search.trim()
+    ) {
+
+
+      navigate(
+        `/search?query=${search}`
+      );
+
+
+      setSearch("");
+
+      setSuggestions([]);
+
+
+    }
+
+
+  };
+
+
+
+
+
+
+
+
+
+  const handleSearchChange = (value) => {
+
+
+    setSearch(value);
+
+
+
+
+    if(!value.trim()){
+
+
+      setSuggestions([]);
+
+      return;
+
+
+    }
+
+
+
+
+
+
+    const filteredMovies = movies.filter(
+      (movie)=>{
+
+
+        return movie.title
+          .toLowerCase()
+          .includes(
+            value.toLowerCase()
+          );
+
+
+      }
+
+    ).slice(0,5);
+
+
+
+
+
+
+    setSuggestions(
+      filteredMovies
+    );
+
+
+  };
+
+
+
+
+
+
+
+
+
+  const handleSuggestionClick = (id)=>{
+
+
+    navigate(
+      `/movie/${id}`
+    );
+
+
+    setSearch("");
+
+    setSuggestions([]);
+
+
+  };
+
+
+
+
+
 
 
 
@@ -68,7 +201,14 @@ function Navbar() {
 
 
 
+
+
+
+
+
   return (
+
+
 
     <nav
 
@@ -82,21 +222,37 @@ function Navbar() {
 
 
 
-      {/* Hamburger */}
+
+
 
       <div className="mobile-menu-btn">
 
-        <button onClick={() => setMenuOpen(!menuOpen)}>
 
-          {
-            menuOpen
-              ?
-              <FaTimes />
-              :
-              <FaBars />
+        <button
+
+          onClick={()=>
+            setMenuOpen(!menuOpen)
           }
 
+        >
+
+          {
+
+            menuOpen
+
+            ?
+
+            <FaTimes />
+
+            :
+
+            <FaBars />
+
+          }
+
+
         </button>
+
 
       </div>
 
@@ -104,26 +260,41 @@ function Navbar() {
 
 
 
-      {/* Left Actions */}
+
+
+
 
       <div className="left-actions">
 
 
-        {/* Theme */}
 
         <div className="theme-toggle">
 
-          <button onClick={toggleTheme}>
+
+          <button
+
+            onClick={toggleTheme}
+
+          >
+
 
             {
+
               darkMode
-                ?
-                <FaMoon />
-                :
-                <FaSun />
+
+              ?
+
+              <FaMoon />
+
+              :
+
+              <FaSun />
+
             }
 
+
           </button>
+
 
         </div>
 
@@ -131,7 +302,9 @@ function Navbar() {
 
 
 
-        {/* User */}
+
+
+
 
         <Link
 
@@ -141,7 +314,9 @@ function Navbar() {
 
         >
 
+
           <FaUser />
+
 
           <span>
 
@@ -153,6 +328,7 @@ function Navbar() {
         </Link>
 
 
+
       </div>
 
 
@@ -161,21 +337,126 @@ function Navbar() {
 
 
 
-      {/* Desktop Search */}
+
+
+
+
 
       <div className="search-box">
 
 
         <input
 
+
           type="text"
 
+
+          value={search}
+
+
+          onChange={(e)=>
+            handleSearchChange(
+              e.target.value
+            )
+          }
+
+
+          onKeyDown={handleSearch}
+
+
           placeholder="Search movies..."
+
 
         />
 
 
+
         <FaSearch />
+
+
+
+
+
+
+
+        {
+
+
+          suggestions.length > 0 && (
+
+
+            <div className="search-suggestions">
+
+
+
+              {
+
+
+                suggestions.map((movie)=>(
+
+
+
+                  <div
+
+
+                    key={movie.id}
+
+
+                    className="suggestion-item"
+
+
+
+                    onClick={()=>
+                      handleSuggestionClick(
+                        movie.id
+                      )
+                    }
+
+
+                  >
+
+
+                    <img
+
+                      src={movie.image}
+
+                      alt={movie.title}
+
+                    />
+
+
+
+                    <span>
+
+                      {movie.title}
+
+                    </span>
+
+
+
+                  </div>
+
+
+
+                ))
+
+
+              }
+
+
+
+            </div>
+
+
+
+          )
+
+
+        }
+
+
+
+
 
 
       </div>
@@ -187,7 +468,9 @@ function Navbar() {
 
 
 
-      {/* Logo + Links */}
+
+
+
 
       <div className="nav-content">
 
@@ -197,41 +480,58 @@ function Navbar() {
 
 
           <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/">
+              Home
+            </NavLink>
           </li>
 
 
           <li>
-            <NavLink to="/movies">Movies</NavLink>
+            <NavLink to="/movies">
+              Movies
+            </NavLink>
           </li>
 
 
           <li>
-            <NavLink to="/series">Series</NavLink>
+            <NavLink to="/series">
+              Series
+            </NavLink>
           </li>
 
 
           <li>
-            <NavLink to="/popular">Popular</NavLink>
+            <NavLink to="/popular">
+              Popular
+            </NavLink>
           </li>
 
 
           <li>
-            <NavLink to="/genres">Genres</NavLink>
+            <NavLink to="/genres">
+              Genres
+            </NavLink>
           </li>
 
 
           <li>
-            <NavLink to="/top-rated">Top Rated</NavLink>
+            <NavLink to="/top-rated">
+              Top Rated
+            </NavLink>
           </li>
 
 
           <li>
-            <NavLink to="/about">About Us</NavLink>
+            <NavLink to="/about">
+              About Us
+            </NavLink>
           </li>
 
 
         </ul>
+
+
+
 
 
 
@@ -249,6 +549,7 @@ function Navbar() {
           />
 
 
+
           <span>
 
             Movie<strong>Hub</strong>
@@ -257,6 +558,8 @@ function Navbar() {
 
 
         </div>
+
+
 
 
       </div>
@@ -268,13 +571,20 @@ function Navbar() {
 
 
 
-      {/* Mobile Menu */}
+
+
+
 
       <div
 
-        className={`mobile-menu ${menuOpen ? "active" : ""}`}
+        className={
+          `mobile-menu ${
+            menuOpen ? "active" : ""
+          }`
+        }
 
       >
+
 
 
         <div className="mobile-search">
@@ -282,9 +592,25 @@ function Navbar() {
 
           <input
 
+
             type="text"
 
+
+            value={search}
+
+
+            onChange={(e)=>
+              handleSearchChange(
+                e.target.value
+              )
+            }
+
+
+            onKeyDown={handleSearch}
+
+
             placeholder="Search movies..."
+
 
           />
 
@@ -298,37 +624,60 @@ function Navbar() {
 
 
 
-        <NavLink onClick={closeMenu} to="/">
+
+
+        <NavLink
+          onClick={closeMenu}
+          to="/"
+        >
           Home
         </NavLink>
 
 
-        <NavLink onClick={closeMenu} to="/movies">
+        <NavLink
+          onClick={closeMenu}
+          to="/movies"
+        >
           Movies
         </NavLink>
 
 
-        <NavLink onClick={closeMenu} to="/series">
+        <NavLink
+          onClick={closeMenu}
+          to="/series"
+        >
           Series
         </NavLink>
 
 
-        <NavLink onClick={closeMenu} to="/popular">
+        <NavLink
+          onClick={closeMenu}
+          to="/popular"
+        >
           Popular
         </NavLink>
 
 
-        <NavLink onClick={closeMenu} to="/genres">
+        <NavLink
+          onClick={closeMenu}
+          to="/genres"
+        >
           Genres
         </NavLink>
 
 
-        <NavLink onClick={closeMenu} to="/top-rated">
+        <NavLink
+          onClick={closeMenu}
+          to="/top-rated"
+        >
           Top Rated
         </NavLink>
 
 
-        <NavLink onClick={closeMenu} to="/about">
+        <NavLink
+          onClick={closeMenu}
+          to="/about"
+        >
           About Us
         </NavLink>
 
@@ -338,11 +687,16 @@ function Navbar() {
 
 
 
+
+
     </nav>
+
+
 
   );
 
 }
+
 
 
 export default Navbar;
