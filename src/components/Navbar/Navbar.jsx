@@ -35,7 +35,7 @@ function Navbar() {
   const [suggestions, setSuggestions] = useState([]);
 
   // ======================
-  // Search History
+  // SEARCH HISTORY
   // ======================
 
   const [showHistory, setShowHistory] = useState(false);
@@ -49,7 +49,7 @@ function Navbar() {
   const { darkMode, toggleTheme } = useContext(ThemeContext);
 
   // ======================
-  // Scroll
+  // SCROLL
   // ======================
 
   useEffect(() => {
@@ -65,28 +65,38 @@ function Navbar() {
   }, []);
 
   // ======================
-  // Save Search History
+  // SAVE SEARCH HISTORY
   // ======================
 
   const saveSearchHistory = (value) => {
-    const updatedHistory = [
-      value,
+    const cleanValue = value.trim();
 
-      ...searchHistory.filter((item) => item !== value),
-    ].slice(0, 5);
+    if (!cleanValue) return;
 
-    setSearchHistory(updatedHistory);
+    setSearchHistory((prev) => {
+      const updatedHistory = [
+        cleanValue,
 
-    console.log("history saved:", updatedHistory);
+        ...prev.filter((item) => item !== cleanValue),
+      ].slice(0, 5);
+
+      localStorage.setItem(
+        "searchHistory",
+
+        JSON.stringify(updatedHistory),
+      );
+
+      return updatedHistory;
+    });
   };
 
   // ======================
-  // Enter Search
+  // SEARCH ENTER
   // ======================
 
   const handleSearch = (e) => {
     if (e.key === "Enter" && search.trim()) {
-      saveSearchHistory(search.trim());
+      saveSearchHistory(search);
 
       navigate(`/search?query=${search.trim()}`);
 
@@ -99,7 +109,7 @@ function Navbar() {
   };
 
   // ======================
-  // Search Suggestions
+  // SEARCH CHANGE
   // ======================
 
   const handleSearchChange = (value) => {
@@ -120,8 +130,10 @@ function Navbar() {
     setSuggestions(filteredMovies);
   };
 
-  const handleSuggestionClick = (id) => {
-    navigate(`/movie/${id}`);
+  const handleSuggestionClick = (movie) => {
+    saveSearchHistory(movie.title);
+
+    navigate(`/movie/${movie.id}`);
 
     setSearch("");
 
@@ -137,13 +149,17 @@ function Navbar() {
   return (
     <nav
       className={`
+
         navbar
+
         ${scrolled ? "scrolled" : ""}
+
         ${isHome ? "home-navbar" : ""}
+
       `}
     >
       {/* ======================
-          Hamburger
+          HAMBURGER
       ====================== */}
 
       <div className="mobile-menu-btn">
@@ -153,7 +169,7 @@ function Navbar() {
       </div>
 
       {/* ======================
-          Left Actions
+          LEFT ACTIONS
       ====================== */}
 
       <div className="left-actions">
@@ -171,7 +187,7 @@ function Navbar() {
       </div>
 
       {/* ======================
-          Desktop Search
+          DESKTOP SEARCH
       ====================== */}
 
       <div className="search-box">
@@ -191,7 +207,7 @@ function Navbar() {
 
         <FaSearch />
 
-        {/* Suggestions */}
+        {/* SUGGESTIONS */}
 
         {suggestions.length > 0 && (
           <div className="search-suggestions">
@@ -199,7 +215,7 @@ function Navbar() {
               <div
                 key={movie.id}
                 className="suggestion-item"
-                onClick={() => handleSuggestionClick(movie.id)}
+                onClick={() => handleSuggestionClick(movie)}
               >
                 <img src={movie.image} alt={movie.title} />
 
@@ -209,9 +225,9 @@ function Navbar() {
           </div>
         )}
 
-        {/* Search History */}
+        {/* HISTORY */}
 
-        {showHistory && search.length === 0 && searchHistory.length > 0 && (
+        {showHistory && searchHistory.length > 0 && (
           <div className="search-history-box">
             <h4>آخرین جستجوها</h4>
 
@@ -237,7 +253,7 @@ function Navbar() {
       </div>
 
       {/* ======================
-          Logo + Links
+          LOGO + LINKS
       ====================== */}
 
       <div className="nav-content">
@@ -281,7 +297,7 @@ function Navbar() {
       </div>
 
       {/* ======================
-          Mobile Menu
+          MOBILE MENU
       ====================== */}
 
       <div className={`mobile-menu ${menuOpen ? "active" : ""}`}>
@@ -289,7 +305,12 @@ function Navbar() {
           <input
             type="text"
             value={search}
-            onFocus={() => setShowHistory(true)}
+            onFocus={() => {
+              setShowHistory(true);
+            }}
+            onClick={() => {
+              setShowHistory(true);
+            }}
             onChange={(e) => handleSearchChange(e.target.value)}
             onKeyDown={handleSearch}
             placeholder="Search movies..."
@@ -297,7 +318,7 @@ function Navbar() {
 
           <FaSearch />
 
-          {/* Mobile Suggestions */}
+          {/* MOBILE SUGGESTIONS */}
 
           {suggestions.length > 0 && (
             <div className="search-suggestions">
@@ -305,7 +326,7 @@ function Navbar() {
                 <div
                   key={movie.id}
                   className="suggestion-item"
-                  onClick={() => handleSuggestionClick(movie.id)}
+                  onClick={() => handleSuggestionClick(movie)}
                 >
                   <img src={movie.image} alt={movie.title} />
 
@@ -315,9 +336,9 @@ function Navbar() {
             </div>
           )}
 
-          {/* Mobile History */}
+          {/* MOBILE HISTORY */}
 
-          {showHistory && search.length === 0 && searchHistory.length > 0 && (
+          {showHistory && searchHistory.length > 0 && (
             <div className="search-history-box">
               <h4>آخرین جستجوها</h4>
 
