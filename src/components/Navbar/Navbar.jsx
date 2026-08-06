@@ -18,14 +18,10 @@ import logo from "../../assets/images/logo.png";
 
 import movies from "../../Data/movies.json";
 
-
 function Navbar() {
-
-
   const location = useLocation();
 
   const isHome = location.pathname === "/";
-
 
   const [scrolled, setScrolled] = useState(false);
 
@@ -34,669 +30,248 @@ function Navbar() {
   const [search, setSearch] = useState("");
 
   const [suggestions, setSuggestions] = useState([]);
+  const saveSearchHistory = (value) => {
+    const oldHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
 
+    const updatedHistory = [
+      value,
+      ...oldHistory.filter((item) => item !== value),
+    ].slice(0, 5);
 
+    localStorage.setItem("searchHistory", JSON.stringify(updatedHistory));
+  };
 
   const { darkMode, toggleTheme } = useContext(ThemeContext);
 
   const navigate = useNavigate();
 
-
-
-
-
   useEffect(() => {
-
-
     const handleScroll = () => {
-
       setScrolled(window.scrollY > 50);
-
     };
 
-
-    window.addEventListener(
-      "scroll",
-      handleScroll
-    );
-
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-
-      window.removeEventListener(
-        "scroll",
-        handleScroll
-      );
-
+      window.removeEventListener("scroll", handleScroll);
     };
-
-
   }, []);
 
-
-
-
-
-
-
   const handleSearch = (e) => {
+    if (e.key === "Enter" && search.trim()) {
+      saveSearchHistory(search.trim());
 
-
-    if (
-      e.key === "Enter" &&
-      search.trim()
-    ) {
-
-
-      navigate(
-        `/search?query=${search}`
-      );
-
+      navigate(`/search?query=${search.trim()}`);
 
       setSearch("");
 
       setSuggestions([]);
-
-
     }
-
-
   };
 
-
-
-
-
-
-
-
-
   const handleSearchChange = (value) => {
-
-
     setSearch(value);
 
-
-
-
-    if(!value.trim()){
-
-
+    if (!value.trim()) {
       setSuggestions([]);
 
       return;
-
-
     }
 
+    const filteredMovies = movies
+      .filter((movie) => {
+        return movie.title.toLowerCase().includes(value.toLowerCase());
+      })
+      .slice(0, 5);
 
-
-
-
-
-    const filteredMovies = movies.filter(
-      (movie)=>{
-
-
-        return movie.title
-          .toLowerCase()
-          .includes(
-            value.toLowerCase()
-          );
-
-
-      }
-
-    ).slice(0,5);
-
-
-
-
-
-
-    setSuggestions(
-      filteredMovies
-    );
-
-
+    setSuggestions(filteredMovies);
   };
 
-
-
-
-
-
-
-
-
-  const handleSuggestionClick = (id)=>{
-
-
-    navigate(
-      `/movie/${id}`
-    );
-
+  const handleSuggestionClick = (id) => {
+    navigate(`/movie/${id}`);
 
     setSearch("");
 
     setSuggestions([]);
-
-
   };
-
-
-
-
-
-
-
-
 
   const closeMenu = () => {
-
     setMenuOpen(false);
-
   };
 
-
-
-
-
-
-
-
-
   return (
-
-
-
     <nav
-
       className={`
         navbar
         ${scrolled ? "scrolled" : ""}
         ${isHome ? "home-navbar" : ""}
       `}
-
     >
-
-
-
-
-
-
       <div className="mobile-menu-btn">
-
-
-        <button
-
-          onClick={()=>
-            setMenuOpen(!menuOpen)
-          }
-
-        >
-
-          {
-
-            menuOpen
-
-            ?
-
-            <FaTimes />
-
-            :
-
-            <FaBars />
-
-          }
-
-
+        <button onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
-
-
       </div>
-
-
-
-
-
-
-
-
 
       <div className="left-actions">
-
-
-
         <div className="theme-toggle">
-
-
-          <button
-
-            onClick={toggleTheme}
-
-          >
-
-
-            {
-
-              darkMode
-
-              ?
-
-              <FaMoon />
-
-              :
-
-              <FaSun />
-
-            }
-
-
+          <button onClick={toggleTheme}>
+            {darkMode ? <FaMoon /> : <FaSun />}
           </button>
-
-
         </div>
 
-
-
-
-
-
-
-
-
-        <Link
-
-          to="/login"
-
-          className="user-btn"
-
-        >
-
-
+        <Link to="/login" className="user-btn">
           <FaUser />
 
-
-          <span>
-
-            Login | Register
-
-          </span>
-
-
+          <span>Login | Register</span>
         </Link>
-
-
-
       </div>
 
-
-
-
-
-
-
-
-
-
-
-
       <div className="search-box">
-
-
         <input
-
-
           type="text"
-
-
           value={search}
-
-
-          onChange={(e)=>
-            handleSearchChange(
-              e.target.value
-            )
-          }
-
-
+          onChange={(e) => handleSearchChange(e.target.value)}
           onKeyDown={handleSearch}
-
-
           placeholder="Search movies..."
-
-
         />
-
-
 
         <FaSearch />
 
+        {suggestions.length > 0 && (
+          <div className="search-suggestions">
+            {suggestions.map((movie) => (
+              <div
+                key={movie.id}
+                className="suggestion-item"
+                onClick={() => handleSuggestionClick(movie.id)}
+              >
+                <img src={movie.image} alt={movie.title} />
 
-
-
-
-
-
-        {
-
-
-          suggestions.length > 0 && (
-
-
-            <div className="search-suggestions">
-
-
-
-              {
-
-
-                suggestions.map((movie)=>(
-
-
-
-                  <div
-
-
-                    key={movie.id}
-
-
-                    className="suggestion-item"
-
-
-
-                    onClick={()=>
-                      handleSuggestionClick(
-                        movie.id
-                      )
-                    }
-
-
-                  >
-
-
-                    <img
-
-                      src={movie.image}
-
-                      alt={movie.title}
-
-                    />
-
-
-
-                    <span>
-
-                      {movie.title}
-
-                    </span>
-
-
-
-                  </div>
-
-
-
-                ))
-
-
-              }
-
-
-
-            </div>
-
-
-
-          )
-
-
-        }
-
-
-
-
-
-
+                <span>{movie.title}</span>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
-
-
-
-
-
-
-
-
-
-
-
 
       <div className="nav-content">
-
-
-
         <ul className="nav-links">
-
-
           <li>
-            <NavLink to="/">
-              Home
-            </NavLink>
+            <NavLink to="/">Home</NavLink>
           </li>
 
-
           <li>
-            <NavLink to="/movies">
-              Movies
-            </NavLink>
+            <NavLink to="/movies">Movies</NavLink>
           </li>
 
-
           <li>
-            <NavLink to="/series">
-              Series
-            </NavLink>
+            <NavLink to="/series">Series</NavLink>
           </li>
 
-
           <li>
-            <NavLink to="/popular">
-              Popular
-            </NavLink>
+            <NavLink to="/popular">Popular</NavLink>
           </li>
 
-
           <li>
-            <NavLink to="/genres">
-              Genres
-            </NavLink>
+            <NavLink to="/genres">Genres</NavLink>
           </li>
 
-
           <li>
-            <NavLink to="/top-rated">
-              Top Rated
-            </NavLink>
+            <NavLink to="/top-rated">Top Rated</NavLink>
           </li>
 
-
           <li>
-            <NavLink to="/about">
-              About Us
-            </NavLink>
+            <NavLink to="/about">About Us</NavLink>
           </li>
-
-
         </ul>
 
-
-
-
-
-
-
-
         <div className="logo">
-
-
-          <img
-
-            src={logo}
-
-            alt="logo"
-
-          />
-
-
+          <img src={logo} alt="logo" />
 
           <span>
-
             Movie<strong>Hub</strong>
-
           </span>
-
-
         </div>
-
-
-
-
       </div>
 
-
-
-
-
-
-
-
-
-
-
-
-      <div
-
-        className={
-          `mobile-menu ${
-            menuOpen ? "active" : ""
-          }`
-        }
-
-      >
-
-
-
+      <div className={`mobile-menu ${menuOpen ? "active" : ""}`}>
         <div className="mobile-search">
-
-
           <input
-
-
             type="text"
-
-
             value={search}
-
-
-            onChange={(e)=>
-              handleSearchChange(
-                e.target.value
-              )
-            }
-
-
+            onChange={(e) => handleSearchChange(e.target.value)}
             onKeyDown={handleSearch}
-
-
             placeholder="Search movies..."
-
-
           />
 
-
           <FaSearch />
+          {
+  suggestions.length > 0 && (
 
+    <div className="search-suggestions">
 
+      {
+        suggestions.map((movie)=>(
+
+          <div
+            key={movie.id}
+            className="suggestion-item"
+            onClick={() =>
+              handleSuggestionClick(movie.id)
+            }
+          >
+
+            <img
+              src={movie.image}
+              alt={movie.title}
+            />
+
+            <span>
+              {movie.title}
+            </span>
+
+          </div>
+
+        ))
+      }
+
+    </div>
+
+  )
+}
         </div>
 
-
-
-
-
-
-
-        <NavLink
-          onClick={closeMenu}
-          to="/"
-        >
+        <NavLink onClick={closeMenu} to="/">
           Home
         </NavLink>
 
-
-        <NavLink
-          onClick={closeMenu}
-          to="/movies"
-        >
+        <NavLink onClick={closeMenu} to="/movies">
           Movies
         </NavLink>
 
-
-        <NavLink
-          onClick={closeMenu}
-          to="/series"
-        >
+        <NavLink onClick={closeMenu} to="/series">
           Series
         </NavLink>
 
-
-        <NavLink
-          onClick={closeMenu}
-          to="/popular"
-        >
+        <NavLink onClick={closeMenu} to="/popular">
           Popular
         </NavLink>
 
-
-        <NavLink
-          onClick={closeMenu}
-          to="/genres"
-        >
+        <NavLink onClick={closeMenu} to="/genres">
           Genres
         </NavLink>
 
-
-        <NavLink
-          onClick={closeMenu}
-          to="/top-rated"
-        >
+        <NavLink onClick={closeMenu} to="/top-rated">
           Top Rated
         </NavLink>
 
-
-        <NavLink
-          onClick={closeMenu}
-          to="/about"
-        >
+        <NavLink onClick={closeMenu} to="/about">
           About Us
         </NavLink>
-
-
-
       </div>
-
-
-
-
-
     </nav>
-
-
-
   );
-
 }
-
-
 
 export default Navbar;
