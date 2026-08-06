@@ -859,13 +859,11 @@ body.dark .mobile-search svg {
 
 .search-suggestions{
 
-  position:absolute;
-
+   position:absolute;
   top:60px;
-
   right:0;
-
   width:100%;
+  z-index:5000;
 
   background:var(--surface-color);
 
@@ -1044,12 +1042,10 @@ body.dark .mobile-search svg {
 .search-history-box{
 
   position:absolute;
-
-  top:55px;
-
+  top:60px;
   right:0;
-
   width:100%;
+  z-index:3000;
 
   background:var(--surface-color);
 
@@ -1098,4 +1094,23 @@ body.dark .mobile-search svg {
 
   color:white;
 
+}
+/* ================= SEARCH DROPDOWN FIX ================= */
+
+.search-box,
+.mobile-search {
+  position: relative;
+}
+
+
+.search-history-box,
+.search-suggestions {
+  pointer-events: auto;
+}
+
+
+/* جلوگیری از گیر کردن لایه روی کل صفحه */
+.search-history-box {
+  max-height:300px;
+  overflow-y:auto;
 }

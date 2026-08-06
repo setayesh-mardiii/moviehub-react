@@ -2,7 +2,7 @@ import "./Navbar.css";
 
 import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
 
-import { useState, useEffect, useContext } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 
 import {
   FaUser,
@@ -31,6 +31,8 @@ function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const [search, setSearch] = useState("");
+  const desktopSearchRef = useRef(null);
+  const mobileSearchRef = useRef(null);
 
   const [suggestions, setSuggestions] = useState([]);
 
@@ -61,6 +63,25 @@ function Navbar() {
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    const closeSearch = (e) => {
+      const desktop = desktopSearchRef.current?.contains(e.target);
+
+      const mobile = mobileSearchRef.current?.contains(e.target);
+
+      if (!desktop && !mobile) {
+        setShowHistory(false);
+        setSuggestions([]);
+      }
+    };
+
+    document.addEventListener("mousedown", closeSearch);
+
+    return () => {
+      document.removeEventListener("mousedown", closeSearch);
     };
   }, []);
 
@@ -190,16 +211,19 @@ function Navbar() {
           DESKTOP SEARCH
       ====================== */}
 
-      <div className="search-box">
+      <div className="search-box" ref={desktopSearchRef}>
         <input
           type="text"
           value={search}
           onFocus={() => {
             setShowHistory(true);
           }}
-          onClick={() => {
-            setShowHistory(true);
+          onBlur={() => {
+            setTimeout(() => {
+              setShowHistory(false);
+            }, 150);
           }}
+         
           onChange={(e) => handleSearchChange(e.target.value)}
           onKeyDown={handleSearch}
           placeholder="Search movies..."
@@ -301,7 +325,7 @@ function Navbar() {
       ====================== */}
 
       <div className={`mobile-menu ${menuOpen ? "active" : ""}`}>
-        <div className="mobile-search">
+        <div className="mobile-search" ref={mobileSearchRef}>
           <input
             type="text"
             value={search}
