@@ -13,6 +13,7 @@
 .movie-card {
 
   width:220px;
+
   height:330px;
 
   position:relative;
@@ -60,10 +61,85 @@
 
 
 
+/* ================= FAVORITE ================= */
+
+.favorite-btn {
+
+  position:absolute;
+
+  left:12px;
+
+  bottom:12px;
+
+
+  width:36px;
+
+  height:36px;
+
+
+  background:rgba(0,0,0,.45);
+
+
+  border:1px solid rgba(255,255,255,.15);
+
+
+  border-radius:10px;
+
+
+  color:white;
+
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+
+  cursor:pointer;
+
+
+  z-index:20;
+
+
+  padding:0;
+
+
+  font-size:22px;
+
+
+  transition:.3s ease;
+
+
+  backdrop-filter:blur(8px);
+
+}
 
 
 
-/* فقط دسکتاپ */
+.favorite-btn svg {
+
+  fill:currentColor;
+
+}
+
+
+
+.favorite-btn.active {
+
+  color:#ff2d55;
+
+}
+
+
+
+.favorite-btn:hover {
+
+  transform:scale(1.08);
+
+}
+/* ================= DESKTOP HOVER ================= */
+
 
 @media(min-width:901px){
 
@@ -76,10 +152,15 @@
 
 
     background:
+
     linear-gradient(
+
       to top,
+
       rgba(0,0,0,.75),
+
       rgba(0,0,0,.15)
+
     );
 
 
@@ -101,9 +182,7 @@
 
 
 
-
   .movie-card:hover {
-
 
     transform:
 
@@ -117,25 +196,19 @@
 
     0 12px 25px rgba(0,0,0,.3);
 
-
   }
 
 
 
 
 
-
-  .movie-card:hover .movie-image img {
-
+  .movie-card:hover img {
 
     transform:scale(1.08);
 
-
     filter:brightness(.55);
 
-
   }
-
 
 
 
@@ -143,103 +216,7 @@
 
   .movie-card:hover .movie-overlay {
 
-
     opacity:1;
-
-
-  }
-
-
-
-
-
-
-  .details-circle {
-
-
-    width:72px;
-
-    height:72px;
-
-
-
-    border-radius:50%;
-
-
-
-    border:1px solid rgba(255,255,255,.5);
-
-
-
-    background:
-
-    rgba(255,255,255,.2);
-
-
-
-    backdrop-filter:blur(10px);
-
-
-
-    color:white;
-
-
-
-    font-size:11px;
-
-
-
-    font-weight:700;
-
-
-
-    display:flex;
-
-
-
-    align-items:center;
-
-
-
-    justify-content:center;
-
-
-
-    text-align:center;
-
-
-
-    line-height:1.4;
-
-
-
-    transition:.3s ease;
-
-
-
-    box-shadow:
-
-    0 8px 20px rgba(0,0,0,.45);
-
-
-  }
-
-
-
-
-
-
-  .details-circle:hover {
-
-
-    background:
-
-    rgba(255,255,255,.35);
-
-
-
-    transform:scale(1.08);
-
 
   }
 
@@ -253,8 +230,98 @@
 
 
 
+/* ================= DETAILS BUTTON ================= */
 
-/* تبلت */
+
+.details-circle {
+
+
+  width:72px;
+
+
+  height:72px;
+
+
+  border-radius:50%;
+
+
+
+  border:
+
+  1px solid rgba(255,255,255,.5);
+
+
+
+  background:
+
+  rgba(255,255,255,.2);
+
+
+
+  backdrop-filter:blur(10px);
+
+
+
+  color:white;
+
+
+
+  font-size:11px;
+
+
+
+  font-weight:700;
+
+
+
+  display:flex;
+
+
+  align-items:center;
+
+
+  justify-content:center;
+
+
+
+  text-align:center;
+
+
+
+  line-height:1.4;
+
+
+
+  transition:.3s ease;
+
+
+
+  box-shadow:
+
+  0 8px 20px rgba(0,0,0,.45);
+
+
+
+}
+
+
+
+
+.details-circle:hover {
+
+
+  background:
+
+  rgba(255,255,255,.35);
+
+
+
+  transform:scale(1.08);
+
+
+}
+/* ================= TABLET ================= */
+
 
 @media(max-width:900px){
 
@@ -268,6 +335,9 @@
     height:300px;
 
 
+    border-radius:22px;
+
+
   }
 
 
@@ -280,7 +350,9 @@
 
 
 
-/* گوشی */
+
+/* ================= MOBILE ================= */
+
 
 @media(max-width:650px){
 
@@ -299,5 +371,157 @@
 
   }
 
+
+
+
+  .favorite-btn {
+
+
+    left:10px;
+
+
+    bottom:10px;
+
+
+    font-size:20px;
+
+
+  }
+
+
+
+
+
+  .details-circle {
+
+
+    width:60px;
+
+
+    height:60px;
+
+
+    font-size:10px;
+
+
+  }
+
+
+}
+
+
+
+
+
+
+
+
+
+/* ================= SMALL MOBILE ================= */
+
+
+@media(max-width:380px){
+
+
+  .movie-card {
+
+
+    width:145px;
+
+
+    height:220px;
+
+
+  }
+
+
+
+
+  .favorite-btn {
+
+
+    left:8px;
+
+
+    bottom:8px;
+
+
+    font-size:18px;
+
+
+  }
+
+
+}
+/* ================= EXTRA CLEAN ================= */
+
+
+/* جلوگیری از استایل پیش‌فرض دکمه مرورگر */
+
+.favorite-btn {
+
+  appearance:none;
+
+  -webkit-appearance:none;
+
+  outline:none;
+
+}
+
+
+
+/* جلوگیری از تغییر رنگ SVG */
+
+.favorite-btn svg {
+
+  width:1em;
+
+  height:1em;
+
+}
+
+
+
+/* حالت فعال */
+
+.favorite-btn.active svg {
+
+  color:#ff2d55;
+
+}
+
+
+
+/* حالت عادی */
+
+.favorite-btn:not(.active) svg {
+
+  color:white;
+
+}
+.favorite-btn {
+
+  width:36px !important;
+
+  height:36px !important;
+
+  background:rgba(0,0,0,.45) !important;
+
+  border:1px solid rgba(255,255,255,.2) !important;
+
+  border-radius:10px !important;
+
+  color:white !important;
+
+  font-size:22px !important;
+
+  box-shadow:none !important;
+
+}
+
+
+.favorite-btn.active {
+
+  color:#ff2d55 !important;
 
 }
