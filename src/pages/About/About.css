@@ -21,8 +21,6 @@
 
 
 
-
-
 /* =====================
         Hero
 ===================== */
@@ -39,6 +37,9 @@
   text-align:center;
 
 }
+
+
+
 .hero-tag{
 
   display:inline-flex;
@@ -46,10 +47,6 @@
   align-items:center;
 
   justify-content:center;
-
-  padding:0;
-
-  background:transparent;
 
   color:var(--primary-color);
 
@@ -60,6 +57,9 @@
   margin-bottom:25px;
 
 }
+
+
+
 .about-hero h1{
 
   font-size:48px;
@@ -71,10 +71,6 @@
   margin-bottom:25px;
 
 }
-
-
-
-
 
 
 
@@ -96,10 +92,6 @@
 
 
 
-
-
-
-
 /* =====================
         Section Title
 ===================== */
@@ -115,10 +107,6 @@
 
 
 
-
-
-
-
 .section-title h2{
 
   font-size:32px;
@@ -126,10 +114,6 @@
   margin-bottom:15px;
 
 }
-
-
-
-
 
 
 
@@ -150,6 +134,9 @@
 }
 
 
+
+
+
 /* =====================
         Story
 ===================== */
@@ -167,10 +154,6 @@
 
 
 
-
-
-
-
 .about-story p{
 
   color:var(--muted-text);
@@ -180,15 +163,6 @@
   line-height:2.3;
 
 }
-
-
-
-
-
-
-
-
-
 /* =====================
         Features
 ===================== */
@@ -206,8 +180,6 @@
 
 
 
-
-
 .features-grid{
 
   display:grid;
@@ -219,8 +191,6 @@
   gap:25px;
 
 }
-
-
 
 
 
@@ -252,8 +222,6 @@
 
 
 
-
-
 .feature-card:hover{
 
   transform:translateY(-8px);
@@ -261,10 +229,6 @@
   border-color:var(--primary-color);
 
 }
-
-
-
-
 
 
 
@@ -295,6 +259,10 @@
 
 }
 
+
+
+
+
 .feature-card h3{
 
   font-size:20px;
@@ -302,8 +270,6 @@
   margin-bottom:12px;
 
 }
-
-
 
 
 
@@ -318,10 +284,6 @@
   line-height:1.9;
 
 }
-
-
-
-
 
 
 
@@ -379,6 +341,10 @@
 }
 
 
+
+
+
+
 /* =====================
         Technologies
 ===================== */
@@ -396,8 +362,6 @@
 
 
 
-
-
 .tech-grid{
 
   display:grid;
@@ -409,8 +373,6 @@
   gap:20px;
 
 }
-
-
 
 
 
@@ -448,8 +410,6 @@
 
 
 
-
-
 .tech-card::before{
 
   content:"";
@@ -472,8 +432,6 @@
 
 
 
-
-
 .tech-card:hover{
 
   transform:translateY(-6px);
@@ -483,15 +441,6 @@
   border-color:var(--primary-color);
 
 }
-
-
-
-
-
-
-
-
-
 /* =====================
         Developer
 ===================== */
@@ -504,8 +453,6 @@
   margin:0 auto 90px;
 
 }
-
-
 
 
 
@@ -532,7 +479,12 @@
 }
 
 
+
+
+
 /* Developer Icon */
+
+
 .developer-avatar{
 
   width:90px;
@@ -552,6 +504,11 @@
   font-size:75px;
 
 }
+
+
+
+
+
 .developer-card h3{
 
   font-size:26px;
@@ -559,8 +516,6 @@
   margin-bottom:10px;
 
 }
-
-
 
 
 
@@ -578,8 +533,6 @@
 
 
 
-
-
 .developer-text{
 
   margin-top:20px;
@@ -587,8 +540,6 @@
   line-height:2;
 
 }
-
-
 
 
 
@@ -612,8 +563,6 @@
   margin-top:30px;
 
 }
-
-
 
 
 
@@ -651,15 +600,11 @@
 
 
 
-
-
 .developer-buttons a svg{
 
   font-size:18px;
 
 }
-
-
 
 
 
@@ -674,6 +619,11 @@
   0 10px 25px rgba(0,0,0,.25);
 
 }
+
+
+
+
+
 
 
 /* =====================
@@ -705,8 +655,6 @@
 
 
 
-
-
 .about-cta h2{
 
   font-size:30px;
@@ -714,8 +662,6 @@
   margin-bottom:15px;
 
 }
-
-
 
 
 
@@ -732,8 +678,6 @@
   margin-bottom:30px;
 
 }
-
-
 
 
 
@@ -767,8 +711,6 @@
 
 
 
-
-
 .cta-btn:hover{
 
   transform:translateY(-4px);
@@ -778,9 +720,6 @@
   0 12px 25px rgba(0,0,0,.25);
 
 }
-
-
-
 /* =====================
         Dark Mode
 ===================== */
@@ -803,11 +742,21 @@
 }
 
 
+
+
+
 .dark .about-page{
 
   background:#111;
 
 }
+
+
+
+
+
+
+
 
 /* =====================
         Light Mode
@@ -851,6 +800,7 @@
 @media(max-width:900px){
 
 
+
   .about-page{
 
     padding:
@@ -858,6 +808,7 @@
     110px 25px 50px;
 
   }
+
 
 
 
@@ -873,13 +824,20 @@
 
 
 
+
+
   .features-grid{
+
 
     grid-template-columns:
 
     repeat(2,1fr);
 
+
   }
+
+
+
 
 
 
@@ -887,11 +845,14 @@
 
   .tech-grid{
 
+
     grid-template-columns:
 
     repeat(3,1fr);
 
+
   }
+
 
 
 }
@@ -912,13 +873,18 @@
 @media(max-width:650px){
 
 
+
   .about-page{
+
 
     padding:
 
     100px 15px 40px;
 
+
   }
+
+
 
 
 
@@ -926,9 +892,13 @@
 
   .about-hero{
 
+
     padding:40px 10px;
 
+
   }
+
+
 
 
 
@@ -936,9 +906,13 @@
 
   .about-hero h1{
 
+
     font-size:28px;
 
+
   }
+
+
 
 
 
@@ -946,9 +920,13 @@
 
   .about-hero p{
 
+
     font-size:14px;
 
+
   }
+
+
 
 
 
@@ -956,9 +934,13 @@
 
   .section-title h2{
 
+
     font-size:25px;
 
+
   }
+
+
 
 
 
@@ -966,11 +948,15 @@
 
   .features-grid{
 
+
     grid-template-columns:
 
     1fr;
 
+
   }
+
+
 
 
 
@@ -978,11 +964,15 @@
 
   .tech-grid{
 
+
     grid-template-columns:
 
     repeat(2,1fr);
 
+
   }
+
+
 
 
 
@@ -990,9 +980,13 @@
 
   .feature-card{
 
+
     padding:25px 15px;
 
+
   }
+
+
 
 
 
@@ -1000,9 +994,13 @@
 
   .developer-card{
 
+
     padding:30px 20px;
 
+
   }
+
+
 
 
 
@@ -1010,9 +1008,13 @@
 
   .developer-buttons{
 
+
     flex-direction:column;
 
+
   }
+
+
 
 
 
@@ -1020,9 +1022,13 @@
 
   .developer-buttons a{
 
+
     width:100%;
 
+
   }
+
+
 
 
 
@@ -1030,9 +1036,13 @@
 
   .about-cta{
 
+
     padding:35px 20px;
 
+
   }
+
+
 
 
 
@@ -1040,9 +1050,12 @@
 
   .about-cta h2{
 
+
     font-size:22px;
 
+
   }
+
 
 
 }

@@ -1,12 +1,14 @@
 import "./About.css";
 
+import { Link } from "react-router-dom";
+
 import {
   FaFilm,
   FaTv,
   FaStar,
   FaFire,
   FaMoon,
-  FaSearch,
+  FaTheaterMasks,
   FaGithub,
   FaEnvelope,
   FaUserCircle,
@@ -14,11 +16,10 @@ import {
 
 function About() {
   return (
-    <div className="about-page">
+    <div className="about-page" dir="rtl">
       {/* =====================
               Hero
       ===================== */}
-
       <section className="about-hero">
         <span className="hero-tag">درباره مووی‌هاب</span>
 
@@ -29,15 +30,13 @@ function About() {
         </h1>
 
         <p>
-          مووی‌هاب بستری مدرن برای جستجو، کشف و مشاهده اطلاعات فیلم‌ها و
-          سریال‌های روز دنیاست.
+          مووی‌هاب یک پروژه React است که برای نمایش فیلم‌ها و سریال‌ها با رابط
+          کاربری مدرن، طراحی واکنش‌گرا و تجربه کاربری روان توسعه داده شده است.
         </p>
       </section>
-
       {/* =====================
             داستان پروژه
       ===================== */}
-
       <section className="about-story">
         <div className="section-title">
           <h2>داستان مووی‌هاب</h2>
@@ -46,21 +45,23 @@ function About() {
         </div>
 
         <p>
-          مووی‌هاب یک پروژه فرانت‌اند است که با هدف یادگیری و پیاده‌سازی مفاهیم
-          مدرن React ساخته شده است. در این پروژه تلاش شده محیطی سریع، واکنش‌گرا
-          و کاربرپسند برای علاقه‌مندان به فیلم و سریال طراحی شود.
+          مووی‌هاب یک پروژه فرانت‌اند است که با استفاده از React و Vite توسعه
+          داده شده است.
           <br />
           <br />
-          اطلاعات فیلم‌ها و سریال‌ها از طریق TMDB API دریافت می‌شود و کاربران
-          می‌توانند به راحتی فیلم‌های محبوب، برترین آثار، ژانرهای مختلف و
-          اطلاعات کامل هر عنوان را مشاهده کنند.
+          اطلاعات فیلم‌ها و سریال‌ها به صورت محلی داخل فایل‌های JSON مدیریت
+          می‌شوند و منطق فیلتر، دسته‌بندی و پردازش داده‌ها توسط Utility
+          Functions انجام می‌شود.
+          <br />
+          <br />
+          هدف این پروژه تمرین معماری صحیح React، ساخت کامپوننت‌های قابل استفاده
+          مجدد، طراحی رابط کاربری حرفه‌ای و ایجاد یک نمونه‌کار واقعی بوده است.
         </p>
       </section>
-
+      id="w9k3qd"
       {/* =====================
               امکانات سایت
       ===================== */}
-
       <section className="about-features">
         <div className="section-title">
           <h2>امکانات سایت</h2>
@@ -76,7 +77,10 @@ function About() {
 
             <h3>فیلم‌ها</h3>
 
-            <p>مشاهده هزاران فیلم روز دنیا</p>
+            <p>
+              نمایش اطلاعات فیلم‌ها شامل ژانر، امتیاز، سال انتشار، کشور، مدت
+              زمان و بازیگران
+            </p>
           </div>
 
           <div className="feature-card">
@@ -86,7 +90,7 @@ function About() {
 
             <h3>سریال‌ها</h3>
 
-            <p>دسترسی به مجموعه‌ای از سریال‌های محبوب</p>
+            <p>نمایش مجموعه‌ای از سریال‌ها و دسته‌بندی آن‌ها</p>
           </div>
 
           <div className="feature-card">
@@ -94,9 +98,9 @@ function About() {
               <FaStar />
             </div>
 
-            <h3>برترین آثار</h3>
+            <h3>فیلم‌های برتر</h3>
 
-            <p>مشاهده فیلم‌ها و سریال‌های با بالاترین امتیاز</p>
+            <p>نمایش فیلم‌هایی با بالاترین امتیاز کاربران</p>
           </div>
 
           <div className="feature-card">
@@ -104,9 +108,9 @@ function About() {
               <FaFire />
             </div>
 
-            <h3>محبوب‌ترین‌ها</h3>
+            <h3>Trending Movies</h3>
 
-            <p>بررسی آثار ترند و پرطرفدار</p>
+            <p>نمایش فیلم‌های محبوب و پرطرفدار در بخش Trending</p>
           </div>
 
           <div className="feature-card">
@@ -114,27 +118,25 @@ function About() {
               <FaMoon />
             </div>
 
-            <h3>حالت شب و روز</h3>
+            <h3>Dark / Light Theme</h3>
 
-            <p>تغییر ظاهر سایت با یک کلیک</p>
+            <p>تغییر حالت ظاهری سایت بین تم تاریک و روشن</p>
           </div>
 
           <div className="feature-card">
             <div className="feature-icon">
-              <FaSearch />
+              <FaTheaterMasks />
             </div>
 
-            <h3>جستجوی سریع</h3>
+            <h3>Explore Genres</h3>
 
-            <p>پیدا کردن فیلم و سریال در چند ثانیه</p>
+            <p>پیدا کردن فیلم‌ها بر اساس ژانرهای مختلف</p>
           </div>
         </div>
       </section>
-
       {/* =====================
           تکنولوژی‌های استفاده شده
       ===================== */}
-
       <section className="about-tech">
         <div className="section-title">
           <h2>تکنولوژی‌های استفاده شده</h2>
@@ -145,26 +147,28 @@ function About() {
         <div className="tech-grid">
           <div className="tech-card">React</div>
 
-          <div className="tech-card">React Router</div>
+          <div className="tech-card">Vite</div>
 
-          <div className="tech-card">Axios</div>
-
-          <div className="tech-card">TMDB API</div>
-
-          <div className="tech-card">Context API</div>
+          <div className="tech-card">JavaScript ES6+</div>
 
           <div className="tech-card">CSS3</div>
 
-          <div className="tech-card">Git</div>
+          <div className="tech-card">React Router</div>
 
-          <div className="tech-card">GitHub</div>
+          <div className="tech-card">Framer Motion</div>
+
+          <div className="tech-card">Swiper.js</div>
+
+          <div className="tech-card">JSON Data</div>
+
+          <div className="tech-card">LocalStorage</div>
+
+          <div className="tech-card">Git & GitHub</div>
         </div>
       </section>
-
       {/* =====================
            توسعه‌دهنده پروژه
       ===================== */}
-
       <section className="about-developer">
         <div className="section-title">
           <h2>توسعه‌دهنده پروژه</h2>
@@ -182,36 +186,45 @@ function About() {
           <p>Front-End Developer</p>
 
           <p className="developer-text">
-            این پروژه با React و TMDB API با هدف یادگیری، تمرین و ساخت یک
-            نمونه‌کار حرفه‌ای طراحی و توسعه داده شده است.
+            این پروژه با React و Vite توسعه داده شده و هدف آن تمرین مفاهیم مدرن
+            فرانت‌اند، معماری کامپوننت‌محور و ساخت یک نمونه‌کار حرفه‌ای بوده
+            است.
           </p>
 
           <div className="developer-buttons">
-            <a href="https://github.com/" target="_blank" rel="noreferrer">
+            <a
+              href="https://github.com/setayesh-mardiii"
+              target="_blank"
+              rel="noreferrer"
+            >
               <FaGithub />
               GitHub
             </a>
-
-            <a href="mailto:example@gmail.com">
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=mardisetayesh@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <FaEnvelope />
               Email
             </a>
           </div>
         </div>
       </section>
-
       {/* =====================
               CTA
       ===================== */}
-
       <section className="about-cta">
         <h2>آماده‌ای دنیای فیلم و سریال را کشف کنی؟</h2>
 
-        <p>هزاران فیلم و سریال محبوب فقط با چند کلیک در دسترس توست.</p>
+        <p>
+          هزاران فیلم و سریال محبوب با اطلاعات کامل فقط با چند کلیک در دسترس
+          توست.
+        </p>
 
-        <a href="/movies" className="cta-btn">
+        <Link to="/movies" className="cta-btn">
           مشاهده فیلم‌ها
-        </a>
+        </Link>
       </section>
     </div>
   );
