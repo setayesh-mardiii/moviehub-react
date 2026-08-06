@@ -1,17 +1,8 @@
 import "./Navbar.css";
 
-import {
-  NavLink,
-  Link,
-  useLocation,
-  useNavigate,
-} from "react-router-dom";
+import { NavLink, Link, useLocation, useNavigate } from "react-router-dom";
 
-import {
-  useState,
-  useEffect,
-  useContext,
-} from "react";
+import { useState, useEffect, useContext } from "react";
 
 import {
   FaUser,
@@ -28,1256 +19,359 @@ import logo from "../../assets/images/logo.png";
 
 import movies from "../../Data/movies.json";
 
-
 function Navbar() {
-
-
   const location = useLocation();
 
   const navigate = useNavigate();
 
-
   const isHome = location.pathname === "/";
-
-
 
   const [scrolled, setScrolled] = useState(false);
 
-
   const [menuOpen, setMenuOpen] = useState(false);
-
-
 
   const [search, setSearch] = useState("");
 
-
-
   const [suggestions, setSuggestions] = useState([]);
-
-
 
   // ======================
   // Search History
   // ======================
 
-
   const [showHistory, setShowHistory] = useState(false);
 
-
-
   const [searchHistory, setSearchHistory] = useState(() => {
+    const saved = localStorage.getItem("searchHistory");
 
-
-    const saved =
-      localStorage.getItem("searchHistory");
-
-
-    return saved
-      ? JSON.parse(saved)
-      : [];
-
-
+    return saved ? JSON.parse(saved) : [];
   });
 
-
-
-
-
-  const { darkMode, toggleTheme } =
-    useContext(ThemeContext);
-
-
-
-
+  const { darkMode, toggleTheme } = useContext(ThemeContext);
 
   // ======================
   // Scroll
   // ======================
 
-
   useEffect(() => {
-
-
     const handleScroll = () => {
-
-
-      setScrolled(
-        window.scrollY > 50
-      );
-
-
+      setScrolled(window.scrollY > 50);
     };
 
-
-
-    window.addEventListener(
-      "scroll",
-      handleScroll
-    );
-
-
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-
-
-      window.removeEventListener(
-        "scroll",
-        handleScroll
-      );
-
-
+      window.removeEventListener("scroll", handleScroll);
     };
-
-
   }, []);
-
-
-
-
 
   // ======================
   // Save Search History
   // ======================
 
-
   const saveSearchHistory = (value) => {
-
-
     const updatedHistory = [
-
-
       value,
 
+      ...searchHistory.filter((item) => item !== value),
+    ].slice(0, 5);
 
-      ...searchHistory.filter(
-        (item) =>
-          item !== value
-      )
+    setSearchHistory(updatedHistory);
 
-
-    ].slice(0,5);
-
-
-
-
-    setSearchHistory(
-      updatedHistory
-    );
-
-
-
-    localStorage.setItem(
-      "searchHistory",
-      JSON.stringify(updatedHistory)
-    );
-
-
+    console.log("history saved:", updatedHistory);
   };
-
-
-
-
 
   // ======================
   // Enter Search
   // ======================
 
-
   const handleSearch = (e) => {
+    if (e.key === "Enter" && search.trim()) {
+      saveSearchHistory(search.trim());
 
-
-    if(
-      e.key === "Enter" &&
-      search.trim()
-    ){
-
-
-      saveSearchHistory(
-        search.trim()
-      );
-
-
-
-      navigate(
-        `/search?query=${search.trim()}`
-      );
-
-
+      navigate(`/search?query=${search.trim()}`);
 
       setSearch("");
 
       setSuggestions([]);
 
       setShowHistory(false);
-
-
     }
-
-
   };
-
-
-
-
 
   // ======================
   // Search Suggestions
   // ======================
 
-
   const handleSearchChange = (value) => {
-
-
     setSearch(value);
 
-
-
-    if(!value.trim()){
-
-
+    if (!value.trim()) {
       setSuggestions([]);
 
       return;
-
-
     }
 
+    const filteredMovies = movies
+      .filter((movie) => {
+        return movie.title.toLowerCase().includes(value.toLowerCase());
+      })
+      .slice(0, 5);
 
-
-
-    const filteredMovies =
-      movies.filter(
-        (movie)=>{
-
-
-          return movie.title
-          .toLowerCase()
-          .includes(
-            value.toLowerCase()
-          );
-
-
-        }
-
-      )
-      .slice(0,5);
-
-
-
-
-    setSuggestions(
-      filteredMovies
-    );
-
-
+    setSuggestions(filteredMovies);
   };
 
-
-
-
-
-  const handleSuggestionClick = (id)=>{
-
-
-    navigate(
-      `/movie/${id}`
-    );
-
+  const handleSuggestionClick = (id) => {
+    navigate(`/movie/${id}`);
 
     setSearch("");
 
     setSuggestions([]);
 
-
     setShowHistory(false);
-
-
   };
-
-
-
-
 
   const closeMenu = () => {
-
-
     setMenuOpen(false);
-
-
   };
 
-
   return (
-
     <nav
-
       className={`
         navbar
         ${scrolled ? "scrolled" : ""}
         ${isHome ? "home-navbar" : ""}
       `}
-
     >
-
-
-
-
       {/* ======================
           Hamburger
       ====================== */}
 
-
       <div className="mobile-menu-btn">
-
-
-        <button
-
-          onClick={() =>
-            setMenuOpen(!menuOpen)
-          }
-
-        >
-
-
-          {
-
-            menuOpen
-
-            ?
-
-            <FaTimes />
-
-            :
-
-            <FaBars />
-
-          }
-
-
+        <button onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
-
-
       </div>
-
-
-
-
-
-
 
       {/* ======================
           Left Actions
       ====================== */}
 
-
-
       <div className="left-actions">
-
-
-
         <div className="theme-toggle">
-
-
-          <button
-
-            onClick={toggleTheme}
-
-          >
-
-
-            {
-
-              darkMode
-
-              ?
-
-              <FaMoon />
-
-              :
-
-              <FaSun />
-
-            }
-
-
+          <button onClick={toggleTheme}>
+            {darkMode ? <FaMoon /> : <FaSun />}
           </button>
-
-
-
         </div>
 
-
-
-
-
-
-
-        <Link
-
-          to="/login"
-
-          className="user-btn"
-
-        >
-
-
+        <Link to="/login" className="user-btn">
           <FaUser />
 
-
-          <span>
-
-            Login | Register
-
-          </span>
-
-
+          <span>Login | Register</span>
         </Link>
-
-
-
-
       </div>
-
-
-
-
-
-
-
-
 
       {/* ======================
           Desktop Search
       ====================== */}
 
-
-
       <div className="search-box">
-
-
-
         <input
-
-
           type="text"
-
-
           value={search}
-
-
-
-          onFocus={() =>
-            setShowHistory(true)
-          }
-
-
-
-          onChange={(e)=>
-
-            handleSearchChange(
-              e.target.value
-            )
-
-          }
-
-
-
+          onFocus={() => {
+            setShowHistory(true);
+          }}
+          onClick={() => {
+            setShowHistory(true);
+          }}
+          onChange={(e) => handleSearchChange(e.target.value)}
           onKeyDown={handleSearch}
-
-
-
           placeholder="Search movies..."
-
-
-
         />
-
-
 
         <FaSearch />
 
-
-
-
-
-
         {/* Suggestions */}
 
+        {suggestions.length > 0 && (
+          <div className="search-suggestions">
+            {suggestions.map((movie) => (
+              <div
+                key={movie.id}
+                className="suggestion-item"
+                onClick={() => handleSuggestionClick(movie.id)}
+              >
+                <img src={movie.image} alt={movie.title} />
 
-
-        {
-
-          suggestions.length > 0 && (
-
-
-
-            <div className="search-suggestions">
-
-
-
-              {
-
-
-                suggestions.map(
-                  (movie)=>(
-
-
-
-                    <div
-
-
-                      key={movie.id}
-
-
-                      className="suggestion-item"
-
-
-
-                      onClick={() =>
-                        handleSuggestionClick(
-                          movie.id
-                        )
-                      }
-
-
-                    >
-
-
-
-                      <img
-
-                        src={movie.image}
-
-                        alt={movie.title}
-
-                      />
-
-
-
-                      <span>
-
-                        {movie.title}
-
-                      </span>
-
-
-
-                    </div>
-
-
-
-                  )
-
-
-                )
-
-
-              }
-
-
-
-            </div>
-
-
-
-          )
-
-
-        }
-
-
-
-
-
-
-
-
+                <span>{movie.title}</span>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Search History */}
 
-
-
-        {
-
-          showHistory &&
-
-          search.length === 0 &&
-
-          searchHistory.length > 0 && (
-
-
-
-            <div className="search-history-box">
-
-
-
-              <h4>
-
-                آخرین جستجوها
-
-              </h4>
-
-
-
-
-              {
-
-
-                searchHistory.map(
-                  (item,index)=>(
-
-
-
-                    <div
-
-
-                      key={index}
-
-
-                      className="history-item"
-
-
-
-                      onClick={()=>{
-
-
-                        navigate(
-                          `/search?query=${item}`
-                        );
-
-
-                        setSearch("");
-
-                        setShowHistory(false);
-
-
-                      }}
-
-
-
-                    >
-
-
-
-                      <FaSearch />
-
-
-
-                      <span>
-
-                        {item}
-
-                      </span>
-
-
-
-                    </div>
-
-
-
-                  )
-
-
-                )
-
-
-              }
-
-
-
-            </div>
-
-
-
-          )
-
-
-        }
-
-
-
-
-
+        {showHistory && search.length === 0 && searchHistory.length > 0 && (
+          <div className="search-history-box">
+            <h4>آخرین جستجوها</h4>
+
+            {searchHistory.map((item, index) => (
+              <div
+                key={index}
+                className="history-item"
+                onClick={() => {
+                  navigate(`/search?query=${item}`);
+
+                  setSearch("");
+
+                  setShowHistory(false);
+                }}
+              >
+                <FaSearch />
+
+                <span>{item}</span>
+              </div>
+            ))}
+          </div>
+        )}
       </div>
-
-
 
       {/* ======================
           Logo + Links
       ====================== */}
 
-
       <div className="nav-content">
-
-
-
         <ul className="nav-links">
-
-
-
           <li>
-
-            <NavLink to="/">
-
-              Home
-
-            </NavLink>
-
+            <NavLink to="/">Home</NavLink>
           </li>
 
-
-
-
           <li>
-
-            <NavLink to="/movies">
-
-              Movies
-
-            </NavLink>
-
+            <NavLink to="/movies">Movies</NavLink>
           </li>
 
-
-
-
           <li>
-
-            <NavLink to="/series">
-
-              Series
-
-            </NavLink>
-
+            <NavLink to="/series">Series</NavLink>
           </li>
 
-
-
-
           <li>
-
-            <NavLink to="/popular">
-
-              Popular
-
-            </NavLink>
-
+            <NavLink to="/popular">Popular</NavLink>
           </li>
 
-
-
-
           <li>
-
-            <NavLink to="/genres">
-
-              Genres
-
-            </NavLink>
-
+            <NavLink to="/genres">Genres</NavLink>
           </li>
 
-
-
-
           <li>
-
-            <NavLink to="/top-rated">
-
-              Top Rated
-
-            </NavLink>
-
+            <NavLink to="/top-rated">Top Rated</NavLink>
           </li>
 
-
-
-
           <li>
-
-            <NavLink to="/about">
-
-              About Us
-
-            </NavLink>
-
+            <NavLink to="/about">About Us</NavLink>
           </li>
-
-
-
         </ul>
 
-
-
-
-
-
-
-
         <div className="logo">
-
-
-
-          <img
-
-            src={logo}
-
-            alt="logo"
-
-          />
-
-
-
+          <img src={logo} alt="logo" />
 
           <span>
-
             Movie<strong>Hub</strong>
-
           </span>
-
-
-
         </div>
-
-
-
-
-
       </div>
-
-
-
-
-
-
-
-
 
       {/* ======================
           Mobile Menu
       ====================== */}
 
-
-
-      <div
-
-
-        className={
-
-          `mobile-menu ${
-            menuOpen ? "active" : ""
-          }`
-
-        }
-
-
-
-      >
-
-
-
-
-
-
+      <div className={`mobile-menu ${menuOpen ? "active" : ""}`}>
         <div className="mobile-search">
-
-
-
-
-
           <input
-
-
             type="text"
-
-
             value={search}
-
-
-
-
-            onFocus={() =>
-              setShowHistory(true)
-            }
-
-
-
-
-
-            onChange={(e)=>
-
-              handleSearchChange(
-                e.target.value
-              )
-
-            }
-
-
-
-
-
+            onFocus={() => setShowHistory(true)}
+            onChange={(e) => handleSearchChange(e.target.value)}
             onKeyDown={handleSearch}
-
-
-
-
-
             placeholder="Search movies..."
-
-
-
           />
-
-
-
 
           <FaSearch />
 
-
-
-
-
-
-
           {/* Mobile Suggestions */}
 
-
-
-          {
-
-
-            suggestions.length > 0 && (
-
-
-
-              <div className="search-suggestions">
-
-
-
-                {
-
-
-                  suggestions.map(
-                    (movie)=>(
-
-
-
-                      <div
-
-
-                        key={movie.id}
-
-
-                        className="suggestion-item"
-
-
-
-                        onClick={() =>
-                          handleSuggestionClick(
-                            movie.id
-                          )
-                        }
-
-
-
-                      >
-
-
-
-
-                        <img
-
-
-                          src={movie.image}
-
-
-                          alt={movie.title}
-
-
-                        />
-
-
-
-
-
-                        <span>
-
-                          {movie.title}
-
-                        </span>
-
-
-
-
-                      </div>
-
-
-
-                    )
-
-
-                  )
-
-
-                }
-
-
-
-              </div>
-
-
-
-            )
-
-
-
-          }
-
-
-
-
-
-
+          {suggestions.length > 0 && (
+            <div className="search-suggestions">
+              {suggestions.map((movie) => (
+                <div
+                  key={movie.id}
+                  className="suggestion-item"
+                  onClick={() => handleSuggestionClick(movie.id)}
+                >
+                  <img src={movie.image} alt={movie.title} />
+
+                  <span>{movie.title}</span>
+                </div>
+              ))}
+            </div>
+          )}
 
           {/* Mobile History */}
 
-
-
-          {
-
-
-            showHistory &&
-
-            search.length === 0 &&
-
-            searchHistory.length > 0 && (
-
-
-
-              <div className="search-history-box">
-
-
-
-                <h4>
-
-                  آخرین جستجوها
-
-                </h4>
-
-
-
-
-
-                {
-
-
-                  searchHistory.map(
-                    (item,index)=>(
-
-
-
-                      <div
-
-
-                        key={index}
-
-
-                        className="history-item"
-
-
-
-                        onClick={()=>{
-
-
-                          navigate(
-                            `/search?query=${item}`
-                          );
-
-
-                          setSearch("");
-
-                          setShowHistory(false);
-
-
-
-                        }}
-
-
-
-                      >
-
-
-
-
-                        <FaSearch />
-
-
-
-                        <span>
-
-                          {item}
-
-                        </span>
-
-
-
-
-                      </div>
-
-
-
-                    )
-
-
-                  )
-
-
-                }
-
-
-
-
-              </div>
-
-
-
-            )
-
-
-
-          }
-
-
-
-
-
+          {showHistory && search.length === 0 && searchHistory.length > 0 && (
+            <div className="search-history-box">
+              <h4>آخرین جستجوها</h4>
+
+              {searchHistory.map((item, index) => (
+                <div
+                  key={index}
+                  className="history-item"
+                  onClick={() => {
+                    navigate(`/search?query=${item}`);
+
+                    setSearch("");
+
+                    setShowHistory(false);
+                  }}
+                >
+                  <FaSearch />
+
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
-        <NavLink
-
-          onClick={closeMenu}
-
-          to="/"
-
-        >
-
+        <NavLink onClick={closeMenu} to="/">
           Home
-
         </NavLink>
 
-
-
-
-
-        <NavLink
-
-          onClick={closeMenu}
-
-          to="/movies"
-
-        >
-
+        <NavLink onClick={closeMenu} to="/movies">
           Movies
-
         </NavLink>
 
-
-
-
-
-        <NavLink
-
-          onClick={closeMenu}
-
-          to="/series"
-
-        >
-
+        <NavLink onClick={closeMenu} to="/series">
           Series
-
         </NavLink>
 
-
-
-
-
-        <NavLink
-
-          onClick={closeMenu}
-
-          to="/popular"
-
-        >
-
+        <NavLink onClick={closeMenu} to="/popular">
           Popular
-
         </NavLink>
 
-
-
-
-
-        <NavLink
-
-          onClick={closeMenu}
-
-          to="/genres"
-
-        >
-
+        <NavLink onClick={closeMenu} to="/genres">
           Genres
-
         </NavLink>
 
-
-
-
-
-        <NavLink
-
-          onClick={closeMenu}
-
-          to="/top-rated"
-
-        >
-
+        <NavLink onClick={closeMenu} to="/top-rated">
           Top Rated
-
         </NavLink>
 
-
-
-
-
-        <NavLink
-
-          onClick={closeMenu}
-
-          to="/about"
-
-        >
-
+        <NavLink onClick={closeMenu} to="/about">
           About Us
-
         </NavLink>
-
-
-
-
-
       </div>
-
-
-
-
-
     </nav>
-
   );
-
-
 }
-
-
 
 export default Navbar;
