@@ -1,37 +1,33 @@
 import "./Search.css";
 
 import { useSearchParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 import movies from "../../Data/movies.json";
 
 import MovieCard from "../../components/MovieCard/MovieCard";
 
 
-function Search(){
+function Search() {
 
 
   const [searchParams] = useSearchParams();
 
 
-  const query =
-    searchParams.get("query") || "";
+  const query = searchParams.get("query") || "";
 
 
 
+  const [searchHistory] = useState(() => {
 
 
-  const [searchHistory,setSearchHistory] = useState(()=>{
-
-
-    const saved =
-      localStorage.getItem("searchHistory");
+    const saved = localStorage.getItem("searchHistory");
 
 
     return saved
       ? JSON.parse(saved)
-      :
-      [];
+      : [];
+
 
   });
 
@@ -39,9 +35,7 @@ function Search(){
 
 
 
-
-
-  const results = movies.filter((movie)=>{
+  const results = movies.filter((movie) => {
 
 
     return movie.title
@@ -63,60 +57,6 @@ function Search(){
 
 
 
-
-
-  useEffect(()=>{
-
-
-    if(!query.trim()) return;
-
-
-
-    const updated = [
-
-
-      query,
-
-
-      ...searchHistory.filter(
-
-        item => item !== query
-
-      )
-
-
-    ].slice(0,5);
-
-
-
-
-
-    setSearchHistory(updated);
-
-
-
-
-    localStorage.setItem(
-
-      "searchHistory",
-
-      JSON.stringify(updated)
-
-    );
-
-
-
-
-  },[query]);
-
-
-
-
-
-
-
-
-
   return (
 
 
@@ -124,8 +64,6 @@ function Search(){
 
 
       <div className="search-container">
-
-
 
 
 
@@ -137,7 +75,6 @@ function Search(){
             نتایج جستجو برای:
 
           </h1>
-
 
 
           <span>
@@ -155,37 +92,27 @@ function Search(){
 
 
 
-
-
         {
 
 
-          results.length > 0
-
-
-
-          ?
+          results.length > 0 ?
 
 
 
           <div className="movies-grid">
 
 
-
             {
 
 
-              results.map((movie)=>(
+              results.map((movie) => (
 
 
                 <MovieCard
 
-
                   key={movie.id}
 
-
                   movie={movie}
-
 
                 />
 
@@ -193,9 +120,7 @@ function Search(){
               ))
 
 
-
             }
-
 
 
           </div>
@@ -203,10 +128,7 @@ function Search(){
 
 
 
-
           :
-
-
 
 
 
@@ -223,12 +145,7 @@ function Search(){
           </div>
 
 
-
         }
-
-
-
-
 
 
 
@@ -247,14 +164,11 @@ function Search(){
           <div className="history">
 
 
-
             <h2>
 
               آخرین جستجوها
 
             </h2>
-
-
 
 
 
@@ -264,46 +178,29 @@ function Search(){
               {
 
 
-                searchHistory.map(
-
-                  (item,index)=>(
+                searchHistory.map((item,index)=>(
 
 
-                    <span
+                  <span key={index}>
 
-                      key={index}
+                    {item}
 
-                    >
-
-                      {item}
+                  </span>
 
 
-                    </span>
-
-
-                  )
-
-
-                )
+                ))
 
 
               }
 
 
-
             </div>
-
 
 
           </div>
 
 
-
         }
-
-
-
-
 
 
 
@@ -317,7 +214,6 @@ function Search(){
   );
 
 }
-
 
 
 export default Search;
