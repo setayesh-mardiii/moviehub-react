@@ -1253,3 +1253,61 @@ body.dark .mobile-search svg {
   height: 13px;
 }
 
+.history-header {
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+  margin-bottom:12px;
+
+}
+
+
+.history-header h4 {
+
+  margin:0;
+
+}
+
+
+.clear-history-btn {
+
+  display:block;
+
+  margin-left:auto;
+
+  margin-top:12px;
+
+  background:rgba(255,45,85,.15);
+
+  border:1px solid rgba(255,45,85,.5);
+
+  border-radius:20px;
+
+  color:#ff2d55;
+
+  cursor:pointer;
+
+  font-size:12px;
+
+  padding:5px 14px;
+
+}
+
+.clear-history-btn:hover {
+
+  background:#ff2d55;
+
+  color:white;
+
+}
+
+
+.clear-history-btn:hover {
+
+  opacity:.7;
+
+}

@@ -66,42 +66,24 @@ function Navbar() {
     };
   }, []);
 
-    useEffect(() => {
+  useEffect(() => {
+    const closeSearch = (e) => {
+      const desktop = desktopSearchRef.current?.contains(e.target);
 
-  const closeSearch = (e) => {
+      const mobile = mobileSearchRef.current?.contains(e.target);
 
-    const desktop = desktopSearchRef.current?.contains(e.target);
+      if (!desktop && !mobile) {
+        setShowHistory(false);
+        setSuggestions([]);
+      }
+    };
 
-    const mobile = mobileSearchRef.current?.contains(e.target);
+    document.addEventListener("mousedown", closeSearch);
 
-
-    if (!desktop && !mobile) {
-
-      setShowHistory(false);
-      setSuggestions([]);
-
-    }
-
-  };
-
-
-  document.addEventListener(
-    "mousedown",
-    closeSearch
-  );
-
-
-  return () => {
-
-    document.removeEventListener(
-      "mousedown",
-      closeSearch
-    );
-
-  };
-
-
-}, []);
+    return () => {
+      document.removeEventListener("mousedown", closeSearch);
+    };
+  }, []);
 
   // ======================
   // SAVE SEARCH HISTORY
@@ -153,6 +135,11 @@ function Navbar() {
     setSearchHistory(updatedHistory);
 
     localStorage.setItem("searchHistory", JSON.stringify(updatedHistory));
+  };
+  const clearAllHistory = () => {
+    setSearchHistory([]);
+
+    localStorage.removeItem("searchHistory");
   };
 
   // ======================
@@ -237,31 +224,26 @@ function Navbar() {
 ====================== */}
 
       <div className="search-box" ref={desktopSearchRef}>
-     <input
-  type="text"
-  value={search}
+        <input
+          type="text"
+          value={search}
+          onFocus={() => {
+            setShowHistory(true);
+          }}
+          onBlur={() => {
+            setTimeout(() => {
+              const active = document.activeElement;
 
-  onFocus={() => {
-    setShowHistory(true);
-  }}
-
-  onBlur={() => {
-  setTimeout(() => {
-    const active = document.activeElement;
-
-    if (!desktopSearchRef.current?.contains(active)) {
-      setShowHistory(false);
-      setSuggestions([]);
-    }
-  }, 200);
-}}
-
-  onChange={(e) => handleSearchChange(e.target.value)}
-
-  onKeyDown={handleSearch}
-
-  placeholder="Search movies..."
-/>
+              if (!desktopSearchRef.current?.contains(active)) {
+                setShowHistory(false);
+                setSuggestions([]);
+              }
+            }, 200);
+          }}
+          onChange={(e) => handleSearchChange(e.target.value)}
+          onKeyDown={handleSearch}
+          placeholder="Search movies..."
+        />
 
         <FaSearch />
 
@@ -284,43 +266,56 @@ function Navbar() {
         )}
 
         {/* HISTORY */}
-{showHistory && searchHistory.length > 0 && (
-  <div className="search-history-box">
-    <h4>آخرین جستجوها</h4>
+        {showHistory && searchHistory.length > 0 && (
+          <div className="search-history-box">
+            <div className="history-header">
+              <h4>آخرین جستجوها</h4>
+            </div>
 
-    {searchHistory.map((item, index) => (
-      <div
-        key={index}
-        className="history-item"
-        onMouseDown={(e) => {
-          e.preventDefault();
+            {searchHistory.map((item, index) => (
+              <div
+                key={index}
+                className="history-item"
+                onMouseDown={(e) => {
+                  e.preventDefault();
 
-          navigate(`/search?query=${item}`);
+                  navigate(`/search?query=${item}`);
 
-          setSearch("");
+                  setSearch("");
 
-          setShowHistory(false);
-        }}
-      >
-        <div className="history-left">
-          <span>{item}</span>
-        </div>
+                  setShowHistory(false);
+                }}
+              >
+                <div className="history-left">
+                  <span>{item}</span>
+                </div>
 
-        <button
-          className="history-delete"
-          onMouseDown={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
+                <button
+                  className="history-delete"
+                  onMouseDown={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
 
-            removeHistoryItem(item);
-          }}
-        >
-          <FaTimes />
-        </button>
-      </div>
-    ))}
-  </div>
-)}
+                    removeHistoryItem(item);
+                  }}
+                >
+                  <FaTimes />
+                </button>
+              </div>
+            ))}
+            <button
+              className="clear-history-btn"
+              onMouseDown={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                clearAllHistory();
+              }}
+            >
+              Clear All
+            </button>
+          </div>
+        )}
       </div>
 
       {/* ======================
@@ -411,7 +406,9 @@ function Navbar() {
 
           {showHistory && searchHistory.length > 0 && (
             <div className="search-history-box">
-              <h4>آخرین جستجوها</h4>
+              <div className="history-header">
+                <h4>آخرین جستجوها</h4>
+              </div>
 
               {searchHistory.map((item, index) => (
                 <div
@@ -439,6 +436,17 @@ function Navbar() {
                   </button>
                 </div>
               ))}
+              <button
+                className="clear-history-btn"
+                onMouseDown={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+
+                  clearAllHistory();
+                }}
+              >
+                Clear All
+              </button>
             </div>
           )}
         </div>
