@@ -129,6 +129,14 @@ function Navbar() {
     }
   };
 
+  const removeHistoryItem = (item) => {
+    const updatedHistory = searchHistory.filter((history) => history !== item);
+
+    setSearchHistory(updatedHistory);
+
+    localStorage.setItem("searchHistory", JSON.stringify(updatedHistory));
+  };
+
   // ======================
   // SEARCH CHANGE
   // ======================
@@ -206,10 +214,9 @@ function Navbar() {
           <span>Login | Register</span>
         </Link>
       </div>
-
       {/* ======================
-          DESKTOP SEARCH
-      ====================== */}
+    DESKTOP SEARCH
+====================== */}
 
       <div className="search-box" ref={desktopSearchRef}>
         <input
@@ -218,12 +225,6 @@ function Navbar() {
           onFocus={() => {
             setShowHistory(true);
           }}
-          onBlur={() => {
-            setTimeout(() => {
-              setShowHistory(false);
-            }, 150);
-          }}
-         
           onChange={(e) => handleSearchChange(e.target.value)}
           onKeyDown={handleSearch}
           placeholder="Search movies..."
@@ -256,20 +257,23 @@ function Navbar() {
             <h4>آخرین جستجوها</h4>
 
             {searchHistory.map((item, index) => (
-              <div
-                key={index}
-                className="history-item"
-                onClick={() => {
-                  navigate(`/search?query=${item}`);
+              <div key={index} className="history-item">
+                <div className="history-left">
+                 
 
-                  setSearch("");
+                  <span>{item}</span>
+                </div>
 
-                  setShowHistory(false);
-                }}
-              >
-                <FaSearch />
+                <button
+                  className="history-delete"
+                  onClick={(e) => {
+                    e.stopPropagation();
 
-                <span>{item}</span>
+                    removeHistoryItem(item);
+                  }}
+                >
+                  <FaTimes />
+                </button>
               </div>
             ))}
           </div>
@@ -372,15 +376,24 @@ function Navbar() {
                   className="history-item"
                   onClick={() => {
                     navigate(`/search?query=${item}`);
-
                     setSearch("");
-
                     setShowHistory(false);
                   }}
                 >
-                  <FaSearch />
+                  <div className="history-left">
+                    <span>{item}</span>
+                  </div>
 
-                  <span>{item}</span>
+                  <button
+                    className="history-delete"
+                    onClick={(e) => {
+                      e.stopPropagation();
+
+                      removeHistoryItem(item);
+                    }}
+                  >
+                    <FaTimes />
+                  </button>
                 </div>
               ))}
             </div>

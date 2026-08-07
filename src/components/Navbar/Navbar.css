@@ -1114,3 +1114,141 @@ body.dark .mobile-search svg {
   max-height:300px;
   overflow-y:auto;
 }
+
+
+.history-item {
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:space-between;
+
+}
+
+
+.history-left {
+
+  display:flex;
+
+  align-items:center;
+
+  gap:10px;
+
+}
+
+
+/* delete button */
+
+.history-delete {
+
+  width:28px;
+
+  height:28px;
+
+  border:none;
+
+  border-radius:8px;
+
+  background:transparent;
+
+  color:#999;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  cursor:pointer;
+
+  transition:.25s ease;
+
+  padding:0;
+
+}
+
+
+
+
+.search-history-box {
+  width: 100%;
+}
+
+
+.history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 12px;
+}
+
+
+.history-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ایکون ضبدر */
+
+.history-delete {
+
+  width:auto;
+  height:auto;
+
+  padding:0;
+
+  border:none;
+
+  background:transparent;
+
+  color:#aaa;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  cursor:pointer;
+
+}
+
+
+.history-delete svg {
+
+  width:14px;
+
+  height:14px;
+
+}
+
+
+.history-delete:hover {
+
+  color:#ff2d55;
+
+}
+
+.history-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.history-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+
+.history-delete svg {
+  display: block;
+  position: static;
+
+  width: 13px;
+  height: 13px;
+}
