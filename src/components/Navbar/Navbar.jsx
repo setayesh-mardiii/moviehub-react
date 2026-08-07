@@ -66,24 +66,42 @@ function Navbar() {
     };
   }, []);
 
-  useEffect(() => {
-    const closeSearch = (e) => {
-      const desktop = desktopSearchRef.current?.contains(e.target);
+    useEffect(() => {
 
-      const mobile = mobileSearchRef.current?.contains(e.target);
+  const closeSearch = (e) => {
 
-      if (!desktop && !mobile) {
-        setShowHistory(false);
-        setSuggestions([]);
-      }
-    };
+    const desktop = desktopSearchRef.current?.contains(e.target);
 
-    document.addEventListener("mousedown", closeSearch);
+    const mobile = mobileSearchRef.current?.contains(e.target);
 
-    return () => {
-      document.removeEventListener("mousedown", closeSearch);
-    };
-  }, []);
+
+    if (!desktop && !mobile) {
+
+      setShowHistory(false);
+      setSuggestions([]);
+
+    }
+
+  };
+
+
+  document.addEventListener(
+    "mousedown",
+    closeSearch
+  );
+
+
+  return () => {
+
+    document.removeEventListener(
+      "mousedown",
+      closeSearch
+    );
+
+  };
+
+
+}, []);
 
   // ======================
   // SAVE SEARCH HISTORY
@@ -219,16 +237,27 @@ function Navbar() {
 ====================== */}
 
       <div className="search-box" ref={desktopSearchRef}>
-        <input
-          type="text"
-          value={search}
-          onFocus={() => {
-            setShowHistory(true);
-          }}
-          onChange={(e) => handleSearchChange(e.target.value)}
-          onKeyDown={handleSearch}
-          placeholder="Search movies..."
-        />
+     <input
+  type="text"
+  value={search}
+
+  onFocus={() => {
+    setShowHistory(true);
+  }}
+
+  onBlur={() => {
+    setTimeout(() => {
+      setShowHistory(false);
+      setSuggestions([]);
+    }, 100);
+  }}
+
+  onChange={(e) => handleSearchChange(e.target.value)}
+
+  onKeyDown={handleSearch}
+
+  placeholder="Search movies..."
+/>
 
         <FaSearch />
 
