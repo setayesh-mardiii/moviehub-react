@@ -246,11 +246,15 @@ function Navbar() {
   }}
 
   onBlur={() => {
-    setTimeout(() => {
+  setTimeout(() => {
+    const active = document.activeElement;
+
+    if (!desktopSearchRef.current?.contains(active)) {
       setShowHistory(false);
       setSuggestions([]);
-    }, 100);
-  }}
+    }
+  }, 200);
+}}
 
   onChange={(e) => handleSearchChange(e.target.value)}
 
@@ -280,33 +284,43 @@ function Navbar() {
         )}
 
         {/* HISTORY */}
+{showHistory && searchHistory.length > 0 && (
+  <div className="search-history-box">
+    <h4>آخرین جستجوها</h4>
 
-        {showHistory && searchHistory.length > 0 && (
-          <div className="search-history-box">
-            <h4>آخرین جستجوها</h4>
+    {searchHistory.map((item, index) => (
+      <div
+        key={index}
+        className="history-item"
+        onMouseDown={(e) => {
+          e.preventDefault();
 
-            {searchHistory.map((item, index) => (
-              <div key={index} className="history-item">
-                <div className="history-left">
-                 
+          navigate(`/search?query=${item}`);
 
-                  <span>{item}</span>
-                </div>
+          setSearch("");
 
-                <button
-                  className="history-delete"
-                  onClick={(e) => {
-                    e.stopPropagation();
+          setShowHistory(false);
+        }}
+      >
+        <div className="history-left">
+          <span>{item}</span>
+        </div>
 
-                    removeHistoryItem(item);
-                  }}
-                >
-                  <FaTimes />
-                </button>
-              </div>
-            ))}
-          </div>
-        )}
+        <button
+          className="history-delete"
+          onMouseDown={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            removeHistoryItem(item);
+          }}
+        >
+          <FaTimes />
+        </button>
+      </div>
+    ))}
+  </div>
+)}
       </div>
 
       {/* ======================
