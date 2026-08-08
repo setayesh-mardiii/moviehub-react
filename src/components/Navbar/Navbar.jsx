@@ -142,6 +142,18 @@ function Navbar() {
     localStorage.removeItem("searchHistory");
   };
 
+  const handleHistoryClick = (item) => {
+    const movie = movies.find((movie) => movie.title === item);
+
+    if (!movie) return;
+
+    navigate(`/movie/${movie.id}`);
+
+    setSearch("");
+    setSuggestions([]);
+    setShowHistory(false);
+  };
+
   // ======================
   // SEARCH CHANGE
   // ======================
@@ -278,12 +290,7 @@ function Navbar() {
                 className="history-item"
                 onMouseDown={(e) => {
                   e.preventDefault();
-
-                  navigate(`/search?query=${item}`);
-
-                  setSearch("");
-
-                  setShowHistory(false);
+                  handleHistoryClick(item);
                 }}
               >
                 <div className="history-left">
@@ -381,11 +388,8 @@ function Navbar() {
             onKeyDown={handleSearch}
             placeholder="Search movies..."
           />
-
           <FaSearch />
-
           {/* MOBILE SUGGESTIONS */}
-
           {suggestions.length > 0 && (
             <div className="search-suggestions">
               {suggestions.map((movie) => (
@@ -401,41 +405,50 @@ function Navbar() {
               ))}
             </div>
           )}
-
           {/* MOBILE HISTORY */}
-
+          
           {showHistory && searchHistory.length > 0 && (
             <div className="search-history-box">
               <div className="history-header">
                 <h4>آخرین جستجوها</h4>
               </div>
 
-              {searchHistory.map((item, index) => (
-                <div
-                  key={index}
-                  className="history-item"
-                  onClick={() => {
-                    navigate(`/search?query=${item}`);
-                    setSearch("");
-                    setShowHistory(false);
-                  }}
-                >
-                  <div className="history-left">
-                    <span>{item}</span>
-                  </div>
+              {searchHistory.map((item, index) => {
+                const movie = movies.find(
+                  (movie) =>
+                    movie.title.trim().toLowerCase() ===
+                    item.trim().toLowerCase(),
+                );
 
-                  <button
-                    className="history-delete"
-                    onClick={(e) => {
-                      e.stopPropagation();
-
-                      removeHistoryItem(item);
+                return (
+                  <div
+                    key={index}
+                    className="history-item"
+                    onClick={() => {
+                      if (movie) {
+                        navigate(`/movie/${movie.id}`);
+                        setSearch("");
+                        setShowHistory(false);
+                      }
                     }}
                   >
-                    <FaTimes />
-                  </button>
-                </div>
-              ))}
+                    <div className="history-left">
+                      <span>{item}</span>
+                    </div>
+
+                    <button
+                      className="history-delete"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        removeHistoryItem(item);
+                      }}
+                    >
+                      <FaTimes />
+                    </button>
+                  </div>
+                );
+              })}
+
               <button
                 className="clear-history-btn"
                 onMouseDown={(e) => {
