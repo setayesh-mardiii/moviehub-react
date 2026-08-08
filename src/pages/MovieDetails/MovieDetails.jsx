@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import {
   FaStar,
@@ -17,9 +17,62 @@ import "./MovieDetails.css";
 
 function MovieDetails() {
   const [isFavorite, setIsFavorite] = useState(false);
+  const [loading, setLoading] = useState(true);
+
   const { id } = useParams();
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 800);
+
+    return () => clearTimeout(timer);
+  }, [id]);
+
   const movie = movies.find((item) => item.id === Number(id));
+  if (loading) {
+    return (
+      <div className="movie-details">
+        <div className="movie-details-container skeleton-container">
+          <div className="poster-area">
+            <div className="skeleton skeleton-poster"></div>
+          </div>
+
+          <div className="info-area">
+            <div className="skeleton skeleton-title"></div>
+
+            <div className="meta-pills">
+              <div className="skeleton skeleton-pill"></div>
+              <div className="skeleton skeleton-pill"></div>
+              <div className="skeleton skeleton-pill"></div>
+              <div className="skeleton skeleton-pill"></div>
+            </div>
+
+            <div className="skeleton skeleton-text"></div>
+            <div className="skeleton skeleton-text"></div>
+            <div className="skeleton skeleton-text short"></div>
+
+            <div className="action-buttons">
+              <div className="skeleton skeleton-button"></div>
+              <div className="skeleton skeleton-button"></div>
+              <div className="skeleton skeleton-heart"></div>
+            </div>
+
+            <section className="actors">
+              <div className="skeleton skeleton-actors-title"></div>
+
+              <div className="actor-list">
+                <div className="skeleton skeleton-actor"></div>
+                <div className="skeleton skeleton-actor"></div>
+                <div className="skeleton skeleton-actor"></div>
+                <div className="skeleton skeleton-actor"></div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   if (!movie) {
     return (

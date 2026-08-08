@@ -372,3 +372,223 @@ body.light .genre-count {
   backdrop-filter: blur(10px);
 
 }
+/* =========================
+   GENRE PAGE SKELETON
+========================= */
+
+.genre-page-skeleton-card {
+  min-height: 140px;
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  padding: 25px;
+
+  border-radius: 22px;
+
+  background: #e5e5e5;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.genre-page-skeleton-icon {
+  width: 55px;
+  height: 55px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #d5d5d5;
+}
+
+.genre-page-skeleton-content {
+  flex: 1;
+}
+
+.genre-page-skeleton-title {
+  width: 60%;
+  height: 18px;
+
+  border-radius: 6px;
+
+  background: #d5d5d5;
+
+  margin-bottom: 14px;
+}
+
+.genre-page-skeleton-count {
+  width: 35%;
+  height: 13px;
+
+  border-radius: 6px;
+
+  background: #d5d5d5;
+}
+
+/* SHIMMER */
+
+.genre-page-skeleton-card::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -150%;
+
+  width: 150%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+
+  animation: genre-page-skeleton-loading 1.4s infinite;
+}
+
+@keyframes genre-page-skeleton-loading {
+  100% {
+    left: 150%;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 767px) {
+
+  .genre-page-skeleton-card {
+    min-height: 120px;
+    padding: 20px;
+  }
+
+  .genre-page-skeleton-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+}
+/* =========================
+   GENRE PAGE SKELETON
+========================= */
+
+.genre-page-skeleton-card {
+  min-height: 160px;
+  border-radius: 22px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  background: #e5e5e5;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* ICON */
+
+.genre-page-skeleton-icon {
+  width: 50px;
+  height: 50px;
+
+  border-radius: 50%;
+
+  background: #d8d8d8;
+
+  margin-bottom: 18px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* TITLE */
+
+.genre-page-skeleton-title {
+  width: 90px;
+  height: 16px;
+
+  border-radius: 6px;
+
+  background: #d8d8d8;
+
+  margin-bottom: 10px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* COUNT */
+
+.genre-page-skeleton-count {
+  width: 60px;
+  height: 12px;
+
+  border-radius: 5px;
+
+  background: #d8d8d8;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* SHIMMER */
+
+.genre-page-skeleton-icon::after,
+.genre-page-skeleton-title::after,
+.genre-page-skeleton-count::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -150%;
+
+  width: 150%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+
+  animation: genre-page-skeleton-loading 1.4s infinite;
+}
+
+@keyframes genre-page-skeleton-loading {
+  100% {
+    left: 150%;
+  }
+}
+
+/* DARK MODE */
+
+body.dark .genre-page-skeleton-card {
+  background: #1c1c1c;
+}
+
+body.dark .genre-page-skeleton-icon,
+body.dark .genre-page-skeleton-title,
+body.dark .genre-page-skeleton-count {
+  background: #292929;
+}
+
+/* MOBILE */
+
+@media (max-width: 767px) {
+  .genre-page-skeleton-card {
+    min-height: 140px;
+  }
+
+  .genre-page-skeleton-icon {
+    width: 42px;
+    height: 42px;
+  }
+}

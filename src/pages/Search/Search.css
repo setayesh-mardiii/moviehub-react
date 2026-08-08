@@ -7,3 +7,83 @@
   padding: 10px;
   width: 300px;
 }
+
+/* =========================
+   SEARCH SKELETON
+========================= */
+
+.movie-skeleton-card {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.movie-skeleton-image {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 12px;
+  background: #e5e5e5;
+  position: relative;
+  overflow: hidden;
+}
+
+.movie-skeleton-image::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 150%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+
+  animation: search-skeleton-loading 1.4s infinite;
+}
+
+@keyframes search-skeleton-loading {
+  100% {
+    left: 150%;
+  }
+}
+
+
+/* =========================
+   DARK MODE - SEARCH SKELETON
+========================= */
+
+body.dark .movie-skeleton-image {
+  background: #252525;
+}
+
+body.dark .movie-skeleton-image::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+}
+
+
+/* =========================
+   LIGHT MODE - SEARCH SKELETON
+========================= */
+
+body.light .movie-skeleton-image {
+  background: #e5e5e5;
+}
+
+body.light .movie-skeleton-image::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+}
+

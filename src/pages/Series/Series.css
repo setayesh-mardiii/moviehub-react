@@ -58,6 +58,51 @@
   margin:50px 0 10px;
 
 }
+/* =========================
+   SERIES SKELETON
+========================= */
+
+.movie-skeleton-card {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.movie-skeleton-image {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 12px;
+  background: #e5e5e5;
+  position: relative;
+  overflow: hidden;
+}
+
+.movie-skeleton-image::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -150%;
+
+  width: 150%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+
+  animation: series-skeleton-loading 1.4s infinite;
+}
+
+@keyframes series-skeleton-loading {
+  100% {
+    left: 150%;
+  }
+}
 
 
 

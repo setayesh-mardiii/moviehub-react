@@ -294,3 +294,78 @@
 
 
 }
+
+
+/* =========================
+   MOVIE SECTION SKELETON
+========================= */
+
+.movie-skeleton-slider {
+  display: flex;
+  gap: 18px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.movie-skeleton-card {
+  flex: 0 0 calc(20% - 15px);
+  min-width: 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.movie-skeleton-image {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: 12px;
+  background: #e5e5e5;
+  position: relative;
+  overflow: hidden;
+}
+
+.movie-skeleton-image::after {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  left: -150%;
+
+  width: 150%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+
+  animation: movie-section-skeleton-loading 1.4s infinite;
+}
+
+@keyframes movie-section-skeleton-loading {
+  100% {
+    left: 150%;
+  }
+}
+
+/* TABLET */
+
+@media (max-width: 1199px) {
+  .movie-skeleton-card {
+    flex: 0 0 calc(33.333% - 11px);
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 767px) {
+  .movie-skeleton-slider {
+    gap: 12px;
+  }
+
+  .movie-skeleton-card {
+    flex: 0 0 calc(50% - 6px);
+  }
+}
+

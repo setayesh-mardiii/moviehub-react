@@ -248,3 +248,158 @@ body.light .genre-card {
   box-shadow:none;
 
 }
+
+/* =========================
+   GENRES SKELETON
+========================= */
+
+.genre-skeleton-card {
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 140px;
+
+  border-radius: 14px;
+
+  background: #e5e5e5;
+}
+
+/* ICON */
+
+.genre-skeleton-icon {
+  width: 48px;
+  height: 48px;
+
+  border-radius: 50%;
+
+  background: #d8d8d8;
+
+  margin-bottom: 18px;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* TITLE */
+
+.genre-skeleton-title {
+  width: 70%;
+  height: 16px;
+
+  border-radius: 6px;
+
+  background: #d8d8d8;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* SHIMMER */
+
+.genre-skeleton-icon::after,
+.genre-skeleton-title::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -150%;
+
+  width: 150%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+
+  animation: genres-skeleton-loading 1.4s infinite;
+}
+
+@keyframes genres-skeleton-loading {
+  100% {
+    left: 150%;
+  }
+}
+
+/* MOBILE */
+
+@media (max-width: 767px) {
+
+  .genre-skeleton-card {
+    min-height: 120px;
+  }
+
+  .genre-skeleton-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .genre-skeleton-title {
+    width: 65%;
+  }
+
+}
+
+/* =========================
+   DARK MODE - GENRES SKELETON
+========================= */
+
+body.dark .genre-skeleton-card {
+  background: #252525;
+}
+
+body.dark .genre-skeleton-icon {
+  background: #303030;
+}
+
+body.dark .genre-skeleton-title {
+  background: #303030;
+}
+
+body.dark .genre-skeleton-icon::after,
+body.dark .genre-skeleton-title::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.08),
+    transparent
+  );
+}
+
+
+/* =========================
+   LIGHT MODE - GENRES SKELETON
+========================= */
+
+body.light .genre-skeleton-card {
+  background: #e5e5e5;
+}
+
+body.light .genre-skeleton-icon {
+  background: #d8d8d8;
+}
+
+body.light .genre-skeleton-title {
+  background: #d8d8d8;
+}
+
+body.light .genre-skeleton-icon::after,
+body.light .genre-skeleton-title::after {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+}
+
+
+

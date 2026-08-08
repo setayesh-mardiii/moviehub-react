@@ -1592,3 +1592,89 @@ body.light .actor-pill:hover{
   }
 
 }
+
+/* =========================
+   SKELETON LOADING
+========================= */
+
+.skeleton {
+  position: relative;
+  overflow: hidden;
+  background: #e5e5e5;
+  border-radius: 8px;
+}
+
+.skeleton::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 150%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.55),
+    transparent
+  );
+  animation: skeleton-loading 1.4s infinite;
+}
+
+@keyframes skeleton-loading {
+  100% {
+    left: 150%;
+  }
+}
+
+.skeleton-poster {
+  width: 100%;
+  height: 430px;
+  border-radius: 12px;
+}
+
+.skeleton-title {
+  width: 55%;
+  height: 42px;
+  margin-bottom: 25px;
+}
+
+.skeleton-pill {
+  width: 90px;
+  height: 34px;
+  border-radius: 20px;
+}
+
+.skeleton-text {
+  width: 100%;
+  height: 18px;
+  margin-bottom: 12px;
+}
+
+.skeleton-text.short {
+  width: 65%;
+}
+
+.skeleton-button {
+  width: 120px;
+  height: 45px;
+  border-radius: 8px;
+}
+
+.skeleton-heart {
+  width: 45px;
+  height: 45px;
+  border-radius: 8px;
+}
+
+.skeleton-actors-title {
+  width: 140px;
+  height: 28px;
+  margin-bottom: 18px;
+}
+
+.skeleton-actor {
+  width: 100px;
+  height: 36px;
+  border-radius: 20px;
+}
+
